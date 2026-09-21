@@ -95,74 +95,174 @@
 </div>
 <script>
    const days = {
-     1: {
-       title: "Welcome to December Magic",
-       game: {
-         type: "Wordle",
-         clue: "A classic December decoration",
-         answer: "LIGHT"
-       },
-       media: "Movie: Christmas Vacation",
-       playlist: "50s/60s Christmas Classics"
-     },
-     2: {
-       title: "Cozy Cocoa Night",
-       game: {
-         type: "Mini Crossword",
-         clue: "Small crossword with cocoa, snow, tree",
-         note: "Use printed card or screenshot."
-       },
-       media: "Movie: Elf",
-       playlist: "Michael Bublé Christmas"
-     },
-     3: {
-       title: "Christmas Comedy Night",
-       game: {
-         type: "Trivia",
-         question: "What animal pulls Santa’s sleigh?",
-         answer: "Reindeer"
-       },
-       media: "Special: Shrek the Halls",
-       playlist: "Christmas Comedy Classics"
-     },
-     // ...you can fill in days 4–17 similarly
-   };
-   function showDay(n) {
-     const day = days[n];
-     const content = document.getElementById("content");
-     if (!day) {
-       content.innerHTML = "<p>Coming soon.</p>";
-       return;
-     }
-     let html = `
-<h2>Day ${n}: ${day.title}</h2>
-<div class="section-title">Mind Game</div>
-<div class="card">
-<strong>Type:</strong> ${day.game.type}<br/>
-     `;
-     if (day.game.clue) {
-       html += `<strong>Clue:</strong> ${day.game.clue}<br/>`;
-     }
-     if (day.game.question) {
-       html += `<strong>Question:</strong> ${day.game.question}<br/>`;
-     }
-     if (day.game.note) {
-       html += `<strong>Note:</strong> ${day.game.note}<br/>`;
-     }
-     if (day.game.answer) {
-       html += `<em>(Answer: ${day.game.answer})</em>`;
-     }
-     html += `</div>
-<div class="section-title">Media</div>
-<div class="card">${day.media}</div>
-<div class="section-title">Playlist</div>
-<div class="card">${day.playlist}</div>
-<p style="font-size:0.8rem;opacity:0.8;">
-         Use your printed cards for full puzzles. This site is a quick reference hub.
-</p>
-     `;
-     content.innerHTML = html;
-   }
-</script>
-</body>
-</html>
+ 1: {
+   title: "Welcome to December Magic",
+   game: {
+     type: "Wordle",
+     clue: "A classic December decoration",
+     answer: "LIGHT"
+   },
+   media: "Movie: Christmas Vacation",
+   playlist: "50s/60s Christmas Classics"
+ },
+ 2: {
+   title: "Cozy Cocoa Night",
+   game: {
+     type: "Mini Crossword",
+     clue: "Small crossword with cocoa, snow, tree",
+     note: "Use printed card."
+   },
+   media: "Movie: Elf",
+   playlist: "Michael Bublé Christmas"
+ },
+ 3: {
+   title: "Christmas Comedy Night",
+   game: {
+     type: "Trivia",
+     question: "What animal pulls Santa’s sleigh?",
+     answer: "Reindeer"
+   },
+   media: "Special: Shrek the Halls",
+   playlist: "Christmas Comedy Classics"
+ },
+ 4: {
+   title: "Scandinavian Hygge Night",
+   game: {
+     type: "Sudoku",
+     clue: "Mini 3×3 holiday sudoku",
+     answer: "See printed card"
+   },
+   media: "Special: Charlie Brown Christmas",
+   playlist: "Scandinavian Folk Christmas"
+ },
+ 5: {
+   title: "50s/60s Classics Night",
+   game: {
+     type: "Song Scramble",
+     clue: "Unscramble this holiday word: LLESB",
+     answer: "BELLS"
+   },
+   media: "Movie: Home Alone",
+   playlist: "50s/60s Christmas Classics"
+ },
+ 6: {
+   title: "Mini Nutcracker Craft Night",
+   game: {
+     type: "Connections",
+     clue: "TREE, FIR, PINE, SPRUCE",
+     answer: "Evergreens"
+   },
+   media: "Movie: Klaus",
+   playlist: "Old-English Instrumental Christmas"
+ },
+ 7: {
+   title: "Sitcom Christmas Night",
+   game: {
+     type: "Trivia",
+     question: "What color are traditional candy canes?",
+     answer: "Red and white"
+   },
+   media: "Sitcom: The Office Christmas Episodes",
+   playlist: "Michael Bublé Christmas"
+ },
+ 8: {
+   title: "Brazilian Tropical Holiday",
+   game: {
+     type: "Song Scramble",
+     clue: "Unscramble: YRRME",
+     answer: "MERRY"
+   },
+   media: "Special: Prep & Landing",
+   playlist: "Brazilian Christmas"
+ },
+ 9: {
+   title: "Finals Week Calm Night",
+   game: {
+     type: "Sudoku",
+     clue: "Mini 3×3 calm sudoku",
+     answer: "See printed card"
+   },
+   media: "Movie: Klaus",
+   playlist: "Lo-Fi Christmas"
+ },
+ 10: {
+   title: "Christmas Vacation Night",
+   game: {
+     type: "Wordle",
+     clue: "A cheerful December feeling",
+     answer: "MERRY"
+   },
+   media: "Movie: Christmas Vacation",
+   playlist: "50s/60s Christmas Classics"
+ },
+ 11: {
+   title: "Die Hard Night",
+   game: {
+     type: "Connections",
+     clue: "COCOA, CIDER, TEA, MOCHA",
+     answer: "Warm Drinks"
+   },
+   media: "Movie: Die Hard",
+   playlist: "Michael Bublé Christmas"
+ },
+ 12: {
+   title: "Prep & Landing Night",
+   game: {
+     type: "Mini Crossword",
+     clue: "Crossword with sleigh, snow, bell",
+     note: "Use printed card."
+   },
+   media: "Special: Prep & Landing",
+   playlist: "Christmas Comedy Classics"
+ },
+ 13: {
+   title: "Shrek the Halls Night",
+   game: {
+     type: "Song Scramble",
+     clue: "Unscramble: SNWOOY",
+     answer: "SNOWY"
+   },
+   media: "Special: Shrek the Halls",
+   playlist: "Brazilian Christmas"
+ },
+ 14: {
+   title: "Grinch Cartoon Night",
+   game: {
+     type: "Trivia",
+     question: "What holiday item jingles?",
+     answer: "Bells"
+   },
+   media: "Cartoon: How the Grinch Stole Christmas",
+   playlist: "50s/60s Christmas Classics"
+ },
+ 15: {
+   title: "Weekend Friend Game Night",
+   game: {
+     type: "Minute-to-Win-It",
+     clue: "Use printed game cards and supplies",
+     note: "Candy canes, cotton balls, cups"
+   },
+   media: "Movie: Christmas Vacation",
+   playlist: "Christmas Comedy Classics"
+ },
+ 16: {
+   title: "Paper Lantern Craft Night",
+   game: {
+     type: "Connections",
+     clue: "LIGHTS, ORNAMENTS, GARLAND, STAR",
+     answer: "Decorations"
+   },
+   media: "Movie: Elf",
+   playlist: "Old-English Instrumental Christmas"
+ },
+ 17: {
+   title: "Christmas Eve Eve Letter Night",
+   game: {
+     type: "Wordle",
+     clue: "A cozy winter drink",
+     answer: "COCOA"
+   },
+   media: "Movie: Home Alone",
+   playlist: "Michael Bublé Christmas"
+ }
+};

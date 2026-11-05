@@ -1258,6 +1258,94 @@ input, select, textarea { max-width: 100%; min-height: 44px; font-size: 16px !im
 .media-button:hover { background:#ffe766; }
 .day-description { font-size: 1rem; line-height: 1.55; border-left: 5px solid #ffd700; }
 .media-instructions { margin: 8px auto 10px; max-width: 560px; line-height: 1.45; color: #fff3cd; font-weight: 650; }
+
+/* Correct-base mini crossword desktop/mobile fixes */
+.crossword-layout { display:grid; grid-template-columns:minmax(0,auto) minmax(280px,420px); justify-content:center; align-items:start; gap:24px; width:100%; }
+.crossword-board-area { min-width:0; width:100%; overflow:visible; }
+#crossword-grid { --crossword-cell-size:clamp(30px,3.2vw,42px); max-width:100%; touch-action:manipulation; }
+.crossword-input { display:block; min-width:0; min-height:0; padding:7px 1px 1px; border-radius:0; font-size:clamp(.9rem,2vw,1.35rem)!important; line-height:1; -webkit-appearance:none; appearance:none; touch-action:manipulation; user-select:text; -webkit-user-select:text; caret-color:#111; }
+.crossword-clues { width:100%; min-width:0; }
+@media(max-width:900px){.crossword-layout{grid-template-columns:1fr}.crossword-board-area{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px}#crossword-grid{--crossword-cell-size:clamp(26px,7.4vw,38px);margin-inline:auto}.crossword-clues{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.crossword-layout{display:block}.crossword-board-area{width:calc(100vw - 28px);max-width:100%;margin-inline:auto}#crossword-grid{--crossword-cell-size:clamp(25px,7.1vw,36px);margin:0 auto}.crossword-input{font-size:16px!important;padding-top:6px}.crossword-number{font-size:8px}.crossword-clues{grid-template-columns:1fr;margin-top:16px}.crossword-clue{min-height:44px;font-size:.94rem}}
+
+
+/* FINAL mini-crossword layout: board and clues never overlap */
+#crossword-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+.crossword-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 22px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+.crossword-board-area {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 10px;
+}
+#crossword-grid {
+  --crossword-cell-size: 30px !important;
+  flex: 0 0 auto;
+  width: max-content !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+.crossword-clues {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: min(100%, 760px) !important;
+  max-width: 760px !important;
+  min-width: 0 !important;
+  position: static !important;
+  clear: both !important;
+}
+.crossword-clues section {
+  min-width: 0 !important;
+  overflow-wrap: anywhere;
+}
+.crossword-input {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 6px 1px 1px !important;
+  font-size: 17px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+.crossword-controls {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+@media (max-width: 700px) {
+  #crossword-container { overflow: hidden !important; }
+  .crossword-board-area { width: 100% !important; padding-inline: 0; }
+  #crossword-grid { --crossword-cell-size: 22px !important; margin: 0 auto !important; }
+  .crossword-input { font-size: 16px !important; padding-top: 5px !important; }
+  .crossword-number { font-size: 7px !important; line-height: 1 !important; }
+  .crossword-clues { grid-template-columns: 1fr !important; gap: 12px !important; width: 100% !important; }
+  .crossword-clue { min-height: 44px !important; }
+}
+@media (max-width: 380px) {
+  #crossword-grid { --crossword-cell-size: 20px !important; }
+}
+
 </style>
 </head>
 
@@ -1345,7 +1433,6 @@ const days = {
 
   game: {
     type: "Wordle",
-    clue: "A classic December decoration",
     answer: "LIGHT"
   },
 
@@ -1607,9 +1694,9 @@ const days = {
     }
   },
 
-  media: "Friends: “The One with the Holiday Armadillo” - Season 7, Episode 10",
-  watchLink: "https://www.hbomax.com/show/52dae4c7-2ab1-4bb9-ab1c-8100fd54e2f9/s7/e10-one-with-the-holiday-armadillo/27896330-ae43-42bb-90ff-2e13cffb78cb",
-  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAETAQAAAAA90t8VAAAEJElEQVR4nO2aTY6kOhaFvxuE5JiZHThmvYoH2UvpZbREZFAipbeJ3ktB5kbMDsyojURw3oCo4evKUZbVqjsAS5zB0dW5v8bEz2w+/RQCvzH/jxiZmbU18/p8PK72spxnVH8zs7pEzngps9yubphvV1jOs/tew3qikvav5/MpzDc7zgqDLvhBvPu19SPM9vIL+HwSY+ktYOlt5mPe5vVlOc9Y+nV8/qedj5dq5st/jf+guvoX+DT/o/kVfD6DQbuXcivFbOkec6s+OGmDVoO0e8XSOJ9gMbuofoM/whlUV9PS1n/GrPphdvp6Pj83HZY63M5dtOqh1Raw56fi/Ix2vwFecjuQoYrZNERN6R4zBWoD7X6QU+oCDUCrPoAfIlCJtkA/n2Dp5+XkXdSQOmDR5EYerabUzVl1eXo+YdqC35fVgEoZ34fllY71Vj+ul6/n8wmT1AcaCNq9oka/QeOHiKV7dGORelaqokY/RDepRyMceeMZiAXqGSl1YKkDk5RbDVE7XaA53F4e5xN4Jz3qKuY/ambeeVz50Bk+0ltYX7+ezycwqsH+KWuBt+C+112wW82s77ba5SOVyNnm29V9s22+2Lxe7RXmzDLEC96J5sv5fMK0ewn8RrZUxdz4DTdyj27nHim0DtIFt/seN6W7pFRFN0nKUMkV2tcB62kZ4vrqzZjCeqXhm9Hqds3vv4TPT0xSH9zoe9wI5Mb3AahiBkK2IvPzU7ZbyJbuAqqo6UjSQFOkNkx21c7b7HYellv1YW1rAu9eMX89n09hlp71hSquJwgX1Q+D5WaXhjfclErkrLqKblx6LgrnOVsigN9YX+hYX76czyfskC1+w006xBCctIXcAKXOKXTBSYq51UYGgpTucqNXLHJOQUpdwFIXMClqPxp/RTf+OJXI+RBIcJM2NNKFQyA7XXCF9s/aDj87pS7khkpupMPtEHKJ+Rntvg/an52RaLyUTVI2bRQ6p+x+Cxk6siXQJOnYfVnqKHInc9QUN/oz/hGGaDfrWV8Wp9xQxVJ3XwmyqYeGKoIfohsBTakqde7euctJihr9oGwaROO3ANxjkT0S2qkibbpLo9+Ce7Z0VXRTqsrc5R5R5nbfBycNUaOXMG3kVlvBMRjWat5YW+vB5h6Ny6AL/Km1rcuLwRPw7apHOKNBt9ZeeFzXV38mvy/rlTJnq51KuU0ENyWeZXuke34uMwYl6QjExg/KrQY9C3i5fd0x9tGRoVJu/BDdTofb/RCL3G+cnvewvg80/NuOW8EPDcrvdMcsXhpntPue3PhBUrrruE9p1eN2oMhe9Adm2bC2fpudUseFZYhrpS2st7pYP7fqg3bf4/ZjMuyDplSon3/cwybIliq5KVWRhkrgh1Jnq2feuD/LNoDb6cht6iiy37Df/yP9xvyN/QWDJAfB+qGPlQAAAABJRU5ErkJggg==",
+  media: "Friends: Christmas-Themed Episodes",
+  watchLink: "https://www.kevindarty.com/streaming/holidays/christmas/friends-christmas-episodes.html",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAADrAQAAAACgcVx4AAAC+0lEQVR4nO1ZS47bOhCsNgXQu9YN6JNInmMNIEfy0wA51kh4FyFvQO0oQMPKQk52z1nFFB7SS9WiCs3+VNtCPIlweoYCf+EDwhQRuS4iq8hN5LQMAXN9F5G6tDQomaAD7ATjbca9XftoyPwC7t/BdwFlA9r44da27r39rBHkegBpAABDOekqdlK5rG/xpdzPYb1dEvCB9YR+tvf6ANLArGRqdHDMMN6Sg7PkSGalL5y1ReQMmHm96oClrc28tPWXyOkF3E+DJMmsw54/QAdw0v1z4ayxvou8BXpguV1Ss4w8A3eR65/n/g0sYXP201UQwyrg34iQsAxIrEs/aIbxSbg5SDRMjW6w+QgPCmbdwAm9h3ADWo7khN7b8tJIejTogDZ2SA2Mh5BEW1xaVtKS9HZS0jJ2LjUPoHTWYucguyDjOekGSOxwgKwxGm8Z4ZKQhHBwnHTAAWotoyckAgB6cgIAiZ2DFB+5wpvYz9rQzhSBcPSgqwK/6tIjl/V3Lm8RSKwN1294by0DvbzF8iO3J7NuSLLP2cEBSn+UDm2UhHAkhCRnbi415U2RVoFzkIudllXshI+wtlIF+88LuJ8GM4xHoyMT0JOMgM0w/hBzrXN2UvrU6OZsVvqfHq68tJ5o0PsE9EyAoZ25uVQ6aydAK3BmBbSUy1m4BWCpgt7r0rVGbi41MEyPkTE4m3U8gl9j7Jxl7Gn5GB77jrdz8Qdl/X1eriqXhGW9JCyVO0s0XL/9ee7nsfu1mQOSROOZdQPaCNipeIdmHT1kd0adQxt7ktGUr7UTgK/Wftbvl0Q3BNBVAawRzi/hfhbMOiA1gEOD/TagnQCg9A79eb0DjhmAnaPxqVF6oLi0DABt7JzN6L3NABJ09MVd7q9fikZyjsbvbTApj3CHPmrNeJt3QcN+7B3Brz3CAbhf1tPC2Y6xc2eJpW+DPXQL63Uh0eitPQMfIb2M+79ir7WWpJ3Q02YdHLOOvvgOfXRog97v26qBIYQbivs1+fsf1f8L/gFVS0xttPiW8gAAAABJRU5ErkJggg==",
   playlist: "Tropical Day",
   playlistUrl: "https://open.spotify.com/playlist/1U418hijKyurciIjlrfTVf?si=u84i7OIjQG6R7sw8ChnyZQ",
   playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACeklEQVR4nO2YPa7cNhSFP4oCqI7aAWcHWYEle1kBZI+cGSBrSpon+W1EswOyowCOTooZu3tIGj+mMBsCPMW9uH/n8Brx1lHzJgS/sPfD0AEw+JlsNIc86qL8ACr46aVM0uaXVG4dTDdGaasSFz+TB6x0+BLcgd3ygN3ePy7t4zK60v2VWtw3pp9p7z9g6u+n/VOcSF/exd6b2FmYaFcd3ql71QxGpY4vyZhOPexjzy1/6K+wGnOqUbuPEyfy4EuQ4vn59O61iw5fAAiMccItvgR3+LnCfEEHdnOHL4+BJ6kEt0Co4YsiMEDIYOVWFXR4VZgvSNHKKZ6VBybyqBK0UIMDkDTDAGSYgg4vZaMacWmQkdxFEmA3XuNX4+/m81iNp00kaNUMYyTkgVo5ktzxo5NXFbTGOr4cfibjS8ijJJ4FPFfo6RaS1K2/XVafUw+vscf/jd0q1UvIA+ctD0zBrREw8Vxpvpw3t0a7afHatMaJXMeXB5bG/vexG5I58SG0oVNPqKMxy5Os1ziFbDQHHb5G7aLDXzbgLK2SslEJ9XKUCjp8e9s/mxZ376/4l/5aIUcNRmY0TdpPHb6w22jX9En7qRYHaJU2J0kZJhh8DV3XAHbbv3A/pYa76Ua1YOLdVNHevuD/SHPw9/4a9NITIDnV+h+lj3DbbbTr/jGVG2tfIy7P0XIwhQdFK9pN9bQ3MPiCWwAt2C0PVfRu89wz8Oe2n1UCJoJbqMEBDfDVAPdTBrt2CvvJND/V3r9hqQS3cD9hbhcx1uppAKOW7ltyGwrtzb30lbSUl/IYCY8/yaqZStq7+b5nmGBUe0O93brXWCMu5td+93+P/QM/wsQyMY7KmAAAAABJRU5ErkJggg=="
@@ -1890,8 +1977,7 @@ qr:
     }
   },
 
-  media: "The Simpsons: “Simpsons Roasting on an Open Fire” - Season 1, Episode 1",
-  mediaInstructions: "Disney+ opens The Simpsons series page. Select Season 1, then Episode 1, “Simpsons Roasting on an Open Fire.”",
+  media: "The Simpsons",
   watchLink: "https://www.disneyplus.com/browse/entity-cac75c8f-a9e2-4d95-ac73-1cf1cc7b9568",
   mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACeElEQVR4nO2YMY7cOBBFHyUBVEbdgJ3tKSy179ULaSwDE/pIK41P4Buwb0BFSwFs/Q3k2WyMTWa4gSsRwB/UR7Hq86uMeCtUvQnBb+wjMRljzJXHpQXu+xXuuzHGFOHppCTTsFXb5Fu2BgYpfDwXdLiJ1HPDrsqAyz711EHHR3Npfn5dQ2L7Fv74u5ru75jvP2DmnjEVTwPfNYdCXNDhpDTEOkiaA4PmkAapwB1VsBnTyk/sQwdJHbAacylxR0aSlm0fWhPBfuExWEkqoi8d7FfXYL8A9Fu+m+tWqC73BrtsWul5XNrvarB/de+X7xehgzpgYq1T4QZNHqOJj+9ddLhZWhgDOIXUuzlYFZmj17ooQ+8yCZd9oZlGinirePNaAK0R7BpvvoS+yM/rNnTQwhjaT34iqavXEr0rTVgpe4YIWqWAiRSoC5IyCTd5HU4hmViL3s1letcp2IM6MES8XbihMv1ycqFnDMkoe60RUqm6SJJVHCVpVho0B7swFprpm8dEwMQbCfD01CrDZQznMC0u+4TL3h5uLsDl9Jim/xHHvXXPqxUP9ordqIS+RLwOxpCGc7rnANzKvI1AOpOD1+KyxygX4FIBeLe4CXD5PLQHdQFfd+pL6hn1Ghl6V8K/VMDTYOf4MO0LT2Y33bNOt1moLvRuDvZs4FgHzuepjO7qAG8XIBkp6HAqoC8/9wyfle/gsge+sl/hXvC/cQzndA+a0OFyEV8HTwZ4XHhx2dtly5iK5wK+7l/sK22/NbB2tdIQb++d71dYHbbKzSuDmrtdtj8v5frl3C7k0++mvoh/ed0zdDd4OY8eFzfHd8z3Zpjf+93/PfYPlHbCerAR96cAAAAASUVORK5CYII=",
   playlist: "Colonial Williamsburg Christmas",
@@ -2412,7 +2498,7 @@ qr:
   playlist: "Friends Fun Night"
 },
 
-  media: "Special: Shrek the Halls",
+  media: "Home Alone (1990)",
   watchLink: "https://www.disneyplus.com/browse/entity-45e4a68f-d9df-45f7-8e81-01b4ca5524e9",
   mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAAChElEQVR4nO2YPY7kNhCFvxoJoByxDR+AfZGV+loGtG7ZGsCJD+FrbCbtXoQ6wVCR2YBaz4E69Kyd9NLBVsLgBUW8qnr1Y+I908u7EHzHvh2GdoDWD2S8Yu6kmA+gwD+9lG3ZQsNa08jqQCfFMpz9aujEIqWfO/cbgKx+or/3rD4eS6dg9vb7Ztf00zP9/SesirR+WL6Zv38y7V7KrR9jNim6nepI4CK5u5o1AHw4vbJe/ACz2blEjEyS5kTwcwI3pnvnJKlMjEZlSw+lyaYBzRqLxMjS3fxEHxr8RgM99st6O5fgRakPGT/K7fS4iT5kqIrwouCi29ePZz57F9er3NxY6kMZXq4xt35D0kbGbyF36VqAlxq4d3Fex3j74e0P3HSpaYz7WSV019eYhTr4yQ+hgT64ndfn+fsKplOPlFjWjzaQ8S4ynwrlixQByF3qg6RR2Yr0ALT7Dc2SnFIf3JwI2bQVmKWQJOXWb0GzNjQnyK0vobtHTWunkqQt5NaPEbxU5i8ELF3lJr8F7X4jm7ZQZGagRxOApdeFL0tN01LNhfrRQcQjbRPkLpXoR2j3Q9DuB+g0cJTzRF8gRseMSevHSAtBk99CMX1RusrNkg6GZhXsjTrx5+2y32v317pxu7ydAp+f5u/ftG6U5tQDXvFoCWVqGu1UovVDyJ22oFmKhbSuxgTSi2Lzyfrl1vmE9OO9LjG/yMzs4msyfgiNLQO3yxP9fRV73Blo2nVY8odgZzdRFdiPHncGuJ/XKlXiSwJ7gaXcbu9dbFruZ1jHqJ3XInPd7gdyC2RLhAxXuanIfvS4M3QJnDQe+uJ2rkXml8e9bsPNeixJbi7SA+z7ffd/j/0NN07TWKt68TwAAAAASUVORK5CYII=",
   playlist: "Brazilian Christmas",
@@ -2446,9 +2532,9 @@ qr:
     ]
   },
 
-  media: "SNL: Christmas (2014)",
-  watchLink: "https://www.peacocktv.com/watch-online/tv/snl-christmas-2014/269debaf-6fb9-36bc-8fd1-7c33280d6a1a",
-  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAADrAQAAAACgcVx4AAAC6ElEQVR4nO1ZMY7cSAwsjgS0Miq8jJPdK1ZaJ36VdkcDGdjEf1ppXtL6QStyC+hRXaA5nKN1dNuCYaUVsNAsskhKiA+++fQRCvyBDwhTROQZV6lui0h1A2bccBWROi81cFMytiTRhgvdBhhaDuSm9Lmp9YgNOosAACHJiYNHk5naT7COSu/uIiKvnx37Q/htgsxyXk5Kz2t9AGoPrTW4+AhcPDftzfEIWjsBi0gFLYFGS6zPKKalre8ip0+I/eFHkuSmyUiSaNnvL0nyCBWKNuC/MjU3ag+0mamVkPk7OBkh0HKGbJj/Bgr/V1WHrAktARR+fV3K5H6cBl+1S23LVwCO/3fsX2stFHSb9gA0GaDJOCq9m/JrDYVHgw6xDRcfG3RwIy4EshsVOdBtmiwKSUeSUTj4Q/S1NC/PeJv0LuUcp/p+1rskVBJyGxWthxvmhOVZe6skfJuXgqV9RuxfwYu064uVBpnTHCm9VU+yntfcbnCCMMGNyyq4qbTrF3LiwHLme52bGpZyXk/qvN7rYsJTfT/LS114uYT8fe1Ct6EzNJqME3tEKPNX6E4NUNKNOhANun3Ujbk99ARaOXPE9by+Lqu4gc7zXcpZr3X2hDIh4jFqEI0mOIYO2V8NZLh4t2lvEZrMTRz87qH55zUyWZQAg4SCESi8m0JnUfJrrX6b9N16xCd7kUpCB0DdpPc6v9Z67BU6kSQDzG1K8gBD0YMG97FbOPgIHQ6htVB4COnRhs4iUNCNSmbf3ve1heRAjjp4bjp4SADceABqaX8rSIA5BlhsADvIsscNAFomPIw0FEfQ2qb0+7LCAJChM7cBiPm19tjee+wJHZX7/eoIZQAAbegMwMU7MtlRmsfjUlR4N6LwaNnvuTzAvLZfJXc3SHAjYGgAHCGhO7Vku2XJ7ladZe9r/8JLP4NCxmZ5keqGb3NsQ2573y/gP03hPbjp4I9g7wDQ6LC7ATfAIOzz39fkzz+q3wv+B0HkTW7C9KXOAAAAAElFTkSuQmCC",
+  media: "SNL Christmas Sketch Night",
+  watchLink: "https://www.peacocktv.com/blog/SNL-Holiday-and-Christmas-Sketches-on-Peacock",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACcklEQVR4nO1YMW7cMBCctQTwOt4PeD/ICyL6npJ/yHc60IDLfCB/iXh5RTrqBaE6CuBpUshOZySNvSnMStAUOxjuDndXiNcO716FgA/sPTGKiNzjEbjOLXAFpkVE5P25gKsli88NzWiZ4HOP4snEVUOzi4BukfmEi8fVGoLSvmG8107758uZ8GnvGAXffr5dvH/hMrcQ+dVESP765Q3j/Q07E7DVme/73i0n3A4QVh0us8gOeIrzybYT6ExCFDlo1BFJcgUcfAZM5OCe/2nU9AD43KTS2eo4AihAo8KFGY6rDQmSAcbcP4ujogtTAXrH0TIVn4GNlYLXydTCkC2WY775HewAc3NMOrk7OHgOACxZgGZrI5Ry13HEc9IwkslEpToiBwBoyNGGBM8BBehVdGHuHWMGGFkdYAeY0Va1OyqdJRkZiA5w6GxQ6Bk2XQzJZEb0AGygiaw6/gK44nOTSIZE5h7oVPLlDrAh2sv+5sH97bCLztDE3CQVf8k9IPnM4nOPsuWL0nu0oodhBtChSSaSyTCflbg0qQgrGPM5mdUODmr+QtKsdgBHACayugIlfyFJ+NywwFZXJAOA1eoZqjMxn5PZzDefEyODUl8XWDpbUYDzNqvBU+sNCOSKMxlZnSEHZ1arNTfeZDlmTMAc0uxlmJa7+cGrzgGls4Mzow1pk0lBF4qIHBkirmjicporlnvbTmp7hs5yMzwIQ+Kq9TbiIgAenVnxxPJZHg5yZw319kTzgEVkERNYUbq5KtzRC2brtPMMaXnYPyUTqTNPv+ylklltIDpboecvs8iObsB8nCrKj8lwuZ81dJGP/e5/j/0GM9naQKWD6JUAAAAASUVORK5CYII=",
   playlist: "Apple Cider Days",
   playlistUrl: "https://open.spotify.com/playlist/3hshwz0BEuMblbOki7PxrS?si=65206411e8dc46b7&pt=2b991c4226c9bac21e494c31159512cd",
   playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD/AQAAAAAWcz1nAAADg0lEQVR4nO2ZQY7cNhRE3281wN5xfAIKyDnc6jlBzjOAbGlGBnwtKT5BbkAdIAC1owC1KgvNODvHqwGDWCsC/ItCkb9+FWXih59OP96HXwX/oQK0AzQapJ1OTqkF6GI+dksAeQIvZQB7TM/12oRzcEr3hkaKZTB5Ap4NWT/nKWjSy7LNTA+A7Px+GH74nd8W91paDJkYrNP9y/th+GmQ/q/f7PrndjZ8mvmDN4xFgDwBnWAZontZhqide61xkTBt5YBczC7487x89mfWG1/j+imcZyazugyQZ0yAPhB4+f3prPEDXPD3WnovDD9RoIdns8d5rbkuQ7TTsgWnVGm1Yrob7VRROy250SA3+o189RvafV+QmG/Yo1y8wFO9fOar3JS+RqvmLZTDZCdJPUAlN/oeKVXKUKkUJk1nVrONDPd6+bxIduJeO6V2LoVJpSq6kUqSpNxIMVtqcdIQy2AS7X6IXCG4nRaA4Cb1AdMWigFJFzVpkJtSpYxXzBzdXQqTJ0xWr59smzO+n/3Oc4PNgy7fCupuaYhukmJuUqdskrj6DU0qRSfR7hWBKkoaYoYqaoRAk0qRICQpukmDNNIG7UCGNrgRCmmcEyxWr41trJ3Os538ICed5/XmS7FqbyMacErtMcqxY1VOELPUst6AjHdxvR3q4+J6830x3X0Q5g+djEfCvdJF7QXdSUtVtBN3yx9Dj538IA3pXtuJbiqFSaUuavQbTglykzpx9YpOqSpk4vBqKw6kg5zU46ZE0O77Qo77lclJG26kipnDZbRgGooR851K2VIbwG/BTakSljrlq1dBINug0Q/iSndYyWyHsyzFBR0SlC1Vyk1qg3ba4KbUSZNKuZMn8H1wO+0MfJkv3+QmPj7c6/X2jhj+vaDFLJy5KGxwXdYGk5vc3VSMTu5HPDziQ8imLXCli1hBflJSzBwtXh0Zwo2+x410hXT3YdXc6Nfajdzr/DGsNSwby6POxUTa3W+H5oAfItAd6gO0hXT3MRaPDGHaDsxvfrKU2X1CZmaP6V7nj9az3pY+aPdn1pv/1JRz3FK+8t2j+43X3F3MW9ABLV/9FmhSFYFKudEG0BYiQd8LqilPD0+1G3mqL8CRG8s47reCpYer78mNXHQvi5su3xLlZBwv5Sa1ZEvdP28Z0Y2+JD8JXL2k0W/BjX4LWIJXU1QCSPv1v/v/VPA3BKufI6TZ4VAAAAAASUVORK5CYII="
@@ -2474,8 +2560,6 @@ qr:
   },
 
   media: "The Great British Baking Show: Holidays",
-  watchLink: "https://www.netflix.com/title/81013505",
-  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQAAAACj6bPYAAABoUlEQVR4nO1XMY7jMBDjRAGUbrwvkLv7hZ2HeXd18D0sunxE/oHSyYAtXmEgzXmBLSJXy0pmQZsSNaCF2AFPeyzwQ3+bBgsAdIDLfQLyxlX+EiUzdAxgY4iejPXN/xbINLca6CdQzq/U/pqmG4kg730F7S9omaTNwqWG9n9gUTL3yUT0Ccg9GavH5yFyofPIdGNEEGlruyRJFmVkSM/H2hvrHSR90jLB5T4Nle8lyAQwkLTkAkBrnyVYMACSBtgCEwH1rrpLemeZTNwO9HaISxNzp4wZGByZTPX4MAG2KJmFC7LQHzDWFzzMdIauDdyFzSu1d8ECs4U1C0nedDkgPowZ6l3u1DtbMFR+5RnA2tryZgL+qgm/7qlxh4x1AG6bAoFj5cSeIOkPNHAM6CcPdK/U3geZ4LJwJPpkIoDa9/IEKKNdZRbeALBgldqtgCIiV7VxvmJt5yuGY+LTKYlOGVnwWX9jt4b33vL28JCTHtXwGkyXewJseSzTQSXecP7QM/KdtV0+G962igyp9sB7NjxGMWlt54+Xau9Bfv4v69D/AJofJ5+2uUJ8AAAAAElFTkSuQmCC",
   playlist: "Winter Wellness Day",
   playlistUrl: "https://open.spotify.com/playlist/7Cd3HHqzdgkNIjjncxYJWj?si=C7wpT7jgQBy4cozYIw-ylQ",
   playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACY0lEQVR4nO1YQY7UMBCsTlby3HokHuBIPIAfOMOzVsoQS0HiT1wYLx9xfuDcHCmT4hCG28KJbQ74ZLkOLtmu6moL8dpg8yoE/MfeEqOIyAX37vSyPM14WeK8ioi8PRdwV7L2pc2OZcw1AKg9mblbcImoAS2rkAR0Yg1oDbg8MI2z7ot0Fcu1e4P9fos99+B5wAlokyGXkcAy5aVRl2vPtYdws+GyiJygTzMCMIPnLwlJpLPQEUly181zV2b0jP7nmo2O0JcB3DFmAAMq0JpwISNIbh5CZgin7FKBt9A0z8DaAKiU6N2Oewf6ONv4boS7oc1VuHmXyOxo5bsYiaCbr9ANNaDNCBhg8l7KAN40wu0a4VIZs0smOmrAM/z6aYl+bRZmBJWuUq4mdZplzEylJdMhpokVuhnp6N7LReMMLC4BuMsp4LOBjhoII9y+rJ30/trxm5D4XuBt7mjwCBi8Y2nzoagA2OiIm3ePogTH472Y5TqPoDxc5eEvo1E92g6TqQGAS2Qmiw2XXaNHX3DURrIMnjcj3911Infl4bbuplOG3XvZUHtG1L4MvvZlJIJGo3OJ3qXSZiZuQM8pVyk2WWrXKdeAAe6mzG4HgKCb0bkc8TYz8Ze61SrvboCUkS6VljUcyxZ946MPAFCBAVUYj3xlUqdFRD4WQBMd9S5TXi9q8c/QAEpW+g0Ahnltee3cbSGtsncNGLzbMXimAgA6mdzRMdSltdGneb0AQFgsMubTY/L83n398I6nHZw9lvNf2u/P/lL70mbe9Ogbj/Jk0x8BR2AhyXpEF1jkOvn/v/vPYz8ADK3qlyd1slEAAAAASUVORK5CYII="
@@ -2541,10 +2625,9 @@ qr:
     }
   },
 
-  media: "The Big Bang Theory: “The Bath Item Gift Hypothesis” - Season 2, Episode 11",
-  mediaInstructions: "HBO Max opens The Big Bang Theory series page. Select Season 2, then Episode 11, “The Bath Item Gift Hypothesis.”",
-  watchLink: "https://www.hbomax.com/show/c8ea8e19-cae7-4683-9b62-cdbbed744784",
-  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACmUlEQVR4nO2YPY7kNhCFv2oJ4GRsZ87YwJ7D4vhIBpws0LY07gX2GD6DT2Bpb7ChAwNU5mQBMqMAtZ6DNTYb2MkMHSwTBhVUoeq9Vz8mnns6PWuCr7bXtMnM7LFM64POAKVnMzN7/VjQ4aUacyc3eyU3+ynUKCUdLXL2ZOh8NwYIWGZF1r+gv+de/8/vf/j1L0q/lwcIL+jvP9nGtJ14a36RloaxjAKeTAedGIpdMO1tYilmD9Cl7dH3a4nhlljMLi3wYgL0DUCZroYHpxfz92+cniBqB/wenPKoCp1acNpWJT3ZhFvy+6XE0K9O+X5pg9132CgndL5HLL+9WDxf1xY1kvbglAmf2TP4Cac8NtFdnd9RYthxc+mptk5hs9CCR0iagpOUatQequmW3KI9vH5eeihKZv7TBc4/LgzcI7JxaZKX3EkHhDp4SYsk8GrAaSRN1MHfUjXdEnAN4CdaxHL4W5K0A4xyyl2S8rUBXk5Q9mAn3iei+rVY2KLF0DfRl8PvQUvuVAcvYZLc0kRf0OF3MN1SHeikmWtgaNKPkKTkDq6BmOHz0NsGL0i6JSx3yc2MyUlTqNCuRpr9FNxMl4jag5t9iz0AKfNlfpHczKh2+sI1uCV3qVruUh3okqRbA+z24N3y7QMdKGxv/oB7XIePn0xt9sbkFk1U0w5RUrP5Be5xi2fwc5lClZltFlrsjScsd0kHXarfhX51N+3oKFtsdmf4Pt8vDx/otP1cXNoevWswv5zAS1XnLmH5ivvFT7i5bJc2e8CTQdnD9siT2WPZLnbyfWi427Oi8yj3e+ipQ7k1qNGXm8dPb4i/9X9WFSW3cO8b6YtqzAQdXmLwEwyN+tEBMHANUh6TZjrVARr0I/t63/3f2/4GMu62Jqy3XacAAAAASUVORK5CYII=",
+  media: "The Big Bang Theory: The Bath Item Gift Hypothesis - Season 2, Episode 11",
+  watchLink: "https://www.hbomax.com/cw/en/show/c8ea8e19-cae7-4683-9b62-cdbbed744784/s2/e11-bath-item-gift-hypothesis/f462f646-c508-4508-93f1-eaed0ec14348",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAETAQAAAAA90t8VAAAED0lEQVR4nO2aQY7cNhBFX7UGYO8on4BzkUidIwXIJoDGLUcD+FiRPCfIDagbsFehALV+Fhxnl4xXYyJwbbToWjwUfpHFX23irVhPb6bAj5z/Y47MzC63cd3MzPgCbCfudlb7yczaGpnxUoZPj07a2S63p0d/3FzcTjTS8f4835TzyVA7cJZN0f3RPq8s4anXDKtdvgPPm6HDj+QOQjbtwR1+DJh23KIp0nnF2pi/5vhxPf/UNnE73aYlq21E9z15/jN0eCl3NFGHHwO9xqAZoNckHXXW+WZ2xo9sF5olq22W7aOfYlZ7Nzu9P8835JikUtiXRMASnLk99WdLV0mpPubSg/RpCLmjiVC6UdGVH1SfNpDSVe7wim7RHtzsFcHvaNEYnKpkPmiUe01Ri/ZA5ydJiUCfhqC5wh5ESkPQkgh0fkdLGqDzkpu9oqvx3EAHA9lSIzo/ic5L2dKAm/0eqtTzCWjkZv/0mF/WzbIlOKsl0KfP0f3+HXjejHKTdFyjU2oi0EjzP1d5nXo+aKKUBrIlyJYI4CVJU616lqSM33FK1+gOmph77QBDyDXqGSk1UTPXqMNLpSXxO25JBC1VMh9+BEtX0acm5l5TdEqQO79TqTYOvwcdflLutQen1ER3cJWTdmq9UzTF3NGIjmsEP8kt2qHzkzJVMh8M6ICg2Y+h0PfakTRSq55LdcfgpJEMpfbKHeVFUB3zCZM96gBuF4BeU9x62/GzVzx/eXeeb8mRKW4XWM8yxbPae++m9LxmeOb28d15viXHEriZgWyyPlsCu/BbzxcGeEn1MaOjfBvljka5zBt+itSs59RIh9/MT4n13GszOgiYJGrUc/EKgGukozwKlU07bvYjtXoytwec0r3XIhdLsdW+qgRL9dX5hGl7vF1oFjtxf8wdA9L6sG4fAfeprY+5aENLseomYYmQOy+5gyFUOSOdgLvZU/u88pLu5mYG/LQ+2e0E69akGuss7WjRjg6uovN7yJYGtKShzvn5AX34NZodnwX+ATd/YPWzfwjW/fkL57/aVGOdy8D81fYCKEdGL6nKOhdtZMrMr5gtXeWWNJDxU8w1ns/FK3BzWapcReeniKUhuJlGrtI6l6cg5M5P8XVBAWQgVDlvICWClBpp0SQ3U56v5Wiu15NRhiHQJwAaSamJr91YIfOp7KgOwP3RNsq9Rqxvh2IT+Bp9/tc97M+JdWu0GWpBix6CXXhmq3gPq/Zz1HGbdLZ0N+ttBBjQ/P48b8frTtNPEdMkgICloeiFGvX8D/MedAC5l8r2tbwRq71TyF3xGKeomavc7CdlSwRVugPyUu6LBzqCSZGOq7SkRrXOzzezs8K4bn0L7m5PfX5JrGeFndvp/XneDPvxf6QfOf8SfwPzVx1ZCSp92gAAAABJRU5ErkJggg==",
   playlist: "Irish Creme Christmas",
   playlistUrl: "https://open.spotify.com/playlist/2ue08yWCnPSCycX88HfHsv?si=ogsd-TI-Q4eMQBSsaCoSfQ",
   playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACbElEQVR4nO1YMY7cMAwcrQ1oO/oH8kdi3z0p5QFO7IWvzC/ykLP3JfIPpCoyoNWk8F6qXMplimMlaAoRJMUZ0hAfGU8fQsAn9jgMLADQSXZ2kZmpk5npABT8FDIh1kAX9/ZswrChJ71KXGRC6mT2XIS0BZVPHSqvEhcAMFt25inWG64YHvDevzA607LgpY3fH/Le341FyNSHkehDRa6kTz2pk6NozJmu3hLdtO3fmldgNabViMvdsmOR7FIfxvvNw+MCFsnHKfXMsItkZ4tMCv2lhgkX2BR//JRfzVfnEW6IJ4HT+EdsgPgEYD+h8ue1wWYLqlWlXkLluQg9C+CSYXYs0OAAsAh9gkwAJDsuQiYTlPpuNL1wu7d/mHAxcmteWh2eHj0gM+0aAPQBijnCSFskO67M4MoMpRyBRWafTBiQDEnyOGn0lxOAl9a+NYAtsd7OVwBSUFGJG30CKm8LBhxFA9HgRrDITC4yIUHo7zkKo5Iv2R26jmEAF5kcIDrcyDDAMow+9QEumQBHHW4ECwbcBbiQMGFwSjk6MFtwaaXECemLqyFvzaVXmo8cOpnJgvEYBlKvpaUwwDIAlsyOC4AEmZV8OeLiYZiBTiYHnb4LFpncXb8IPckJx0SgU7vb/rxNOF/xit2YDKzNzWhoTBNG2pszfXze9taS1rPIpKB33/cMqLxdZIJdhD51anxEpg5wJPN7m5PsdOrlYgBU/ow4r/LmTGtOKnPAH2xAfJLa7c8biT5cWjVfTMCGa5xgF6k3+9ZUXm/PQHquoTq+kNXR3qf7nqG59GfIBFxRrXvF2T8+LuZzv/vfY78B1aPZPwNErskAAAAASUVORK5CYII="
@@ -2555,7 +2638,6 @@ qr:
   description: "Celebrate Cinnamon Comfort Days with Cinnamon Spice Tea, served alongside Beef Jerky and German Roasted Nuts. Today's activity is Wordle.",
     game: {
       type: "Wordle",
-      clue: "A cozy winter drink",
       answer: "COCOA"
     },
     media: "Prep & Landing",
@@ -2710,7 +2792,7 @@ function showDay(n) {
       <strong>Type:</strong> ${day.game.type}<br>
   `;
 
-  if (day.game.clue) {
+  if (day.game.clue && day.game.type !== "Wordle") {
   html += `
     <strong>Clue:</strong>
     ${day.game.clue}
@@ -3729,7 +3811,11 @@ function buildCrosswordGrid() {
       input.type = "text";
       input.inputMode = "text";
       input.maxLength = 1;
+      input.inputMode = "text";
+      input.setAttribute("aria-label", `Crossword row ${row + 1}, column ${col + 1}`);
       input.autocomplete = "off";
+      input.autocapitalize = "characters";
+      input.enterKeyHint = "next";
       input.spellcheck = false;
 
       input.setAttribute(
@@ -3743,12 +3829,24 @@ function buildCrosswordGrid() {
 
       input.addEventListener("click", () => {
         selectCrosswordCell(row, col, true);
+        input.focus({ preventScroll: true });
       });
+      input.addEventListener("touchend", (event) => {
+        event.stopPropagation();
+        selectCrosswordCell(row, col, false);
+        input.focus({ preventScroll: true });
+      }, { passive: true });
 
       input.addEventListener("keydown", (event) => {
         handleCrosswordKeydown(event, row, col);
       });
 
+      input.addEventListener("beforeinput", (event) => {
+        if (event.inputType === "deleteContentBackward" && !input.value) {
+          event.preventDefault();
+          moveToPreviousCrosswordCell(row, col, true);
+        }
+      });
       input.addEventListener("input", (event) => {
         handleCrosswordLetter(event, row, col);
       });
@@ -4616,75 +4714,79 @@ function getAllStrandsAnswers() {
 function buildStrandsBoard() {
   const answers = getAllStrandsAnswers();
   const combinedLetters = answers.join("");
-
-  if (
-    combinedLetters.length !==
-    STRANDS_ROWS * STRANDS_COLUMNS
-  ) {
-    console.error(
-      "Strands board must contain exactly 48 letters.",
-      combinedLetters.length
-    );
-
-    setStrandsMessage(
-      "This Strands puzzle does not contain exactly 48 letters.",
-      "error"
-    );
-
+  if (combinedLetters.length !== STRANDS_ROWS * STRANDS_COLUMNS) {
+    console.error("Strands board must contain exactly 48 letters.", combinedLetters.length);
+    setStrandsMessage("This Strands puzzle does not contain exactly 48 letters.", "error");
     return;
   }
 
-  const snakeCoordinates = [];
+  // A fixed 48-cell Hamiltonian route with frequent diagonal and directional changes.
+  // Every consecutive cell touches horizontally, vertically, or diagonally, but the
+  // route deliberately avoids readable rows, columns, and simple snakes.
+  const challengeCoordinates = [
+    { row: 0, col: 0 },
+    { row: 1, col: 0 },
+    { row: 1, col: 1 },
+    { row: 0, col: 1 },
+    { row: 0, col: 2 },
+    { row: 1, col: 2 },
+    { row: 1, col: 3 },
+    { row: 0, col: 3 },
+    { row: 0, col: 4 },
+    { row: 1, col: 4 },
+    { row: 1, col: 5 },
+    { row: 0, col: 5 },
+    { row: 0, col: 6 },
+    { row: 1, col: 6 },
+    { row: 1, col: 7 },
+    { row: 0, col: 7 },
+    { row: 2, col: 7 },
+    { row: 3, col: 7 },
+    { row: 3, col: 6 },
+    { row: 2, col: 6 },
+    { row: 2, col: 5 },
+    { row: 3, col: 5 },
+    { row: 3, col: 4 },
+    { row: 2, col: 4 },
+    { row: 2, col: 3 },
+    { row: 3, col: 3 },
+    { row: 3, col: 2 },
+    { row: 2, col: 2 },
+    { row: 2, col: 1 },
+    { row: 3, col: 1 },
+    { row: 3, col: 0 },
+    { row: 2, col: 0 },
+    { row: 4, col: 0 },
+    { row: 5, col: 0 },
+    { row: 5, col: 1 },
+    { row: 4, col: 1 },
+    { row: 4, col: 2 },
+    { row: 5, col: 2 },
+    { row: 5, col: 3 },
+    { row: 4, col: 3 },
+    { row: 4, col: 4 },
+    { row: 5, col: 4 },
+    { row: 5, col: 5 },
+    { row: 4, col: 5 },
+    { row: 4, col: 6 },
+    { row: 5, col: 6 },
+    { row: 5, col: 7 },
+    { row: 4, col: 7 }
+  ];
 
-  for (let row = 0; row < STRANDS_ROWS; row++) {
-    const columns = [];
-
-    for (
-      let col = 0;
-      col < STRANDS_COLUMNS;
-      col++
-    ) {
-      columns.push(col);
-    }
-
-    if (row % 2 === 1) {
-      columns.reverse();
-    }
-
-    columns.forEach((col) => {
-      snakeCoordinates.push({ row, col });
-    });
-  }
-
-  strandsBoard = Array.from(
-    { length: STRANDS_ROWS },
-    () => Array(STRANDS_COLUMNS).fill("")
-  );
-
+  strandsBoard = Array.from({ length: STRANDS_ROWS }, () => Array(STRANDS_COLUMNS).fill(""));
+  strandsWordPaths = new Map();
   let letterIndex = 0;
-
   answers.forEach((answer) => {
     const path = [];
-
     answer.split("").forEach((letter) => {
-      const coordinate =
-        snakeCoordinates[letterIndex];
-
-      strandsBoard[coordinate.row][coordinate.col] =
-        letter;
-
-      path.push({
-        row: coordinate.row,
-        col: coordinate.col
-      });
-
-      letterIndex++;
+      const coordinate = challengeCoordinates[letterIndex++];
+      strandsBoard[coordinate.row][coordinate.col] = letter;
+      path.push({ row: coordinate.row, col: coordinate.col });
     });
-
     strandsWordPaths.set(answer, path);
   });
 }
-
 function renderStrandsBoard() {
   const grid =
     document.getElementById("strands-grid");

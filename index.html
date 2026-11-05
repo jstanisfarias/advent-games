@@ -1,268 +1,5133 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Advent Games 2026</title>
+
 <style>
-   body {
-     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-     background: #0b1b2b;
-     color: #f5f5f5;
-     margin: 0;
-     padding: 0;
-   }
-   header {
-     text-align: center;
-     padding: 20px;
-     background: #12263c;
-     border-bottom: 1px solid #243b57;
-   }
-   h1 {
-     margin: 0;
-     font-size: 1.8rem;
-   }
-   .days {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     gap: 8px;
-     padding: 16px;
-   }
-   .day-btn {
-     background: #243b57;
-     border: none;
-     color: #f5f5f5;
-     padding: 10px 14px;
-     border-radius: 6px;
-     cursor: pointer;
-     font-size: 0.9rem;
-   }
-   .day-btn:hover {
-     background: #33527a;
-   }
-   .content {
-     max-width: 800px;
-     margin: 0 auto;
-     padding: 16px 20px 40px;
-     background: #12263c;
-     border-top: 1px solid #243b57;
-   }
-   .section-title {
-     font-weight: 600;
-     margin-top: 16px;
-     margin-bottom: 6px;
-     font-size: 1rem;
-   }
-   .card {
-     background: #1a304a;
-     padding: 10px 12px;
-     border-radius: 6px;
-     margin-bottom: 10px;
-     font-size: 0.9rem;
-   }
-   a {
-     color: #9fd3ff;
-   }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b1b2b;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #12263c;
+  border-bottom: 1px solid #243b57;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.day-btn {
+  background: #243b57;
+  border: none;
+  color: #f5f5f5;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.day-btn:hover {
+  background: #33527a;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 20px 40px;
+  background: #12263c;
+  border-top: 1px solid #243b57;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.card {
+  background: #1a304a;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #9fd3ff;
+}
+
+.answer-btn {
+  background: #33527a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+.answer-btn:hover {
+  background: #43658f;
+}
+
+.answer-text {
+  display: none;
+  margin-left: 10px;
+  padding: 4px 8px;
+  background: #243b57;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+body {
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+ background: linear-gradient(#0b1b2b, #12263c);
+ color: #f5f5f5;
+ margin: 0;
+ padding: 0;
+}
+header {
+ text-align: center;
+ padding: 20px;
+ background: #1a304a;
+ border-bottom: 2px solid #c62828; /* holiday red accent */
+}
+h1 {
+ margin: 0;
+ font-size: 1.9rem;
+ color: #ffebee; /* soft holiday pink */
+}
+.day-btn {
+ background: #243b57;
+ border: 2px solid #c62828; /* holiday red border */
+ color: #f5f5f5;
+ padding: 10px 14px;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 0.9rem;
+}
+.day-btn:hover {
+ background: #33527a;
+ border-color: #ffccbc; /* warm holiday glow */
+}
+.content {
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 16px 20px 40px;
+ background: rgba(18, 38, 60, 0.85);
+ border-top: 2px solid #c62828;
+ border-radius: 8px;
+}
+.section-title {
+ font-weight: 600;
+ margin-top: 16px;
+ margin-bottom: 6px;
+ font-size: 1rem;
+ color: #ffccbc; /* warm holiday accent */
+}
+.card {
+ background: #1a304a;
+ padding: 10px 12px;
+ border-radius: 6px;
+ margin-bottom: 10px;
+ font-size: 0.9rem;
+ border-left: 4px solid #c62828; /* holiday stripe */
+}
+
+#snow {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ overflow: hidden;
+}
+.snowflake {
+ position: absolute;
+ top: -10px;
+ color: white;
+ font-size: 1rem;
+ opacity: 0.8;
+ animation: fall linear infinite;
+}
+@keyframes fall {
+ 0% { transform: translateY(0); }
+ 100% { transform: translateY(100vh); }
+}
+
+/* Candy‑cane border for cards */
+.card {
+ background: #1a304a;
+ padding: 10px 12px;
+ border-radius: 8px;
+ margin-bottom: 10px;
+ font-size: 0.9rem;
+ border: 4px solid transparent;
+ background-image:
+   linear-gradient(#1a304a, #1a304a),
+   repeating-linear-gradient(
+     45deg,
+     #c62828 0px,
+     #c62828 6px,
+     #ffffff 6px,
+     #ffffff 12px
+   );
+ background-origin: border-box;
+ background-clip: padding-box, border-box;
+}
+/* Gold glow around main content */
+.content {
+ border: 2px solid #ffd700;
+ box-shadow: 0 0 12px #ffd700;
+ border-radius: 10px;
+}
+/* Holiday outline for buttons */
+.day-btn {
+ border: 2px solid #ffd700;
+ box-shadow: 0 0 6px #ffd700;
+}
+
+/* Holiday Light String */
+
+.light-string {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 12px 0;
+
+  background: transparent;
+
+  margin-bottom: 10px;
+
+}
+
+.bulb {
+
+  width: 18px;
+
+  height: 28px;
+
+  border-radius: 50% 50% 45% 45%;
+
+  display: inline-block;
+
+  animation: glow 1.8s infinite ease-in-out;
+
+  box-shadow: 0 0 6px rgba(255,255,255,0.6);
+
+}
+
+.bulb.red {
+
+  background: #ff4d4d;
+
+  animation-delay: 0s;
+
+}
+
+.bulb.gold {
+
+  background: #ffd700;
+
+  animation-delay: 0.3s;
+
+}
+
+.bulb.green {
+
+  background: #4caf50;
+
+  animation-delay: 0.6s;
+
+}
+
+.bulb.blue {
+
+  background: #64b5f6;
+
+  animation-delay: 0.9s;
+
+}
+
+@keyframes glow {
+
+  0% { opacity: 0.4; transform: scale(0.95); }
+
+  50% { opacity: 1; transform: scale(1.1); }
+
+  100% { opacity: 0.4; transform: scale(0.95); }
+
+}
+
+/* Interactive Wordle layout */
+.wordle-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+#wordle-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#wordle-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 52px);
+  grid-template-rows: repeat(6, 52px);
+  gap: 6px;
+}
+
+.wordle-tile {
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  background: #12263c;
+  border: 2px solid #5b6f84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.wordle-tile.filled {
+  border-color: #a8b3bf;
+  transform: scale(1.03);
+}
+
+.wordle-tile.wordle-correct {
+  background: #538d4e;
+  border-color: #538d4e;
+  color: #ffffff;
+}
+
+.wordle-tile.wordle-present {
+  background: #b59f3b;
+  border-color: #b59f3b;
+  color: #ffffff;
+}
+
+.wordle-tile.wordle-absent {
+  background: #3a3a3c;
+  border-color: #3a3a3c;
+  color: #ffffff;
+}
+
+#wordle-message {
+  min-height: 24px;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffebee;
+}
+
+.wordle-instructions {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Alphabet keyboard */
+#wordle-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+}
+
+.keyboard-title {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffccbc;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.wordle-key {
+  min-width: 34px;
+  height: 44px;
+  padding: 0 7px;
+  border: none;
+  border-radius: 5px;
+  background: #5b6f84;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.1s ease;
+}
+
+.wordle-key:hover {
+  transform: translateY(-1px);
+  background: #71879e;
+}
+
+.wordle-key:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+.wordle-key.wide-key {
+  min-width: 64px;
+  font-size: 0.75rem;
+}
+
+/* Letter was guessed and is not in the word */
+.wordle-key.key-absent {
+  background: #34383d;
+  color: #9da3aa;
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+/* Letter is in the word but in the wrong position */
+.wordle-key.key-present {
+  background: #b59f3b;
+  color: #ffffff;
+  font-weight: 800;
+  opacity: 1;
+}
+
+/* Letter is in the correct position */
+.wordle-key.key-correct {
+  background: #538d4e;
+  color: #ffffff;
+  font-weight: 800;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .wordle-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #wordle-grid {
+    grid-template-columns: repeat(5, 46px);
+    grid-template-rows: repeat(6, 46px);
+  }
+
+  .wordle-tile {
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+  }
+
+  .wordle-key {
+    min-width: 28px;
+    height: 40px;
+    padding: 0 5px;
+    font-size: 0.8rem;
+  }
+
+  .wordle-key.wide-key {
+    min-width: 54px;
+    font-size: 0.68rem;
+  }
+}
+
+.trivia-chain {
+  margin-top: 20px;
+}
+
+.trivia-chain .card {
+  margin-bottom: 16px;
+}
+
+.trivia-chain details {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.trivia-chain summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #ffccbc;
+}
+
+/* Interactive Connections game */
+
+#connections-container {
+  margin-top: 20px;
+}
+
+.connections-heading {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.connections-heading h3 {
+  margin-bottom: 6px;
+  color: #ffccbc;
+}
+
+.connections-heading p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+#connections-solved {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.connections-solved-group {
+  padding: 14px 12px;
+  border-radius: 8px;
+  color: #111111;
+  text-align: center;
+  animation: connectionsReveal 0.35s ease;
+}
+
+.connections-solved-category {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.connections-solved-words {
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.connections-yellow {
+  background: #f9df6d;
+}
+
+.connections-green {
+  background: #a0c35a;
+}
+
+.connections-blue {
+  background: #b0c4ef;
+}
+
+.connections-purple {
+  background: #ba81c5;
+}
+
+.connections-revealed {
+  opacity: 0.82;
+}
+
+#connections-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.connections-word {
+  min-height: 74px;
+  padding: 8px 5px;
+  border: 2px solid transparent;
+  border-radius: 7px;
+  background: #e8e6dc;
+  color: #111111;
+  font-family: inherit;
+  font-size: clamp(0.66rem, 1.7vw, 0.88rem);
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease,
+    border-color 0.15s ease;
+}
+
+.connections-word:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #ffd700;
+}
+
+.connections-word.selected {
+  background: #5a594e;
+  color: #ffffff;
+  border-color: #ffd700;
+  transform: scale(0.97);
+}
+
+.connections-word:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+#connections-message {
+  min-height: 28px;
+  margin: 13px 0 5px;
+  color: #ffffff;
+  font-size: 0.94rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.connections-message-close {
+  color: #ffd54f;
+}
+
+.connections-message-success {
+  color: #b8e6b8;
+}
+
+.connections-message-error {
+  color: #ffb3b3;
+}
+
+.connections-mistakes {
+  margin: 8px 0 12px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+#connections-mistake-dots {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 7px;
+  vertical-align: middle;
+}
+
+.connections-mistake-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffd700;
+  box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
+}
+
+.connections-controls {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.connections-control-btn {
+  padding: 8px 13px;
+  border: 1px solid #ffd700;
+  border-radius: 20px;
+  background: #243b57;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.connections-control-btn:hover:not(:disabled) {
+  background: #33527a;
+}
+
+.connections-control-btn.submit {
+  background: #c62828;
+}
+
+.connections-control-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@keyframes connectionsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  #connections-grid {
+    gap: 5px;
+  }
+
+  .connections-word {
+    min-height: 62px;
+    padding: 6px 3px;
+    font-size: clamp(0.55rem, 2.7vw, 0.73rem);
+  }
+}
+
+/* Interactive mini crossword */
+.crossword-instructions {
+  margin: 18px 0 12px;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+#crossword-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.crossword-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.crossword-board-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+#crossword-grid {
+  --crossword-size: 5;
+  --crossword-cell-size: clamp(24px, 2.3vw, 30px);
+
+  display: grid;
+  grid-template-columns:
+    repeat(
+      var(--crossword-size),
+      var(--crossword-cell-size)
+    );
+  grid-template-rows:
+    repeat(
+      var(--crossword-size),
+      var(--crossword-cell-size)
+    );
+
+  gap: 1px;
+  padding: 4px;
+  width: max-content;
+  background: #08131f;
+  border: 3px solid #ffd700;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.45);
+}
+
+.crossword-cell {
+  position: relative;
+  width: var(--crossword-cell-size);
+  height: var(--crossword-cell-size);
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #384553;
+  color: #111111;
+  cursor: pointer;
+}
+
+.crossword-cell.blocked {
+  background: #111820;
+  border-color: #111820;
+  cursor: default;
+}
+
+.crossword-cell.selected {
+  background: #ffd54f;
+}
+
+.crossword-cell.related {
+  background: #fff5b5;
+}
+
+.crossword-cell.incorrect {
+  background: #ffb3b3;
+}
+
+.crossword-cell.correct {
+  background: #b8e6b8;
+}
+
+.crossword-number {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  z-index: 2;
+  color: #111111;
+  font-size: clamp(0.42rem, 0.9vw, 0.58rem);
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.crossword-input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 5px 1px 1px;
+  background: transparent;
+  color: #111111;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: clamp(0.72rem, 1.8vw, 1.2rem);
+  font-weight: 800;
+  caret-color: transparent;
+  cursor: pointer;
+}
+
+.crossword-clues {
+  width: min(390px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.crossword-clues h3 {
+  margin: 0 0 8px;
+  color: #ffccbc;
+  font-size: 1rem;
+}
+
+.crossword-clue {
+  width: 100%;
+  margin: 0 0 7px;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 0.84rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.crossword-clue:hover {
+  background: #243b57;
+}
+
+.crossword-clue.active {
+  border-color: #ffd700;
+  background: #243b57;
+  color: #ffffff;
+}
+
+#crossword-message {
+  min-height: 24px;
+  margin-top: 12px;
+  color: #ffebee;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.crossword-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.crossword-control-btn {
+  padding: 8px 11px;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+  background: #33527a;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.crossword-control-btn:hover {
+  background: #43658f;
+}
+
+.crossword-control-btn.reveal {
+  border-color: #ff8a80;
+}
+
+.crossword-control-btn:focus-visible,
+.crossword-clue:focus-visible,
+.crossword-input:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .crossword-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #crossword-grid {
+    --crossword-cell-size: clamp(16px, 4vw, 23px);
+  }
+
+  .crossword-clues {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Interactive Strands game */
+
+#strands-container {
+  margin-top: 20px;
+}
+
+.strands-heading {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.strands-heading h3 {
+  margin-bottom: 7px;
+  color: #ffccbc;
+}
+
+.strands-theme {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.strands-instructions {
+  max-width: 620px;
+  margin: 8px auto 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.strands-game-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.strands-board-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#strands-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 48px);
+  grid-template-rows: repeat(6, 48px);
+  gap: 6px;
+  padding: 10px;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  background: #0b1b2b;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.45);
+  user-select: none;
+}
+
+.strands-letter {
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  border: 2px solid #70859b;
+  border-radius: 50%;
+  background: #e8e6dc;
+  color: #111111;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease;
+}
+
+.strands-letter:hover:not(:disabled) {
+  border-color: #ffd700;
+  transform: scale(1.07);
+}
+
+.strands-letter.selected {
+  border-color: #ffd700;
+  background: #ffd54f;
+  color: #111111;
+  transform: scale(1.05);
+}
+
+.strands-letter.found {
+  border-color: #7eb6ff;
+  background: #b9d9ff;
+  color: #10213a;
+}
+
+.strands-letter.spangram {
+  border-color: #d6a5ff;
+  background: #c99bea;
+  color: #26102f;
+}
+
+.strands-letter:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+#strands-current-word {
+  min-height: 28px;
+  margin-top: 12px;
+  color: #ffd54f;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#strands-message {
+  min-height: 27px;
+  margin: 4px 0 8px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.strands-message-success {
+  color: #b8e6b8;
+}
+
+.strands-message-error {
+  color: #ffb3b3;
+}
+
+.strands-message-hint {
+  color: #ffd54f;
+}
+
+.strands-controls {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.strands-control-btn {
+  padding: 8px 13px;
+  border: 1px solid #ffd700;
+  border-radius: 20px;
+  background: #243b57;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.strands-control-btn:hover:not(:disabled) {
+  background: #33527a;
+}
+
+.strands-control-btn.submit {
+  background: #c62828;
+}
+
+.strands-control-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.strands-progress {
+  width: min(260px, 100%);
+  padding: 14px;
+  border: 1px solid #ffd700;
+  border-radius: 9px;
+  background: #1a304a;
+}
+
+.strands-progress h4 {
+  margin: 0 0 10px;
+  color: #ffccbc;
+  text-align: center;
+}
+
+#strands-found-words {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 40px;
+}
+
+.strands-found-word {
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: #b9d9ff;
+  color: #10213a;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.strands-found-word.spangram {
+  background: #c99bea;
+  color: #26102f;
+}
+
+.strands-score,
+.strands-spangram-status {
+  margin-top: 12px;
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #strands-grid {
+    grid-template-columns: repeat(8, 36px);
+    grid-template-rows: repeat(6, 36px);
+    gap: 4px;
+    padding: 7px;
+  }
+
+  .strands-letter {
+    width: 36px;
+    height: 36px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Holiday word and phrase scrambles */
+
+.scramble-display {
+  margin: 14px 0;
+  padding: 14px 12px;
+  border: 2px dashed #ffd700;
+  border-radius: 8px;
+  background: #0b1b2b;
+  color: #ffffff;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+ }
+
+.playlist-card { text-align: center; }
+.playlist-qr { width: 190px; max-width: 75vw; height: auto; background: white; padding: 8px; border-radius: 10px; margin: 12px auto 8px; display: block; }
+.spotify-button { display: inline-block; margin-top: 8px; padding: 9px 14px; border-radius: 20px; background: #1DB954; color: #08130c; font-weight: 800; text-decoration: none; }
+.spotify-button:hover { background: #1ed760; }
+
+
+/* ===== Phone-first iPhone layout ===== */
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  min-width: 0;
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+button, input, select, textarea { font: inherit; }
+button, a, select, input { -webkit-tap-highlight-color: rgba(255,255,255,.15); }
+button, .spotify-button, .day-btn { min-height: 44px; touch-action: manipulation; }
+img, video, iframe, canvas { max-width: 100%; }
+header { padding: calc(14px + env(safe-area-inset-top)) 14px 14px; }
+header h1 { font-size: clamp(1.45rem, 7vw, 1.9rem); line-height: 1.15; }
+header p { margin: 8px auto 0; font-size: .92rem; line-height: 1.35; }
+.content { width: 100%; max-width: 800px; min-width: 0; padding: 14px 12px 96px; border-radius: 0; }
+.content h2 { font-size: clamp(1.28rem, 6vw, 1.7rem); line-height: 1.2; overflow-wrap: anywhere; }
+.card { min-width: 0; padding: 12px; font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
+.section-title { font-size: 1.03rem; margin-top: 20px; }
+input, select, textarea { max-width: 100%; min-height: 44px; font-size: 16px !important; }
+.playlist-qr { width: min(220px, 72vw); max-width: 100%; }
+.spotify-button { padding: 12px 18px; }
+.mobile-day-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 48px minmax(0,1fr) 48px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px max(10px, env(safe-area-inset-right)) 8px max(10px, env(safe-area-inset-left));
+  background: rgba(11,27,43,.96);
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-bottom: 2px solid #c62828;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.mobile-day-nav button, .mobile-day-nav select {
+  min-width: 0;
+  height: 46px;
+  border-radius: 9px;
+  border: 2px solid #c62828;
+  background: #243b57;
+  color: #fff;
+  font-weight: 700;
+}
+.mobile-day-nav button { font-size: 1.3rem; padding: 0; }
+.mobile-day-nav button:disabled { opacity: .4; }
+.mobile-day-nav select { width: 100%; padding: 0 34px 0 12px; text-align: center; }
+.days { display: none; }
+.wordle-grid, .connections-grid, .crossword-grid, .strands-grid { max-width: 100%; }
+.crossword-container, .crossword-wrapper, .game-board { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.wordle-keyboard, .keyboard { max-width: 100%; padding-inline: 0; }
+.wordle-keyboard button, .keyboard button { min-width: 0; padding-left: 4px; padding-right: 4px; }
+.scramble-display { overflow-wrap: anywhere; letter-spacing: .12em; }
+@media (min-width: 700px) {
+  .mobile-day-nav { display: none; }
+  .days { display: flex; }
+  .content { padding: 16px 20px 40px; border-radius: 8px; }
+}
+@media (max-width: 380px) {
+  .content { padding-inline: 8px; }
+  .card { padding: 10px 8px; }
+  .mobile-day-nav { grid-template-columns: 44px minmax(0,1fr) 44px; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .snowflake { animation: none !important; display: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+
+.media-card { text-align:center; }
+.media-qr { width:min(220px,72vw); max-width:100%; height:auto; background:#fff; padding:8px; border-radius:10px; margin:12px auto 8px; display:block; }
+.media-button { display:inline-block; min-height:44px; margin-top:8px; padding:12px 18px; border-radius:20px; background:#ffd700; color:#12263c; font-weight:800; text-decoration:none; }
+.media-button:hover { background:#ffe766; }
+.day-description { font-size: 1rem; line-height: 1.55; border-left: 5px solid #ffd700; }
 </style>
 </head>
+
 <body>
+
+<div id="snow"></div>
+
+
 <header>
-<h1>Advent Games 2026</h1>
-<p>Daily puzzles, playlists, and holiday media for Diego & Gio</p>
+  <h1>❄ Advent Games 2026 ❄</h1>
+<p>🎁 Daily puzzles, playlists, and holiday media 🎄</p>
 </header>
+
+<div class="light-string">
+<span class="bulb red"></span>
+<span class="bulb gold"></span>
+<span class="bulb green"></span>
+<span class="bulb blue"></span>
+<span class="bulb red"></span>
+<span class="bulb gold"></span>
+<span class="bulb green"></span>
+<span class="bulb blue"></span>
+</div>
+
 <div class="days">
-<!-- 17 buttons -->
-<button class="day-btn" onclick="showDay(1)">Day 1</button>
-<button class="day-btn" onclick="showDay(2)">Day 2</button>
-<button class="day-btn" onclick="showDay(3)">Day 3</button>
-<button class="day-btn" onclick="showDay(4)">Day 4</button>
-<button class="day-btn" onclick="showDay(5)">Day 5</button>
-<button class="day-btn" onclick="showDay(6)">Day 6</button>
-<button class="day-btn" onclick="showDay(7)">Day 7</button>
-<button class="day-btn" onclick="showDay(8)">Day 8</button>
-<button class="day-btn" onclick="showDay(9)">Day 9</button>
-<button class="day-btn" onclick="showDay(10)">Day 10</button>
-<button class="day-btn" onclick="showDay(11)">Day 11</button>
-<button class="day-btn" onclick="showDay(12)">Day 12</button>
-<button class="day-btn" onclick="showDay(13)">Day 13</button>
-<button class="day-btn" onclick="showDay(14)">Day 14</button>
-<button class="day-btn" onclick="showDay(15)">Day 15</button>
-<button class="day-btn" onclick="showDay(16)">Day 16</button>
-<button class="day-btn" onclick="showDay(17)">Day 17</button>
+  <button class="day-btn" onclick="showDay(1)">Day 1: Peppermint Cocoa Day</button>
+  <button class="day-btn" onclick="showDay(2)">Day 2: Dirty Soda Day</button>
+  <button class="day-btn" onclick="showDay(3)">Day 3: Spicy Ramen Night</button>
+  <button class="day-btn" onclick="showDay(4)">Day 4: Tropical Day</button>
+  <button class="day-btn" onclick="showDay(5)">Day 5: Nutcracker Day</button>
+  <button class="day-btn" onclick="showDay(6)">Day 6: Charcuterie Night</button>
+  <button class="day-btn" onclick="showDay(7)">Day 7: St. Nicolas Day</button>
+  <button class="day-btn" onclick="showDay(8)">Day 8: Merry Berry Day</button>
+  <button class="day-btn" onclick="showDay(9)">Day 9: Grandma's Fudge Night</button>
+  <button class="day-btn" onclick="showDay(10)">Day 10: Brazilian Christmas</button>
+  <button class="day-btn" onclick="showDay(11)">Day 11: Colonial Williamsburg Christmas</button>
+  <button class="day-btn" onclick="showDay(12)">Day 12: Rotel Night</button>
+  <button class="day-btn" onclick="showDay(13)">Day 13: Friends Fun Night</button>
+  <button class="day-btn" onclick="showDay(14)">Day 14: Apple Cider Days</button>
+  <button class="day-btn" onclick="showDay(15)">Day 15: Winter Wellness Day</button>
+  <button class="day-btn" onclick="showDay(16)">Day 16: Irish Creme Christmas</button>
+  <button class="day-btn" onclick="showDay(17)">Day 17: Cinnamon Comfort Days</button>
+  <button class="day-btn" onclick="showDay(18)">Day 18: Cafe Vienna</button>
+  <button class="day-btn" onclick="showDay(19)">Day 19: Hogwarts Tea House Day</button>
+  <button class="day-btn" onclick="showDay(20)">Day 20: Christmas Candy Shop</button>
 </div>
+
+
+<nav class="mobile-day-nav" aria-label="Advent day navigation">
+  <button id="previousDay" type="button" onclick="changeDay(-1)" aria-label="Previous day">‹</button>
+  <select id="dayPicker" aria-label="Choose an Advent day" onchange="showDay(Number(this.value)); scrollToActivity();">
+    <option value="1">Day 1: Peppermint Cocoa Day</option>
+    <option value="2">Day 2: Dirty Soda Day</option>
+    <option value="3">Day 3: Spicy Ramen Night</option>
+    <option value="4">Day 4: Tropical Day</option>
+    <option value="5">Day 5: Nutcracker Day</option>
+    <option value="6">Day 6: Charcuterie Night</option>
+    <option value="7">Day 7: St. Nicolas Day</option>
+    <option value="8">Day 8: Merry Berry Day</option>
+    <option value="9">Day 9: Grandma's Fudge Night</option>
+    <option value="10">Day 10: Brazilian Christmas</option>
+    <option value="11">Day 11: Colonial Williamsburg Christmas</option>
+    <option value="12">Day 12: Rotel Night</option>
+    <option value="13">Day 13: Friends Fun Night</option>
+    <option value="14">Day 14: Apple Cider Days</option>
+    <option value="15">Day 15: Winter Wellness Day</option>
+    <option value="16">Day 16: Irish Creme Christmas</option>
+    <option value="17">Day 17: Cinnamon Comfort Days</option>
+    <option value="18">Day 18: Cafe Vienna</option>
+    <option value="19">Day 19: Hogwarts Tea House Day</option>
+    <option value="20">Day 20: Christmas Candy Shop</option>
+  </select>
+  <button id="nextDay" type="button" onclick="changeDay(1)" aria-label="Next day">›</button>
+</nav>
+
 <div class="content" id="content">
-<p>Select a day to see the puzzle, playlist, and media.</p>
+  <p>Select a day to see the puzzle, playlist, and media.</p>
 </div>
+
 <script>
-   const days = {
- 1: {
-   title: "Welcome to December Magic",
-   game: {
-     type: "Wordle",
-     clue: "A classic December decoration",
-     answer: "LIGHT"
-   },
-   media: "Movie: Christmas Vacation",
-   playlist: "50s/60s Christmas Classics"
- },
- 2: {
-   title: "Cozy Cocoa Night",
-   game: {
-     type: "Mini Crossword",
-     clue: "Small crossword with cocoa, snow, tree",
-     note: "Use printed card."
-   },
-   media: "Movie: Elf",
-   playlist: "Michael Bublé Christmas"
- },
- 3: {
-   title: "Christmas Comedy Night",
-   game: {
-     type: "Trivia",
-     question: "What animal pulls Santa’s sleigh?",
-     answer: "Reindeer"
-   },
-   media: "Special: Shrek the Halls",
-   playlist: "Christmas Comedy Classics"
- },
- 4: {
-   title: "Scandinavian Hygge Night",
-   game: {
-     type: "Sudoku",
-     clue: "Mini 3×3 holiday sudoku",
-     answer: "See printed card"
-   },
-   media: "Special: Charlie Brown Christmas",
-   playlist: "Scandinavian Folk Christmas"
- },
- 5: {
-   title: "50s/60s Classics Night",
-   game: {
-     type: "Song Scramble",
-     clue: "Unscramble this holiday word: LLESB",
-     answer: "BELLS"
-   },
-   media: "Movie: Home Alone",
-   playlist: "50s/60s Christmas Classics"
- },
- 6: {
-   title: "Mini Nutcracker Craft Night",
-   game: {
-     type: "Connections",
-     clue: "TREE, FIR, PINE, SPRUCE",
-     answer: "Evergreens"
-   },
-   media: "Movie: Klaus",
-   playlist: "Old-English Instrumental Christmas"
- },
- 7: {
-   title: "Sitcom Christmas Night",
-   game: {
-     type: "Trivia",
-     question: "What color are traditional candy canes?",
-     answer: "Red and white"
-   },
-   media: "Sitcom: The Office Christmas Episodes",
-   playlist: "Michael Bublé Christmas"
- },
- 8: {
-   title: "Brazilian Tropical Holiday",
-   game: {
-     type: "Song Scramble",
-     clue: "Unscramble: YRRME",
-     answer: "MERRY"
-   },
-   media: "Special: Prep & Landing",
-   playlist: "Brazilian Christmas"
- },
- 9: {
-   title: "Finals Week Calm Night",
-   game: {
-     type: "Sudoku",
-     clue: "Mini 3×3 calm sudoku",
-     answer: "See printed card"
-   },
-   media: "Movie: Klaus",
-   playlist: "Lo-Fi Christmas"
- },
- 10: {
-   title: "Christmas Vacation Night",
-   game: {
-     type: "Wordle",
-     clue: "A cheerful December feeling",
-     answer: "MERRY"
-   },
-   media: "Movie: Christmas Vacation",
-   playlist: "50s/60s Christmas Classics"
- },
- 11: {
-   title: "Die Hard Night",
-   game: {
-     type: "Connections",
-     clue: "COCOA, CIDER, TEA, MOCHA",
-     answer: "Warm Drinks"
-   },
-   media: "Movie: Die Hard",
-   playlist: "Michael Bublé Christmas"
- },
- 12: {
-   title: "Prep & Landing Night",
-   game: {
-     type: "Mini Crossword",
-     clue: "Crossword with sleigh, snow, bell",
-     note: "Use printed card."
-   },
-   media: "Special: Prep & Landing",
-   playlist: "Christmas Comedy Classics"
- },
- 13: {
-   title: "Shrek the Halls Night",
-   game: {
-     type: "Song Scramble",
-     clue: "Unscramble: SNWOOY",
-     answer: "SNOWY"
-   },
-   media: "Special: Shrek the Halls",
-   playlist: "Brazilian Christmas"
- },
- 14: {
-   title: "Grinch Cartoon Night",
-   game: {
-     type: "Trivia",
-     question: "What holiday item jingles?",
-     answer: "Bells"
-   },
-   media: "Cartoon: How the Grinch Stole Christmas",
-   playlist: "50s/60s Christmas Classics"
- },
- 15: {
-   title: "Weekend Friend Game Night",
-   game: {
-     type: "Minute-to-Win-It",
-     clue: "Use printed game cards and supplies",
-     note: "Candy canes, cotton balls, cups"
-   },
-   media: "Movie: Christmas Vacation",
-   playlist: "Christmas Comedy Classics"
- },
- 16: {
-   title: "Paper Lantern Craft Night",
-   game: {
-     type: "Connections",
-     clue: "LIGHTS, ORNAMENTS, GARLAND, STAR",
-     answer: "Decorations"
-   },
-   media: "Movie: Elf",
-   playlist: "Old-English Instrumental Christmas"
- },
- 17: {
-   title: "Christmas Eve Eve Letter Night",
-   game: {
-     type: "Wordle",
-     clue: "A cozy winter drink",
-     answer: "COCOA"
-   },
-   media: "Movie: Home Alone",
-   playlist: "Michael Bublé Christmas"
- }
+const days = {
+  1: {
+  title: "Peppermint Cocoa Day",
+  description: "Celebrate Peppermint Cocoa Day with Peppermint Cocoa, served alongside Ranch Oyster Crackers and Peppermint Bark. Today's activity is Wordle.",
+
+  game: {
+    type: "Wordle",
+    clue: "A classic December decoration",
+    answer: "LIGHT"
+  },
+
+  media: "Seinfeld",
+  watchLink: "https://www.netflix.com/title/70153373",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQAAAACj6bPYAAABo0lEQVR4nO1XMY7bMBCcNQWsU9E/oIG8I5Ifxjsp0AH5lph/BKBeEKqjAJlzhe1UPiDFUdWxIMApdjkYanYkxJPFwzMU+IL/GwYLALTw0JAM8w2rfBNLZklA/uHWMzoy1if/UwC8Yb0szQxK85m1P4bpRtqRm6tQ+yN4eRFg0bhDS7BYMrfw7rZ1ZKz+fBaRI6wGwGpAEDnXZkmSD6pw92NdljxhXg+4no+An0VkmOtrOUYtdnNZyJ2sANduNelXPGJpoJOtbQUPLWGoIXloga/MEix2ZO64OS3oo5Kbq92SyUQNqSckmZhb1NayAd36ffn293rmb3i3AubPDlpGhuRdBgxzx626lkzeQciIFj017KBlsZvTwMExkASqv9gDJL1hfREG6aSZc2s17vFd6mRH6oSe2EPLAhMBS2pBHwH0lYfXP/fxDpJu47P6vKSIyMU2MycA62XZIfs8Et76Cg+d7NrtkvB4gjvyBMhhGT6z9rPFYgfkLhlq4AAN1bPPoyUZIQlQptq2fk94XTLxtrV7zEsAd3tNJmbY2h4rX/+XdeB3lQMwVnL9aBEAAAAASUVORK5CYII=",
+
+  playlist: "Peppermint Cocoa Day",
+  playlistUrl: "https://open.spotify.com/playlist/17rprFxyiicfu8ofsPjgLe?si=5c3d98ac5627457f&pt=db5ff79eb71d670499d79668d8c0b8f3",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD/AQAAAAAWcz1nAAADYklEQVR4nO2ZQY6dOBRFjwHJf+afFfhvJFBZVklUIEVJvaxAVmJ2YGZG4nMz8E/3LMmo2q0OAwbmDY54fvdegxE/vVT9/Dn8KfgPFaAToNOkBINSF3sPDCHlp4VAOil1mkQL3p5ukpUOnzoplAFZAV8MMvstwbCkb/Tr1pkRZJr3Y/itAtesdpG5mU9r490UWd+f4ZcF2+HN03aA/G72z675Fxh+WjAInA0s1zropJa+XgdhdJQDuRlzAdbUuob9ibd1f+JtZTHmVgZkgxGgD3gW7o3mD3BpwaP3YvgtCRqh0+HtzBCAQVo0+gS1ypAgJI1oiUNInSZpdgcJp6DTjeWIOfiEm4Jmd/jUuklaNAkTe18KpGId7KIppJZadnYKqXUH9iyq3VOgi4MAfGrB2yXWAROHQmyRLIyK+NRJSib2JKMDK5WyJyuMRvbKKSDzYi4fr7Xc/fqXdmOkciRIQUusZZdYK3U6SDAEzdQFtRtS6yQtmoKd3aRkYp3zWkmQdnlEXaXWSbT02CWWEnorcAp7dwVJzcq3rVn16hq/ddehmD0pjd5Kk7REvJYIkGW9lOlGylSTUl5wkx5rDMWIebZowC460Ekd6GKf10qBVKxDbm32RqcfLunGgqa7f9jOSR3yCReGoBMKgawwssFU3A24EVPlPXm/mYphKWW6Tzf6rOjkWz7e5JRRzJuMsH+Kg9zju4Axdt5soHUvXSlvUrHHnu7w2axnd5BaIBlN5UgQtVJLj53d4e2S89rDIEuBVOyz46SWISQTe4+RlLpYik5W4Jp1q7jfMDLd5aNvVt2vb9hXNxXi3RW64t1JHexMv2paFS7wfNuf3o/hV5dO6pA6HR7o/d/dDzop5bRYAc83+9U0q13i22oqYO/MwV7LFiLmFUZT2J/c6LfPDMGezgb76hrczL0gnQTN+figrJO07oBOBQUMd5BMrEVLHci2GOsAxexJJEk6GQK4EZ3u8OmRJ0vx7h9/H2KfG5+953QjZeVJJ6XWjWBi/+g+7viRMUuArIAvBrYD3a91MNVmRRfBVDybMqb7nwK/V3y5WcXn2wXwj4xeFuTqpIO0eBvs62YXU0d8OZCDMBG/dWYKly6ybi9X0OlsKAPyMd2tO3zOk7MbvRYdUI5Omj//u/9PBd8BNAKPUMsiuiUAAAAASUVORK5CYII="
+},
+
+  2: {
+  title: "Dirty Soda Day",
+  description: "Celebrate Dirty Soda Day with Cherry Vanilla Coke, served alongside Pretzel Bites with Nacho Cheese and Saltine Toffee. Today's activity is Mini Crossword.",
+
+  game: {
+    type: "Mini Crossword",
+    clue: "Christmas Crossword Puzzle",
+
+    crossword: {
+      size: 14,
+
+      grid: [
+        // Row 0: 1 Across RUDOLPH; 2 Down starts at D
+        [
+          null, null, null, null, null, null,
+          "R", "U", "D", "O", "L", "P", "H", null
+        ],
+
+        // Row 1
+        [
+          null, null, null, null, null, null,
+          null, null, "E", null, null, null, null, null
+        ],
+
+        // Row 2: 3 Across ELVES; 4 Down starts at S
+        [
+          "E", "L", "V", "E", "S", null,
+          null, null, "C", null, null, null, null, null
+        ],
+
+        // Row 3
+        [
+          null, null, null, null, "C", null,
+          null, null, "E", null, null, null, null, null
+        ],
+
+        // Row 4: 5 Across CHRISTMAS; 6 Down starts at S
+        [
+          null, null,
+          "C", "H", "R", "I", "S", "T", "M", "A", "S",
+          null, null, null
+        ],
+
+        // Row 5
+        [
+          null, null, null, null, "O", null,
+          "T", null, "B", null, null, null, null, null
+        ],
+
+        // Row 6: 7 Across EGGNOG; 8 Down starts at G
+        [
+          null, null, null, null, "O", null,
+          "O", null,
+          "E", "G", "G", "N", "O", "G"
+        ],
+
+        // Row 7
+        [
+          null, null, null, null, "G", null,
+          "C", null, "R", null, null, null, null, "I"
+        ],
+
+        // Row 8
+        [
+          null, null, null, null, "E", null,
+          "K", null, null, null, null, null, null, "F"
+        ],
+
+        // Row 9
+        [
+          null, null, null, null, null, null,
+          "I", null, null, null, null, null, null, "T"
+        ],
+
+        // Row 10: 9 Down JOY starts
+        [
+          null, null, null, null, null, null,
+          "N", null, "J", null, null, null, null, "S"
+        ],
+
+        // Row 11
+        [
+          null, null, null, null, null, null,
+          "G", null, "O", null, null, null, null, null
+        ],
+
+        // Row 12: 10 Across FROSTY
+        [
+          null, null, null,
+          "F", "R", "O", "S", "T", "Y",
+          null, null, null, null, null
+        ],
+
+        // Row 13: padding row to complete the 14 × 14 grid
+        [
+          null, null, null, null, null, null, null,
+          null, null, null, null, null, null, null
+        ]
+      ],
+
+      across: [
+        {
+          number: 1,
+          row: 0,
+          col: 6,
+          answer: "RUDOLPH",
+          clue: "One of Santa's reindeer"
+        },
+        {
+          number: 3,
+          row: 2,
+          col: 0,
+          answer: "ELVES",
+          clue: "Santa's helpers"
+        },
+        {
+          number: 5,
+          row: 4,
+          col: 2,
+          answer: "CHRISTMAS",
+          clue: "December 25th is"
+        },
+        {
+          number: 7,
+          row: 6,
+          col: 8,
+          answer: "EGGNOG",
+          clue: "Christmas drink"
+        },
+        {
+          number: 10,
+          row: 12,
+          col: 3,
+          answer: "FROSTY",
+          clue: "The name of a popular snowman"
+        }
+      ],
+
+      down: [
+        {
+          number: 2,
+          row: 0,
+          col: 8,
+          answer: "DECEMBER",
+          clue: "Christmas month"
+        },
+        {
+          number: 4,
+          row: 2,
+          col: 4,
+          answer: "SCROOGE",
+          clue: "He hates Christmas!"
+        },
+        {
+          number: 6,
+          row: 4,
+          col: 6,
+          answer: "STOCKINGS",
+          clue: "You hang them by the chimney"
+        },
+        {
+          number: 8,
+          row: 6,
+          col: 13,
+          answer: "GIFTS",
+          clue: "On Christmas morning we unwrap our"
+        },
+        {
+          number: 9,
+          row: 10,
+          col: 8,
+          answer: "JOY",
+          clue: "___ to the world!"
+        }
+      ]
+    }
+  },
+
+  media: "Parks and Recreation: “Christmas Scandal” (Season 2, Episode 12)",
+  watchLink: "https://www.peacocktv.com/watch-online/tv/parks-and-recreation/5883799404534408112/seasons/2/episodes/christmas-scandal-episode-12/9f0a2b3d-9ed2-337f-ae24-b529ace9bd32",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAScAAAEnAQAAAADDIbjsAAAEWUlEQVR4nO2aPY7kNhCFP44a4DiqBXwAduZbSOOj+AgODWgsjbWAQx/BR1lpfQpn7AMYoDI2oOVzQM2E/kuWgFdJN1oVPLBf1XtVRSf+/tHDPwiCL1H/pyhUAIYE9BD8lgCnI6jYolxDGkZvUh7SGLw0kwctegMe8iDFdtE/AC8OBb9lIPBxn7k/7XdnhRHkLp8N1z+P2p+vjx+Zov8Q7ldb5IWT3z47rr9+Luenff/r7490h+v3C/nR/nBeD914/1y4/hXvewj0QMYUtdqijC1qn/e7c4/YsmVsifS85/4j3OjhxubcteWzlyQVk7Qynme/JaCn0/m2VfQP6N2Lc9+m97dHACu7u7ofbVF2abzdXdM1h/PYbYl+0yJfGIO2BL5U8eoa5j0qTBGXuqiVSV6SGNKkDGPIvS1NM8elT1cVex7o7XLbn/b55lfAr+aj/2m/X1tmjlInBkn0dqBNM5IUGXQEBs1N+xxpiVKCPGiGIU3yqx0hD6mLfrWW6z1SmpR7Omm1I/hiR7VqftMBg+bQNHotUStd1ApBmxR9YVLGJLVec6Qj4LREekZUbIkMaYQhjWi1o23eJ9AK4NIIgxQzjGjTHLJrPGuLHVDhJvBKnVQYyU41dRuu9zVrvbSIN3vpa78lyZfG1Urhctsf+MFJtwuP7Pcrv92enf20P7v9ab+7ltWqmKIvNkNPF7VpURWq3ubgW8/aYjU5w1vCBm1aolY7YEhj0/W+mKKXDvymRdXVF0ZUf0tj02cvzYDNASBoBfyWOvkV6ouW0Rc76kiq0qevhefAF1Os/0Kz6GvU/YkxPEK3Ae9x083H/WG/cH+yRW3XnAMVm/GbpNybYh7SFH2hiypMDdd7pDQCEHxFCvjVFr29aJg5qKqpzQGnmWrt+zMXgtameY8KY8jQxTykSQw6AM6+lr5x5hQm+ZVOAKH24kMiZOwAWtdaOuXeFuWeEb9Jkd4OvNIUcVqa7k6KSdqkmF3q5E9zPOOVCMDUNnqmWHcnTge4c54T6RmDb12tXAKtJiHnpQ/OXf1LuAStNnN/Mt+0WkkHuNSdAxyXpliXV0MaQ257nvOA3v0s/yk8X/PmZvQhuOt9CIv0Ei6gd13bZ5/O6QdD6mLuAV+YYh1hbqltrZUUfbEjqBZ9m/GrSdnpoPHdCSp0kUGLcKomoU7AcWlS4w65VkytTBHsOH2OS2OoQlCscbVihN4kXII6SFYi+NUW4Zqf53TSylkxVej0qr+1U28bvY5a1v1ap2qAkyJD6iLY0XRfe+4M325UWHVpryah+azlvCNCHQIu0a90MTvN5N7aZk7dlb8uzLXa6TYZ0tm7tI1+Jp9Xc16nODUNGAFa3j5c3r7d8lflfs2kX74LH/cZevPxm7x//Vlw/cuzr4b+1d9LAjtCBhpmzgMwCSc3+EWXkHterv7FOZfhPVbp0yr6s+b0NtcdVe7poqRFfkuTfBWvVtG7L/cxv0T9p6g/AbnIu96tB0nMAAAAAElFTkSuQmCC",
+
+  playlist: "Dirty Soda Day",
+  playlistUrl: "https://open.spotify.com/playlist/1c9ccLvMo6ATpSQkjIf1PO?si=bShwUZJZQR-PK91jVkK0dA",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACa0lEQVR4nO1YMXLbMBDcMzUDdecfQB8JKP+LjmBDM3lWyOQj4A+ADpyBsSlod1E6Cyl8Jba4G+Budw9C3Ao+3ISAL+yeGEVEzsC6jY9vJ/zCFZuIyP1rAZuSxWGgabgQDkMsIxnZetTiUZyGWKDVAhpYHIYOtXxg+Xk8ynpYzZzreod8/8AkAQVabT7jeod8f4+9X8Z0YQEuNCTZqV8egCxypD2scHpY8/h4XbGInHrcC0myYYgkQyQZ+H7WgV8ege2sHqBUKyKbyDn3uZemIZoZE0xTb0lWW6De9uEXxuKU0cwaomnqYZpW9KiFCZYzhn2EOGuFabj04V1MKPjg3X3EhaHPTOvBmoa3k7Z8WPF7fRadc/28fLeDZEUBhlgkDdGQHpwxdeqXIZL0MAsruLACkoYO/AKSjMXhEiFkhCQATn3POYJlU28xpslySVMXfiEDizDQNPXWLAkWY+rhX0CmCWZJAGclSXoU14tf1Nvd0jkAxWGIcBo69W61u2uRNNki9HvndNFp8djOeDkB+LGYlivkIXPpotMYaJoGsum7HnFGnzlquESMrBZOA4uknWm6eCkAMK/ZRC7rdjJNDzDzJ+e7EWxKQtJkAQ3RMMFCUh89alph2m6jKrgwRDj00aOm3kLosc+0AwBonx32fQ+YLJt6YLdR2mkPEBF5SkPE79XD/HwEtjOwdtlhlSxQkSM0xPyUADPj7dRnn34RIFcU5G08Ij+f5AFX2++fSEOU72qimTEQY+r0RntcLV+zB77ZunL+/Hw3sAuBXCHPtiKf8TJuozD20UYATqvdZbFpiJ32I/n63/3vsT9YSeAowLDFCgAAAABJRU5ErkJggg=="
+},
+
+  3: {
+  title: "Spicy Ramen Night",
+  description: "Celebrate Spicy Ramen Night with Ramune, served alongside Spicy Ramen and Pocky Sticks. Today's activity is Trivia.",
+
+  game: {
+    type: "Trivia Chain",
+
+    questions: [
+      {
+        question: "In the 1966 animated special How the Grinch Stole Christmas!, which actor both narrated the story and voiced the Grinch?",
+        hints: ["He was an English actor known for classic horror films.", "He voiced both the narrator and the Grinch.", "His first name is Boris."],
+        answer: "KARLOFF"
+      },
+      {
+        question: "Which animated snowman comes to life after children place a magical hat on his head?",
+        hints: ["His story began as a 1950 song.", "He carries a corncob pipe and a button nose.", "His name begins with F."],
+        answer: "FROSTY THE SNOWMAN"
+      },
+      {
+        question: "Which 1989 holiday comedy follows the Griswold family as Clark tries to create an extravagant home Christmas?",
+        hints: ["The family’s outdoor lights initially fail to turn on.", "Clark expects a Christmas bonus to pay for a swimming pool.", "Its title begins with National Lampoon’s."],
+        answer: "NATIONAL LAMPOONS CHRISTMAS VACATION"
+      }
+    ]
+  },
+
+  media: "The Office: “Christmas Party” (Season 2, Episode 10)",
+  watchLink: "https://www.peacocktv.com/watch-online/tv/the-office/4902514835143843112/seasons/2/episodes/christmas-party-episode-10/50d8218a-46f0-30c9-88d9-1cf11222b1ad",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAETAQAAAAA90t8VAAAEA0lEQVR4nO2aQY7bOBBFH8UG6B11A/oikdwHmYMEUMdy3MBsBpgjRcpJqBtQq6EAWX8WciOrIJ5NNzFIbWxAtXggvli/qmTEr2KqfpkCv3P+jzkyxpjW9ByY++kwGmMOqi8G1RdjTF0iM17KRi/H5cQr87MU52qWlgorbe/P81DOxcDcg8IaDg23Iya94gaYzOkDeB7MUXBRXwFdzFWHT2ExB5M+juehnPnlaE5cjDlxMZipD7n5SJ5f5ZwFnMfcALnVVfrq3bicIGj4AJ4HcmZjDvgnABtRzbS81IDqmzHV+/P8OiRJ2rxibvxVtOrRqBW3+f1ZLI9584oZrJwSADZqTFZuA9zmy2OuYH7Cj1qnpYKQ8X1AoZ9mK8XZphK1sXGOtOkcadUHjQly4/uQGy/ltkhtSH1wG5CNFN2oPtAAGpNVbgrUBlIiZCNJA11wA4T9webXgCn0nK9Rg7/GDB0aE2BSB62uymUyb1hl6HBj6naBYBIht8nGQvW8YaOUILdSdNI1OqWObJKNbiyQucJoaZeTl4BLC2965lPomb+8O88Doc2vQYNfgwb2C4/c+B43JijynPd3kMYrZvwa9HbXhdwmAmXqWbrudfoHuJPWsIu6ROYKmXVantWTmZ8CDX+OjOZpymMNB9Ul6ll7xbbKJtmYGzpoUxcwycoNhdZBG9mNv+/JADR03PuUApkrVHdo43bUht2NkrumV/zgFXPz7jwPhKSV3PgVGr+G3Pg+ADa6wd8vlAKZU7cbf417se5xg1/JjVextdsrAuAGv4YMBDd4KcPdn5bIvKIxdUFKNmb2Kt6R4SxXZj/4VgdFmzrc4O8tgDbfU+hdt/l+H2O4UT25TaBh9xu2zN6qwkzrtHzx18inusMNnHUwyQq4HT+A54GQpOgG35PbdN7/uQ2ClM4q0tdVwO24PCc4qL61NNi4nLBxaevbMZfpNzZs1OYlN2olt+qD2/y6t1pFzmTQBuQ2dYG9GEJwm+8DDR1F+g2kZPcxQW78VRqwMTdYUWwP+4RqiwEmN1TrdGzT3/h/Kib3rbLBtO/M87ie3W7pEkHSuvvn3FBu3526sFR8Prqvvp/g3ndPB5M+HynUi95PN/zwdRpgr4iFetGNvUSLVn3Y3Vzje95WFSUy73N+7D6b28Eb34eMVyxyzn/fw54A/808hazaxoOZVmh4ZTm9O89DOfc9rJm/cDMHk25Hd6mZgA7Gujzm3SbnhrMwCfbNygb3DrzEPuVp/zG6GX2H4DT/dZyf9foH7QB8f2ee/5hjXkLPAWz038zSHuBy/Eien4c2L+U2neUGL2nzfaBN56gNqyK1Ue17WIUn5vP0cty/MLjHzRTpn83v75F+5/wk/gVYdevQBzeZPAAAAABJRU5ErkJggg==",
+
+  playlist: "Spicy Ramen Night",
+  playlistUrl: "https://open.spotify.com/playlist/000vF3PwJZxZYZgOXNyWyG?si=iDLagDBnQqefZiXfLUGc-g",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACaUlEQVR4nO2YQY7cOgxEH1sDaHbqG8gnsbvv5cDOdwP/WLHxLyLfQN6pAbfrLzxZTnYZZREuXQsSZKnIsonPQpdPIfiLfR2GDoAuDwnLTlgmlhOoUGeQiuIbRfFbUwjjSielKn0JI6XLLpU27FFz2CktLlXpCwDhWwfA854f8Qvy/QKTaYFtXMMP278g36fYICxDmHnE7QZg2uvUspm9K76x3cK00Aa/sJg1Nbj7M5JmevwM8fzw5dxFR5hS6TSl0p0FOekIe6xRizTJL7mPWrJLgEteucabRgfEYhrx0pRKGyR/hLGC7qIj7GgOSlpyH/3MkAqVZnTyJQ8qXSb6gz7S5Rr7CCn3USdBcMkfQR8srsKXPtJpREeQSifJL6rEF5wkTckv2YkWJ9qw15mRlGjDGP0RJD8zCBjqaB3gJQnoKQSpdLX0JYyxnNdcmCRpUjHVmNEFy+BfccQf27N5l41reF2Jde46pdJl8MupL4Posqu1GyVlouaf+oLlGty9AK/GujgtNuQ+bvf8QHMwq3K/5B5/ylwmcj6hKvpyQVeXnjceoGu/+h/x2dhtm1TjxjRZ55fM+v5fdgm2ES35e4UZXdC1X5+XbUdHeGO7Zye7/MZ8vwgpO/kD0HE6gj5KlbRO8dlslzAlu+eX+deV1cx8quYDjiDRZZdo+bgjqvTFzOy+jmvRFTSHnecN1ipeLUgFHhF4NXbbRvyMS3U87HdDV1aA6P8JU7ILr6aatzeNvEO/lpZXo5l/q2gdALoSi+VTgSNteFbZRx8X95QKDAlwSXMtfwTQ0uPnoORnwNfROvv7f/ePx/4Hy2rWjVzY/SgAAAAASUVORK5CYII="
+},
+
+  4: {
+  title: "Tropical Day",
+  description: "Celebrate Tropical Day with Maracuja, served alongside Coconut, Banana, and Cashew Trail Mix with a Santa Boot Lollipop. Today's activity is Strands.",
+
+  game: {
+    type: "Strands",
+
+    strands: {
+      theme: "Cozy Winter Comforts",
+
+      spangram: "WINTERHYGGE",
+
+      words: [
+        "CANDLE",
+        "COCOA",
+        "BLANKET",
+        "FIREPLACE",
+        "KNITS",
+        "SNOWY"
+      ],
+
+      hint:
+        "These words are associated with staying warm and comfortable during winter."
+    }
+  },
+
+  media: "Friends: Christmas-Themed Episodes",
+  watchLink: "https://www.kevindarty.com/streaming/holidays/christmas/friends-christmas-episodes.html",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAADrAQAAAACgcVx4AAAC+0lEQVR4nO1ZS47bOhCsNgXQu9YN6JNInmMNIEfy0wA51kh4FyFvQO0oQMPKQk52z1nFFB7SS9WiCs3+VNtCPIlweoYCf+EDwhQRuS4iq8hN5LQMAXN9F5G6tDQomaAD7ATjbca9XftoyPwC7t/BdwFlA9r44da27r39rBHkegBpAABDOekqdlK5rG/xpdzPYb1dEvCB9YR+tvf6ANLArGRqdHDMMN6Sg7PkSGalL5y1ReQMmHm96oClrc28tPWXyOkF3E+DJMmsw54/QAdw0v1z4ayxvou8BXpguV1Ss4w8A3eR65/n/g0sYXP201UQwyrg34iQsAxIrEs/aIbxSbg5SDRMjW6w+QgPCmbdwAm9h3ADWo7khN7b8tJIejTogDZ2SA2Mh5BEW1xaVtKS9HZS0jJ2LjUPoHTWYucguyDjOekGSOxwgKwxGm8Z4ZKQhHBwnHTAAWotoyckAgB6cgIAiZ2DFB+5wpvYz9rQzhSBcPSgqwK/6tIjl/V3Lm8RSKwN1294by0DvbzF8iO3J7NuSLLP2cEBSn+UDm2UhHAkhCRnbi415U2RVoFzkIudllXshI+wtlIF+88LuJ8GM4xHoyMT0JOMgM0w/hBzrXN2UvrU6OZsVvqfHq68tJ5o0PsE9EyAoZ25uVQ6aydAK3BmBbSUy1m4BWCpgt7r0rVGbi41MEyPkTE4m3U8gl9j7Jxl7Gn5GB77jrdz8Qdl/X1eriqXhGW9JCyVO0s0XL/9ee7nsfu1mQOSROOZdQPaCNipeIdmHT1kd0adQxt7ktGUr7UTgK/Wftbvl0Q3BNBVAawRzi/hfhbMOiA1gEOD/TagnQCg9A79eb0DjhmAnaPxqVF6oLi0DABt7JzN6L3NABJ09MVd7q9fikZyjsbvbTApj3CHPmrNeJt3QcN+7B3Brz3CAbhf1tPC2Y6xc2eJpW+DPXQL63Uh0eitPQMfIb2M+79ir7WWpJ3Q02YdHLOOvvgOfXRog97v26qBIYQbivs1+fsf1f8L/gFVS0xttPiW8gAAAABJRU5ErkJggg==",
+  playlist: "Tropical Day",
+  playlistUrl: "https://open.spotify.com/playlist/1U418hijKyurciIjlrfTVf?si=u84i7OIjQG6R7sw8ChnyZQ",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACeklEQVR4nO2YPa7cNhSFP4oCqI7aAWcHWYEle1kBZI+cGSBrSpon+W1EswOyowCOTooZu3tIGj+mMBsCPMW9uH/n8Brx1lHzJgS/sPfD0AEw+JlsNIc86qL8ACr46aVM0uaXVG4dTDdGaasSFz+TB6x0+BLcgd3ygN3ePy7t4zK60v2VWtw3pp9p7z9g6u+n/VOcSF/exd6b2FmYaFcd3ql71QxGpY4vyZhOPexjzy1/6K+wGnOqUbuPEyfy4EuQ4vn59O61iw5fAAiMccItvgR3+LnCfEEHdnOHL4+BJ6kEt0Co4YsiMEDIYOVWFXR4VZgvSNHKKZ6VBybyqBK0UIMDkDTDAGSYgg4vZaMacWmQkdxFEmA3XuNX4+/m81iNp00kaNUMYyTkgVo5ktzxo5NXFbTGOr4cfibjS8ijJJ4FPFfo6RaS1K2/XVafUw+vscf/jd0q1UvIA+ctD0zBrREw8Vxpvpw3t0a7afHatMaJXMeXB5bG/vexG5I58SG0oVNPqKMxy5Os1ziFbDQHHb5G7aLDXzbgLK2SslEJ9XKUCjp8e9s/mxZ376/4l/5aIUcNRmY0TdpPHb6w22jX9En7qRYHaJU2J0kZJhh8DV3XAHbbv3A/pYa76Ua1YOLdVNHevuD/SHPw9/4a9NITIDnV+h+lj3DbbbTr/jGVG2tfIy7P0XIwhQdFK9pN9bQ3MPiCWwAt2C0PVfRu89wz8Oe2n1UCJoJbqMEBDfDVAPdTBrt2CvvJND/V3r9hqQS3cD9hbhcx1uppAKOW7ltyGwrtzb30lbSUl/IYCY8/yaqZStq7+b5nmGBUe0O93brXWCMu5td+93+P/QM/wsQyMY7KmAAAAABJRU5ErkJggg=="
+},
+
+  5: {
+  title: "Nutcracker Day",
+  description: "Celebrate Nutcracker Day with Vanilla Caramel Latte, served alongside Gingerbread Trail Mix and White Chocolate Nut Clusters. Today's activity is Song Scramble.",
+
+  game: {
+    type: "Song Scramble",
+
+    clue:
+      "Unscramble the title of a holiday song first recorded in 1958.",
+
+    scramble:
+      "NTRTACUTHMREOEADSHERNOSIRCKI",
+
+    note:
+      "Answer pattern: 6 letters / 6 letters / 3 letters / 9 letters / 4 letters",
+
+    answer:
+      "ROCKIN' AROUND THE CHRISTMAS TREE"
+  },
+
+  media: "Klaus",
+  watchLink: "https://www.netflix.com/title/80183187",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQAAAACj6bPYAAABl0lEQVR4nO1XMW7jMBCcNQ1QHf0D+iXSx2hLgQLct+TLR9Y/WHU0oHBSOLnmHCCFySpbCNAUQ81yxB0K8aC4e4QCv/CPYbAAQA+nGAzId6zylwQyI2zIPDhiILW++BeB2GsMS5iuoOyfyf09TJmAv+tpqMD9DSyWkIVbDe7/iiWQeTDg80FqXft8OTbMmvswawPHgiTJggRe7N9r7cZOEUKqpyHmwVIDlbP6ghQ9uQEItfdyByBhddwDWL0CeBkaHHjRX7hFlkDlUl0lWDAqxJzmHimS5hrYZyYXjJqFG7Jwqn6si70fb+dwGkIBYsfDE7kfF8kJXOA0C0kuYYv1G0vNwllzH6boC1L1JWmjeprTjDCrvxiaqEQfZoWQygvn6o4lp+hpiBhsVLLFkjZqFkvAYE4B1P8v76MjbCDNKQvqD6/PhJfifUT31R37lfCAa8dI9Quctkl4nCKXdYLsQsOE170Z4Mu6XRuF+D+a+7BHfmMLlSMhPB07HhKA9VZ5RO+AVaSjbNfV2fvxdn4q96OS3/tlHfgDkwgwKuBFMnAAAAAASUVORK5CYII=",
+  playlist: "Nutcracker Day",
+  playlistUrl: "https://open.spotify.com/playlist/6V2kpzUCcGbixc3VvyFyCY?si=DVbLL016TraqYm6EHUhNRA",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACUElEQVR4nO2YQW7dOBBEX1sB5B0dzAH4TyL6WgN8DzWQ75F7ZBMJvkjrBEOvhh+gVVkoXnprZhHtpFqwoGZXdbWJjx7dfQjBH+zzMHQATAxerRAhzNQT6MAlSDWVQVi5RpLkNUneh8tMTZpjnRh83LR4nRj6cZlCY1yDpK1AJy7v2OscSfu831Jsn3HeR1gW8Ezdol3u0z4KU+vD5dXsnrBst38YvCrOO5vZpUdPS5IOBo1byQ5hfv/Wpae9EhpMoVFNiwO5Ux81xuP8Gy1WuDIeocUeXKTFK0HSpkXYqTS5Q43ukLU4Hvx7sWQ3A7Lzoj539wgNkuSSWmQKDUxzNz8aNzWYzkLNjEeXGiGpQSqDVyuDj2uYIzB04jKjNSyurRCZwuLna6caAdlHlWvESnZS6TG/3GHledcavkQUxw1FS1Vxjp/fR1+Atwv231/X10dg/D69fQv/fx28hzfKGvoRG2HbG7f08LzzUt4uXbyxZJEKscIgCA2sdOqjQtQaWmQin3Od1tBt3o1Adq1kr4QZrZ305Tgn7hkmskiSoJe+kJ0pzIyb5Excz7jUhwto5Rpr0iKpZB+PsHTzAAhyTHKsELvdF0nSpgaQNa5BfnpUl1nq6XJ7fF2cCfbbI2D20EN332f+IFUYVK1k1xE65QCAKSwOYRFWBq9TLy5BqumMANnHI7RTczpme7l0ypwcemZ725+SJXu6kMozmG6XPjlgpqYyuNZfInMaQce9FPEM1TqdiQ658deeQQ9X7uFvu6UHIi+F/fNrZH/2u7899hP7v/NW9Lv+2AAAAABJRU5ErkJggg=="
+},
+
+  6: {
+  title: "Charcuterie Night",
+  description: "Celebrate Charcuterie Night with Sparkling Juice, served alongside a Charcuterie Board and Dark Chocolate Nut Clusters. Today's activity is Connections.",
+
+  game: {
+    type: "Connections",
+
+    instructions:
+      "Select four words that share a hidden connection.",
+
+    connections: {
+      groups: [
+        {
+          category: "Santa's Original Reindeer",
+          color: "yellow",
+          words: [
+            "COMET",
+            "CUPID",
+            "DASHER",
+            "VIXEN"
+          ]
+        },
+
+        {
+          category: "Can Come Before 'Bell'",
+          color: "green",
+          words: [
+            "DOOR",
+            "JINGLE",
+            "SILVER",
+            "SLEIGH"
+          ]
+        },
+
+        {
+          category: "Holiday Baking Spices",
+          color: "blue",
+          words: [
+            "CINNAMON",
+            "CLOVE",
+            "GINGER",
+            "NUTMEG"
+          ]
+        },
+
+        {
+          category: "Can Follow 'Ice'",
+          color: "purple",
+          words: [
+            "CUBE",
+            "PACK",
+            "SHEET",
+            "STORM"
+          ]
+        }
+      ]
+    }
+  },
+
+  media: "National Lampoon’s Christmas Vacation",
+  watchLink: "https://www.hbomax.com/movie/16f0162f-b7d8-4ff6-ac08-f291425f7cab",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACW0lEQVR4nO2YQY7UMBBFnyeRPDvPDdwS94iHYyFllCAjseQQHISOOAU79w2cnVtK57NIww5YMcWCbBLlL1wq1//1q5z41aOHX0LwH3s9DO0ASbk0Qi5toFM7AIM4g9RYr6ewc0s4vZxIUrHJ2XuHnj4Wvtbx8qgnLsj1f/G8P2K3dH1eexrrHF/jvN9hU/Ff4hb5Ki1GsaA9SG0A/B6yWqojLUnFpHZX5x4JuazPcEHRFxbnThZ5kSTtYb5/SSr3fxZ3NEOSipdyAabSoDOJRRX8HrbYCJKXsry0RZu85NKSskh1Ko2wQao2uuvq7eTP3E4o9jEs9UP052Chu0iaadCpDXSlAYfWmXCarvhFL+7R1XcpLMqLXyTZ9OmutCRJS53kpTnqzGiQFyTloj3obvCcshrBQnfRHjYgzBGC5M9AI8xGedmi3xnBKZc2MElm+vIzDCD6I03Y8Ui3JwiL5sv1AaJXnYqFf3Fy6fq8Xk+wbrENay7XFPto1af9oo02hBmdg4pXHY3qZSptCFlweCmiPzOZcFq1k3bGo2wlbRHCZsPpOsaWtMXmfvgXhjAb3RHR7yGXQ+uW2kmLma/bIq52aqlOhVSJuGqlL6Cddw7FPqKocsiwyUwyR9zRCLpyjNfQ2fDomANyOei8aEM7k029ABw8qlPxql1pQ8hGnkFqA0cYwikX7SZad98zEHpY4ob/4l5O7iFY9KOf2Aju0l/Wt9poA1xeP5b+/l5fPqN4ffNtWD8Vv3DrZbVnSJXYnDYg5MJg5XcBBiZpqePRErRjobvu/373n8e+A1I945LUvfKoAAAAAElFTkSuQmCC",
+
+qr:
+"qrcodes/netflix-klaus.png",
+  playlist: "Charcuterie Night",
+  playlistUrl: "https://open.spotify.com/playlist/606ucujvpjWaSzX5onV1M8?si=_KrIZFtDQUKYu-z5ssnslA",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACaElEQVR4nO2YQY7cNhBFH1sNcLKiblB9kUh9ER8kgAzJVu410pyEugG14wBs/Sw0djZxsnIzC9dCAvgX9UF+VtWnEz8KXX4IwS/seRg6ALowAUHKTrPyCVTgEqTc0UStaTC6oJh7KdbhMpE7IBMKXqmJJ7Wnc/nAnCYLy+4jaocn5PvHuJ4/OeDOHzfuPzfff2GjcCpolZdmTeBUKnD5fo/mmP/+nMDzuXzEHDOhmJTGj5Uq96gAjJE+DfhVxfwRpgr7coF9wisBsokMkN/2yWroRQnL0MgvQdEvoaBVc51aRyOtCcsdWO5VTAu1tFvIMKBVs7QEKbs0Vqm7ajG/0MT3vh3ApS8uPNrHrYpeVAzA/ALQJ8wfVDqjNJgOmu+yLWhNTZX6Is36aNGS6EIh95qsTp9+OL/sV/b77pyftyu80cRaM5+7hwnUYqiFl99btjpcBvzCYOFrmMgwKrNX6tOhGE4TOmiiljALwlynN9JEf4RZWtNg2SVMRxUuFwiT7XcezvU2xxcYeG+2UkEv5xlJaYz0qZGOMJ1Vr9r80oVimaDo1zSKXqUSlwkpDZyuSAnzS6g01wEQ5ujXNECvyc5RvIp25+iPvbB/Ni+9tk2k273q1LrH7f0erha+Mmzv971srPbZ1ZkZJB1g2aXh9LCV6ss3f8QAThOZ0yTV8PaX86UDIMNguK3gF6jgAy7AFwfhauHVzWt4NXdzFx4V9PIN26ct93I9/SbRp5+d718wl8b48rYrstp186/Oxzr9SMp9auSVRukIc6SjRj+6wu6ga4cbsrTZG5B/05+fnr8v7tf77v8e+wvj9sKtBUzjmgAAAABJRU5ErkJggg=="
+},
+
+  7: {
+  title: "St. Nicolas Day",
+  description: "Celebrate St. Nicolas Day with Mulled Juice, served alongside St. Nicolas treats. Today's activity is Trivia.",
+
+  game: {
+    type: "Trivia Chain",
+
+    questions: [
+      {
+        question: "In Home Alone, Kevin uses audio from a fictional black-and-white gangster movie to intimidate the burglars. What is that fake movie called?",
+        hints: ["It contains the line 'Keep the change, ya filthy animal.'", "The film was created specifically for Home Alone.", "Its title begins with Angels."],
+        answer: "ANGELS WITH FILTHY SOULS"
+      },
+      {
+        question: "Which holiday figure is one of the four characters portrayed by Tom Hanks in the 2004 film The Polar Express?",
+        hints: ["This character appears near the end of the journey.", "He gives the first gift of Christmas.", "His initials are S.C."],
+        answer: "SANTA CLAUS"
+      },
+      {
+        question: "In National Lampoon's Christmas Vacation, what major purchase does Clark Griswold plan to make with his anticipated Christmas bonus?",
+        hints: ["He has already put down a deposit.", "The surprise is intended for the backyard.", "It is something you swim in."],
+        answer: "SWIMMING POOL"
+      }
+    ]
+  },
+
+  media: "Elf",
+  watchLink: "https://www.hbomax.com/movie/2d36a447-3586-40ab-a584-8309ef05dd38",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACcklEQVR4nO2YQY4UOxBEn7tacrPKljiA5yJ0zb/Jv8aXWrShRppjTRWcA8l1Alw7t2Qq/qJGwIKBVWMW5MpSLNKKTGeE04mXQrsXIfiL/T4MrQAnGxK9YuBkkbIBDe5pUnH5vzu9p5twsxK9lJrwYpHSS6n0GfykGMqJLjXhBUAuBnsKNRSWON8+3w9j//U0X7uV5Nznm+b7VY2kcgKKU4StWlKbGi3OHbAh8ebYpaLjA0zO3bXgRZK0AqXPUDA9x2/nBa2mVLCIpBgKFgNwaVAjtFoMmqSk1SpSPuNHq6HJXbikcrJBWumSpBqk3DWpkVTRlDvR54s2DThZbMOLDQmsBoCwnXrFNnq0XHtNmdlP+TJpmuPsn1wNrWYdWKXwzBAaoVHvglcGsBr8akp+bNQvypdUXD6HZ0ps2BS7zV06+RGCtHmpGtRqvkg14DQkTZmAU0WThgbzZYeOD2hdajjoeJ79CFzv+XLXwgu7uc7OBeeWtzzq2h8fdYAutdHpIWmEUJyU/Ait9GjDrv9oSDYum06z3C/7m+Z7EVsq9nT8crfc8zBf7wE/2pDa1KiG0muQl2IoTpXS51Zz9yI/ZcLmX0aLwY/WwtftcNqzvLU6H+AxHVgixc3xZvl+Ets7miRtE1jbr62Nl1phsy4FwK+mBDY08bub57cacLmTptwlrU365dueQX7SILAhlVMr721S6fN5k2i/mpJWGu08eOdQ2M8FmMvHDG5303wvxfPf3mX+xc374KD7VF59fv2p4c7qXc8HQFM+h8PJYgPvvQMuAi6TfzoyHxT2oGML//L9O1rp5FeTimvyP3J/97t/PPY/YCvcPWfAWLgAAAAASUVORK5CYII=",
+  playlist: "St. Nicolas Day",
+  playlistUrl: "https://open.spotify.com/playlist/4iQTTOFLUPKuGAdLlVKIVv?si=r1kW2MTNRFCVjQQRngCBfg",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACZ0lEQVR4nO1YMW7kMAwcxgvInfwD+SOx91sHOLECB8izbpV8RP6B1MmA7LnCKS+5KuEVUTsFCXKGQ1GIjx7vPoSAH+z7MPAAgAGTA+zCIlxYTkAhT0sWoInmljdp77tpxUhGnZo9CYC9z492oQnrBaBcvjDePzBJTWjf1ssKdtM3xPsMY7eP3N3W5+u3xPv742HJMqY5kiRNIGMZyajC3SzS0l2wjd3zmh+6ZyCI9Bo9EpIMaR/NkvbRhLU6Q5I6PaoAbAXGNMEEVmcO6xXmC0gyMqSZ5rALSVYH2OqU+NJvV+x9vssV7Suw8sBL0PGACeaGJpoDDYuwOt6g4QGnpjHYheXsjCWLqGj65C4DGU++BHqYA7NSLt5h5BILMKGMCQ4DdHrENMGENJOBFUVYwZAanblrTcwP3d63yAvbe/HYHu1Dr7RLOXNgpiGXCEkAJDXU4ksZ7MIzqxsAwC463EUTTUhwgK3g7SSwlo5IjGnmqe7DegdAq0dLZEgNDVldEXpHHW+8AwC3PWJCCd1LBLJH+7Zq7N7n3DUH4BjSzDLY6niDxnw5vRGD9SgDZprAhQVWyY/Q0NwAR9K7U0cDZh3uYgLGNEcGeoeRHhBWpZ1hOVcXE1hxJqSj6RPLTZrWguyxjVJXAL9E5R+QJmd2d3HtAMCQJvKwJmrkQhGRa94ki7tgE/HYrpi+LN6nmCULrEc7AA6SJrwbpAZfngTIHuU1M9qblV7usI86c9ejDPZdQoapIUaq+REgCW67Zga8Wr+a390c9e4MrICk9zKZA0o3sizSsns+1ygATcxN0qiL/Nx3/3vsDxul0UnQqwd2AAAAAElFTkSuQmCC"
+},
+
+  8: {
+  title: "Merry Berry Day",
+  description: "Celebrate Merry Berry Day with Merry Berry Sprite, served alongside Holiday Chex Mix and a Christmas Tree Lollipop. Today's activity is Unscramble.",
+
+  game: {
+    type: "Phrase Scramble",
+
+    clue:
+      "Unscramble the Portuguese Christmas greeting.",
+
+    scramble:
+      "EAIFTLZNLA",
+
+    note:
+      "Answer pattern: 5 letters / 5 letters",
+
+    answer:
+      "FELIZ NATAL"
+  },
+
+  media: "How the Grinch Stole Christmas! (1966)",
+  watchLink: "https://www.peacocktv.com/stream-movies/how-the-grinch-stole-christmas-1966",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACf0lEQVR4nO1YO47kRgx9bDVQ7YgDbOKs+iIrYQ+yh9jQQDdUYwWb+A6+h5NReU7hjDrBljIOIOs56J7MAzjZoYOtQALqBSTIx88rId46PLwJAT+w98PAHQB6Ldl7IKfaAL8BAX4q6bKwnqCs6zVPhoG0mJg9CgBkl0XO+iuQQTl+R3tvnePtx9ygf2j5/a+fvn34/PP3s/efsMfzy/WhM531en4Pe/92uCvpPQAXluxDG80H0kK4u4qcoJPh40NXwXwEqsg5Ii4kyV0nS2ydpV2317uQHJkDnbFyMghJAGNIjmS5DmnW6/n0UV7OacajcMffQ0RNM3+ByLffslETUQXAc/uwxdRRQaos8KEBiSzZey05hC9AdmjJrO0C9EpiYAmZR9K6qnVhBR868+dFJD3JlqNq2nvd4NDJAC3ZgS6kpsktJ3LLaVZaIksGdIrxpY3mQxuN840qk0EaYrirW74lauBkLu1WW2G+uLQLIJzowCVzD+HLAbIclzTjq6UneRGtTPXlE6/nmH13NJd2QWK7AFASwhju7rrlNGsBZ53owoI0a8ScPkAasH5aaJBlW+7Xa8z+suNy+/jQOqZdy63rxe0vuiFVllvDw9CC9BGAtAN5vQqrS3s88+lhZIQOkAbIYS04AcAJ65bxp0boI5CcjDtGS2wdMbBkl9bF8AXIDozG2kZDrxviZuOrDoC0jgAu9xkVExegR0cXTpZqG837kF53140Dad4rLe06GXcE8UULvMcFadctJ5IGIGJ/uWPSAJf2ta6H9QiX1tUoTeIDN6TaOnPhRAxhc/p1pQM6QrhlxOij+zsDZcvo8YsA6MyfG5b3z5H8eN/932P/AIah2jRHjFtAAAAAAElFTkSuQmCC",
+  playlist: "Merry Berry Day",
+  playlistUrl: "https://open.spotify.com/playlist/5pG5xzc6k3FCyJcOad9m61?si=0vQgoxAgStGV6hFDRL9iMA",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACcElEQVR4nO2YQY7jOAxFn+IAyqyYGygniWuO1YALdpcDzLXs6XMMIN9A3imAo98Lo3o2U92rlGbR3Nl/QUL85CfpxEemw4cQ/MY+D0MF4GqSL3TBzxrIO1AhFpNym3pllzpopZhbKX5+LAfgqwM7Lied/4r+jRvIHZ/o7xeYzkCrLWTW18vz/f0UW19b/wbLvQ3bZ/j7T9v5cqWXlIA2NarHl9W5E3Zc7m0YY1YYFmbnLjXeRZJUbEMTffSTDe//quQoZkxRk21kbIxAXyVHLt0wLcdw79Mt0C73iwqPtg53R4Ftwc+pEU5DyC71dXJEh5QIGQAnKbcaQo1YlLoANpCvdAFsA6etih4pdahA8HPqpVkDvlThLio2hHy1AVxqYsaGoImmAl8OAIt/WyX/OH9prdDMJ2xY6vS6MWbo464BTmPMLjWVNOB+8bOO3NuwBeBLa49wr9RfpIyNUqGXn2wLfrI6GiBt+AmQUi+uNuAnq9hfnDb8LAlMEZdq1NE+e/tCIz/RSHMCTbZVeJcD0LH+mViAbjkpbLiXtca8u9e0nzVGX2hEK0mTjVX6rhKA7eoc89U2oErfRYUm+mKKkkZpTl1QsbFCLEecvl7yy3r85/5HAQfA30/z92u+aAI0Ab6YJGmos8PShdxqjD826whWYyd5n/npI9Aru9RHlSoacEDOOfdix/3bT9y4vzzR30/s/c7QRE17RW17L652Z9C5A6ctrId1jO7wVH8fmooN7O9SbIw4KeKq1NG/WODbMgR0JnBdpTo3j17AwwEP5+d0IyvU2O0P+51B514nnTvur2c4fUtUmL3d7/vu/x77DkJz10GhVe19AAAAAElFTkSuQmCC"
+},
+
+  9: {
+  title: "Grandma's Fudge Night",
+  description: "Celebrate Grandma's Fudge Night with English Toffee Cappuccino, served alongside Roasted Cashews and Microwave Fudge. Today's activity is Strands.",
+
+  game: {
+    type: "Strands",
+
+    strands: {
+      theme: "A Calm Study Night",
+
+      spangram: "CALMNIGHT",
+
+      words: [
+        "FOCUS",
+        "NOTES",
+        "MUSIC",
+        "BREAK",
+        "SLEEP",
+        "BREATHE",
+        "REST",
+        "TEA"
+      ],
+
+      hint:
+        "These words can help create a calmer evening during finals week."
+    }
+  },
+
+  media: "Holiday Baking Championship",
+  watchLink: "https://www.hulu.com/series/holiday-baking-championship-83160931-c6ef-44ee-99a7-24420a6583f0",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAADrAQAAAACgcVx4AAADBklEQVR4nO1ZO47kNhB91WqAyqg9QTXgc6w4PpIBh+qV2mrAx/A9NllxfALfgDqAASoyBbD1HGjG4WCSHQrGVkToBVWoqlc/CfGGzKe3UOAHfECYIiJPy1XWE26CZ2Cun3ETkaa0abBkgj1rzaYK67V5uOXaVOT2AbrfFG52QGpRkZ4kyTEkxzGgtQwlTTu/Pjrgc/PLH3P7198/zfIhut8J2wHyhG7mGH/3nI5iWk8Ad0BmE9Zr87jUnxsop/KmLSI1gDlRBwCowvKEh8ipsGnYU38DFMIBaO2gfJWiNNgZCkcGuNghAVUw0+u30gHNymm5OgB3WB87AKhCYlM8oLEnWksmiX0wjFBu6JS+vNcAcFqG2XzTM1bRDDyj8vURvAYkoA/Gx57JxYpmsiSkOA0YocYza3JkMJvNSBKB4o0K3NCH5GIfUmsHheNItOhDcYaeAUDrfz5F1AmPAWx+nclP4sz0vXW/o+RmoN3HDyC5WAW06DShcEBPYHMHf1uyAujU3ppOOfI8H8JrY4CLPXeabgDgYhWK1zWQHJSTHdRsqAgX+719civPUJsBiVAz2axms4OazWZNB6hrJM1mx2B8BJLEPrz2+NI0wHKel9OSsX6xY6hbKxe7odPkYnkaDGo2OwZ6koB9GdUOQYMxoLVZ4WKn3FDRMHZavFGdQFkdfcTMb3qe8SeHOT1b4w9R1wYFLGk2VAEtoGjRHyGg274MjCEJs0I4hgRLmtK7wQ7LaVldTRl9omS10zJgdU3pgG54mYz2ecgxaxIOOEB7hx25nqxc4CXP8HIG2mVQw1jca5Zh3/jafezOyglQcwQaZCTHrNxQBfrYKVqgfEBft3c7BsAOyskyJFiWP2K9XCV/njPoY+XXPj4udsIdxscD5Br3jaW1DCQHpJdXaa8BNwEWhgTcnEjTs8YiF3n6CN3vgR8X4+c808f7zAmdFu+h/x1M71onVFy/TI+L+Rob8Lvrfl+u7XdlVITjoHutO0BdA4DW5t2gBHQKiV35+5r8+Ef1/4L/BVeAQVCYxwJVAAAAAElFTkSuQmCC",
+  playlist: "Grandma's Fudge Night",
+  playlistUrl: "https://open.spotify.com/playlist/2yT5C0cHkYqYy8M5sIy4kv?si=762c9875b0b34818&pt=cf00a44efd7204ee0b2c4a413161913e",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD/AQAAAAAWcz1nAAADf0lEQVR4nO2ZsW7lNhBFz0gPoFPR+QK+Ll8Ryf4sA8pKXi2wTb5omzzZP0J124Wqlg+gdVPIu6WTKssgq4oApzi4JGfujEy8+al5ex9+BPyHAtAO0GuCjlH0aYzAGPOxWwmkl3KfWmGJkDs/Bac0hNxLsQ7IBng0FApZYV7c+03LZreA7PTvMfyzgBdzSi/n630i3PSa1u/A8PcBwXor3ChM8MSH78LwRsAo2Fx0S2rj8Y66TcJU6oHczG7w07r14cT1jg9rVjitLGbnOiCRJGn3Ep0vaPdz1MVPXzdqgGzQ7aPZfYL8vM7Rmq2E65haXa2a1412r+iWNARd/CxdfCGbCtr9VEkyP2GrkX/aXbz5lF7On7/wUex8jGZ//h7qULIBr+h3WDObizzxYGZWyLr9GGuB1O0Hrr1de+tvX87bu81JS3rpvdKw1gGJdtrolgS5l5QtjTGbFN2iWu4kUmpF5+dIxxjpfAluh+CWalIQUhqjFhW0JEKGgQxjdDttNZA7Y8ydl3Ln5+h2PytbaoVVpORxJzUF+lcXKToGtKSaTG8BaCWlNmZooy5+CuDnSpRssARSGlaeeOjdDsBW0L5N1aQgvTY1yqYJ8FOgVwF8CXUoeRy3dj/hdga00wqOVS13soHtxPVuK2z3cvF658vqdKymSmo3UgLtfhb9N2cOY9QOlRx3AwxYAytPfsIaP0tKL2drGJdalNz9LKc0cBRwGEWvQj6ErQGywdaybg1wfednOcnM/WFO7jH81tejpKK7+IJbUhvBzzFbGsBUSzI/jjtbGgW+BLekIWCaj3peD2QJuviJ3DHGbGlUxhdyX5Of/FpnpDQE7RDczhi1pLESJU+oIXz+8jNYfzmtN5/E+gsQrnf7aQ3VPJw55l7zMfqTVIKTZrmdWpRESgNaUhvdxU9gKoGOUVX5SUkxmwrZUhudUit38XOUUj3tgxJoUQm6HH63BF18gT7Vo+R+zFVmYV+d5evgvCI/eQzPGCPdK3PIlg5nWU3tlpnZveycn1W43m3T6nd/4nrnq6rdyh1w9Ii7L2R8OTx6LUrCowGj3IU2WrM50SewhgerQ8lvAS/nreHx7HYezjfQ6rVvrAqS1UmFjHfRvd/MeE5U0uM0wCgstbJmm+PNc2LNv962ovMu1gH5+m+x85Iux0BtCFgaY4ahkjxpP/53/58C/gLaaqOKHcRpJQAAAABJRU5ErkJggg=="
+},
+
+  10: {
+    title: "Brazilian Christmas",
+  description: "Celebrate Brazilian Christmas with Guarana, served alongside Spicy Mixed Nuts and a Reindeer Chocolate Lollipop. Today's activity is Strands.",
+    game: {
+    type: "Strands",
+    strands: {
+      theme: "Brazilian Christmas Celebration",
+      spangram: "FESTAS",
+      words: ["SUMMER", "FAMILY", "MUSIC", "BEACH", "LIGHTS", "FEAST"],
+      hint: "These words evoke a warm-weather Christmas celebration in Brazil."
+    }
+  },
+    media: "30 Rock: “Christmas Special” (Season 3, Episode 6)",
+  watchLink: "https://www.peacocktv.com/watch-online/tv/30-rock/6240863759978157112/seasons/3/episodes/christmas-special-episode-6/cb63630b-df92-3cf3-ad94-b63a9fac0238",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAETAQAAAAA90t8VAAAEE0lEQVR4nO2aQW7kNhBFX7UaYO+oG1AXGcmzyZ0GUFtyZGDOlFVanotIN6B2FCDrZ6F2skrslYcIprb9Fw/EV/FXsU28V/PpXQn80vwfNTIze1is4mXpYbQzvCzX6qLyyczKHJnxUoJuutT+PNtXrcaX4Kb1RCHtn8/zIc2ToZIZlh6+lHCxeUM3mO3hJ/B8VOOvFS+8NsnmQUnhzMXiT+T5kOY5pJpiYiyfsRPfKuqfyvNfpd1LqfZbcKO2QKM+aKcQjQZp95pyYz7BYnaB7+NyLb+PSWUxrg++n5PKV7PT5/O8X5J0HKe7n25PsthNeqvszhntvodGw5SaCAkgWWwD9fFDjszSMLkbhYA2AJ2cYnu3t2XJvFNMqfYbkraQmlgoQaFU+2FKZPgNop0W3SimZBqkm99INZ2SacONGZ7zCYuF7JEWZBtrF7/LjzK7fCkJ68On83ygpNjJjdrQ7jfcqOFvq/R5nvPxDSaLbdDuh0mKnTTGYnKSJt0y9PMJlg3/Z1mMsFwra4JV6yPfqjSWT5U9fj7P+6Xd9yFZLCZq36MdAnhN7uYHpVz7cx80xm5KHM1DExYJNOrJ0hvH3Z0aDVPC9yE16v+5z+UyzUg8Ve7J1saPsRjdDVhPPNkFXi39iFn6mTZwjxot1BRyux9ETZenn0/gz+jPssWPOgfw27ye+FZplJn7/fN53q0zwGxAmFg20gVDOrlt/e0FLn+UMTvmoz9r92d48W6k0TCtJ9oZvKb0E3g+oDH1rA8U43ot4aISLk2ECzyzdjE/5iPza6dQskhIjQbpBkdrzjbzb4DfAN+HBIVoYnufWOoM+zNSLOTG2IIdA1Yx6Uah1Egiz8yv2IbURAJN7KQbndyoHvB9cHne3bvXpFF9cIqdqL2m1MQWp9gdgTQ35hMsfbBrCUmhR8Pcc3kBkoI1aSyz7BuAxsO7g5w0HNvQZLHI1s/aSDWQoJjc7nucJLmdNmS5+3rLz7qb+lgT4DdSE7tcZyuVYE1JsIdlw4+6Vpd6cfI3b9Wl/nSej2gsMuvG85y+lMW4XG3D3WjntSm7Kcv8fGjsEXCDrg2mM/yQVenHfK3WPGdYaZiO7006lqMTpi04xUKZ+pllC+vJn1kflmu1FLpWejU3rla+muWZ6xQJ0nF3F3pbNN4Xebne3RRKJolGwwT8kzzId/8saaeTbn4LqVF/RKZUe+WaN2Rm9jU+Vevj4iZUFqP/3W8AzywZv8Oq7MaLxVe7WHytksxN7kaLU8yP+ZitUu23oBudEhCO/FxDrrvcv5mp/cZ9OqGYEr4ny/eUN83iJg3zOfgnO8+p9hte8xb0WubpDemYreq3vWi6d+rhGFsyZAao/SDdjvy8QXN/llCW71b26/9IvzT/Un8BCkAcyy2wi+kAAAAASUVORK5CYII=",
+    playlist: "Brazilian Christmas",
+  playlistUrl: "https://open.spotify.com/playlist/37FEG8LDpt8QaYMHucd2wC?si=Hn1qIifYRDOgXUiD-d6qYA",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACTElEQVR4nO2YQW7jOBBFHy0DzI6+AX2RSOljDeCB1GCAOVabMxehb0DvKoCi3wsrvZqe3aR60VzqL1igXvH/YhA/Wzr8VILf2udpaAOYJEV1sk19bvYQHGpJkk1aAGbZCNgkNZ9aFmyErCo1gopsZHCo5UNLpb293I/ZnsOf50/Y77+1W9z448zfDNWplp2XkUuOW5KitGYnXg5wD+GJFOv9hdfbfTr9VakhnD3ORZK07efSmLTk/ZtPHzF1ssEs4ILB4FDLgXCT9O0016eg442g2GLt72ePPtLpa3gbOtkUFuLG+/kJLjevPorSSqyS4pbUYnW6d6UiCx1i7WAwNMa0uviRVJqq1gxpJdY+t1i1ZidvbASVZkFqkhYMZh9vBOI1rTle05JjVVG8Ji9elszUgakPgrQAafHJL4C2VKRrWlHts1T7xYcXLtlGZjH1uTFpxSb59NGWpLilIsakFrdUZKMTLxtkgook6RF1GV38CG1pRVd2bGPtc5O8eEmlWehzi3XnJQMXJ16KVLVkCx9Xi+HFyyNBFTH1ywMVm1S8ZpKsK/PDA3bH7rMXu9mmfsnArKgOBJf75QC83tI1HW8WdORtymroNMgnSxXZI++mNdsI4MXuPgeQo7Rgoe++4PGPFEIIX/pcrZ4G8Xwa2ttLOrrlXRvTStxT1Yo2lyx1AL4GuC/wT38/G/eFcEgec+OPd4bYTKehxSuvMN6X/3m/f10f7y+DIKlFPUKvX36xSUUWtMKYSvPMLzwGIkmykVnaXHw6/H7f/eW179INA8aCQK5MAAAAAElFTkSuQmCC"
+},
+
+  11: {
+  title: "Colonial Williamsburg Christmas",
+  description: "Celebrate Colonial Williamsburg Christmas with Heritage Chocolate Drink, served alongside Salted Peanuts and Shortbread. Today's activity is Connections.",
+
+  game: {
+    type: "Connections",
+
+    instructions:
+      "Select four words that share a hidden connection.",
+
+    connections: {
+      groups: [
+        {
+          category: "Warm Holiday Drinks",
+          color: "yellow",
+          words: [
+            "CIDER",
+            "COCOA",
+            "MOCHA",
+            "TEA"
+          ]
+        },
+
+        {
+          category: "Christmas Movie Family Names",
+          color: "green",
+          words: [
+            "BAILEY",
+            "GRISWOLD",
+            "MCCALLISTER",
+            "MCCLANE"
+          ]
+        },
+
+        {
+          category: "Can Follow 'Snow'",
+          color: "blue",
+          words: [
+            "BALL",
+            "GLOBE",
+            "MAN",
+            "SHOE"
+          ]
+        },
+
+        {
+          category: "Famous Christmas Reds",
+          color: "purple",
+          words: [
+            "CANDY CANE",
+            "HOLLY BERRY",
+            "POINSETTIA",
+            "RUDOLPH'S NOSE"
+          ]
+        }
+      ]
+    }
+  },
+
+  media: "The Simpsons",
+  watchLink: "https://www.disneyplus.com/browse/entity-cac75c8f-a9e2-4d95-ac73-1cf1cc7b9568",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACeElEQVR4nO2YMY7cOBBFHyUBVEbdgJ3tKSy179ULaSwDE/pIK41P4Buwb0BFSwFs/Q3k2WyMTWa4gSsRwB/UR7Hq86uMeCtUvQnBb+wjMRljzJXHpQXu+xXuuzHGFOHppCTTsFXb5Fu2BgYpfDwXdLiJ1HPDrsqAyz711EHHR3Npfn5dQ2L7Fv74u5ru75jvP2DmnjEVTwPfNYdCXNDhpDTEOkiaA4PmkAapwB1VsBnTyk/sQwdJHbAacylxR0aSlm0fWhPBfuExWEkqoi8d7FfXYL8A9Fu+m+tWqC73BrtsWul5XNrvarB/de+X7xehgzpgYq1T4QZNHqOJj+9ddLhZWhgDOIXUuzlYFZmj17ooQ+8yCZd9oZlGinirePNaAK0R7BpvvoS+yM/rNnTQwhjaT34iqavXEr0rTVgpe4YIWqWAiRSoC5IyCTd5HU4hmViL3s1letcp2IM6MES8XbihMv1ycqFnDMkoe60RUqm6SJJVHCVpVho0B7swFprpm8dEwMQbCfD01CrDZQznMC0u+4TL3h5uLsDl9Jim/xHHvXXPqxUP9ordqIS+RLwOxpCGc7rnANzKvI1AOpOD1+KyxygX4FIBeLe4CXD5PLQHdQFfd+pL6hn1Ghl6V8K/VMDTYOf4MO0LT2Y33bNOt1moLvRuDvZs4FgHzuepjO7qAG8XIBkp6HAqoC8/9wyfle/gsge+sl/hXvC/cQzndA+a0OFyEV8HTwZ4XHhx2dtly5iK5wK+7l/sK22/NbB2tdIQb++d71dYHbbKzSuDmrtdtj8v5frl3C7k0++mvoh/ed0zdDd4OY8eFzfHd8z3Zpjf+93/PfYPlHbCerAR96cAAAAASUVORK5CYII=",
+  playlist: "Colonial Williamsburg Christmas",
+  playlistUrl: "https://open.spotify.com/playlist/05gU7wpoIRlJMYBl7fe3aK?si=GeRlpeaZSrWrQpQjbt7Ymw",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACbklEQVR4nO2YMY7bMBBFPy0BVDfOCSgg9xC32hOlCWBH2rDIsWI5F6FvQHVjgOZPwcUmRYxUa6bIFJKgKWYwM3rzRUPcM+7uuoD/vsf5wAIAPs20TID6NEetjga5CKk+dbRrmqk+AerJ+PhcdgBeDOiuI+iO40AXCJr+HeP9zbeFCGw9FNtxfEC8P1n/epceCt4+4oxubZTLDsBMYLuOOG82WvLqYZgb5PL6HU0Sov66VMfj62JI8rRlZ0MCZE03b0mySV1kAXzqaAtmAjhAgY4t+MLURXsSRjXMgGGIXLm4Fj3i/rO/Pm1mtN/336ItuI0DTb60md2ZlqmLMAy0JKNdm3C39kg9s4NJXdQJXcSEQ5N9RIZIMlAnybBrmqNdyVazS/Uka2fIBUCjuhRZYAsOTg0XB8NAnqRRXZihE+bINXVRIQsACY1md462CCMrZNJMMqEBX8Aii9MJQCX/JBnqUxtdx1TFXcQkpC0SqJBWfDlAferIgvmNL3OD2d2Brof9KkdjnsSMEpjBNd1MGy3VxeuXLVDPG6NOm/HG7N8z3l0j3wg3CWlPEiIguRXrnPoEx5W5KhmdJDRhXRGSRcKbfsmwK1vlklH5csIc7av8bdWjUPULi5DwzA6+0Z4udQEtTiGk1rdNWLeDSTNZAAzTdjSD4QKWbXm3ePetr0c+/rJ3Oojl9Xn/KV6fxYxswTohlW7BMOFwGX6k22hPW3ZtuPtigI2rnrfjqNwDZictzhnq7FapWyGTAExooRn6357POGC4feDFAbe+TV1I9engAMkOqGVqo18qaAGnEzrqhJm2NPkPMP/Pd/95308DcuvB2eWijAAAAABJRU5ErkJggg=="
+},
+
+  12: {
+  title: "Rotel Night",
+  description: "Celebrate Rotel Night with Shirley Temple, served alongside Rotel Dip with Chips and Christmas Tree Cakes. Today's activity is Mini Crossword.",
+
+  game: {
+    type: "Mini Crossword",
+    clue: "Christmas Crossword Puzzle",
+
+    crossword: {
+      size: 21,
+
+      grid: [
+        // Row 0
+        [
+          "O", "R", "N", "A", "M", "E", "N", "T", "S",
+          null, null, null, null, null, null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 1
+        [
+          null, "U", null, null, null, null, null, null, "T",
+          null, null, null, null, null, null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 2
+        [
+          null, "D", null, null, null, null, null, null, "O",
+          null, null, null, null, "J", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 3
+        [
+          null, "O", null, null, null, null, null, null,
+          "C", "A", "R", "O", "L", "I", "N", "G", null,
+          null, null, null, null
+        ],
+
+        // Row 4
+        [
+          null, "L", null, null, null, null, null, null, "K",
+          null, null, null, null, "N", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 5
+        [
+          null, "P", null, "E", null, null, null, null, "I",
+          null, null, "F", null, "G", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 6
+        [
+          null, "H", null, "V", null, null, null, null, "N",
+          null, null, "R", null, "L", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 7
+        [
+          null, null, null, "E", null, null, null, null, "G",
+          null, null, "U", null, "E", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 8
+        [
+          null, null, null, "R", null, null, "S", null, null,
+          null, null, "I", null, "B", null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 9
+        [
+          null, null, null, "G", null, null, "N", null, null,
+          null, null, "T", null, "E", null, null, "D",
+          null, null, null, null
+        ],
+
+        // Row 10
+        [
+          null, null, null, "R", null,
+          "H", "O", "T", "C", "H", "O", "C", "O", "L",
+          "A", "T", "E",
+          null, null, null, null
+        ],
+
+        // Row 11
+        [
+          null, null, null, "E", null, null, "W", null, null,
+          null, null, "A", null, "L", null, null, "C",
+          null, null, null, null
+        ],
+
+        // Row 12
+        [
+          null, null, null, "E", null, null, null, null, null,
+          null, null, "K", null, "S", null, null, "O",
+          null, null, null, null
+        ],
+
+        // Row 13
+        [
+          null, null, null,
+          "N", "O", "R", "T", "H", "P", "O", "L", "E",
+          null, null, null, null, "R",
+          null, null, null, null
+        ],
+
+        // Row 14
+        [
+          null, null, null, null, null, "E", null, null, null,
+          null, null, null, null, null, null, null, "A",
+          null, null, null, null
+        ],
+
+        // Row 15
+        [
+          "S", null, null, null, null, "I", null, null, null,
+          null, null, null, null, null, null, null, "T",
+          null, null, null, null
+        ],
+
+        // Row 16
+        [
+          "K", null,
+          "P", "O", "I", "N", "S", "E", "T", "T", "I", "A",
+          null, null, null,
+          "R", "E", "D",
+          null, null, null
+        ],
+
+        // Row 17
+        [
+          "I", null, null, null, null, "D", null, null, null,
+          null, null, null, null, null, null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 18
+        [
+          "I", null, null, null, null,
+          "E", "L", "V", "E", "S",
+          null, null, null, null, null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 19
+        [
+          "N", null, null, null, null, "E", null, null, null,
+          null, null, null, null, null, null, null, null,
+          null, null, null, null
+        ],
+
+        // Row 20
+        [
+          "G", "I", "N", "G", "E", "R", "B", "R", "E", "A", "D",
+          null, null, null, null, null, null,
+          null, null, null, null
+        ]
+      ],
+
+      across: [
+        {
+          number: 1,
+          row: 16,
+          col: 15,
+          answer: "RED",
+          clue: "A color often associated with Christmas"
+        },
+        {
+          number: 2,
+          row: 3,
+          col: 8,
+          answer: "CAROLING",
+          clue: "A tradition of singing from door to door"
+        },
+        {
+          number: 3,
+          row: 18,
+          col: 5,
+          answer: "ELVES",
+          clue: "Santa's helpers who make toys"
+        },
+        {
+          number: 4,
+          row: 13,
+          col: 3,
+          answer: "NORTHPOLE",
+          clue: "Where Santa lives in the North Pole"
+        },
+        {
+          number: 5,
+          row: 10,
+          col: 5,
+          answer: "HOTCHOCOLATE",
+          clue: "A beverage made from cocoa"
+        },
+        {
+          number: 6,
+          row: 20,
+          col: 0,
+          answer: "GINGERBREAD",
+          clue: "A sweet treat made with ginger"
+        },
+        {
+          number: 7,
+          row: 0,
+          col: 0,
+          answer: "ORNAMENTS",
+          clue: "Small decorations or ornaments for the tree"
+        },
+        {
+          number: 8,
+          row: 16,
+          col: 2,
+          answer: "POINSETTIA",
+          clue: "The traditional Christmas plant"
+        }
+      ],
+
+      down: [
+        {
+          number: 1,
+          row: 13,
+          col: 5,
+          answer: "REINDEER",
+          clue: "They pull Santa's sleigh"
+        },
+        {
+          number: 2,
+          row: 9,
+          col: 16,
+          answer: "DECORATE",
+          clue: "What you do to a Christmas tree"
+        },
+        {
+          number: 3,
+          row: 5,
+          col: 11,
+          answer: "FRUITCAKE",
+          clue: "A type of cake with dried fruits"
+        },
+        {
+          number: 4,
+          row: 0,
+          col: 8,
+          answer: "STOCKING",
+          clue: "A large sock for gifts"
+        },
+        {
+          number: 5,
+          row: 15,
+          col: 0,
+          answer: "SKIING",
+          clue: "A winter sport with boards"
+        },
+        {
+          number: 6,
+          row: 2,
+          col: 13,
+          answer: "JINGLEBELLS",
+          clue: "A popular Christmas carol"
+        },
+        {
+          number: 7,
+          row: 5,
+          col: 3,
+          answer: "EVERGREEN",
+          clue: "A type of Christmas tree"
+        },
+        {
+          number: 8,
+          row: 0,
+          col: 1,
+          answer: "RUDOLPH",
+          clue: "A popular reindeer known for his red nose"
+        },
+        {
+          number: 9,
+          row: 8,
+          col: 6,
+          answer: "SNOW",
+          clue: "A soft white layer on rooftops"
+        }
+      ]
+    }
+  },
+
+  media: "Die Hard",
+  watchLink: "https://www.hulu.com/movie/die-hard-efc8250c-aeed-4ab7-a492-07064c826bc1",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACaklEQVR4nO2YMa7cOBBEX48G4Dji+AQcYIO9heh/LAOzkAb6gI+1kk9C3YATmQL0VRvQDj/gxOYG7kQAK2Ch1VXdTRPvhU7vQvAH+30YOgB6uuQO7uhgSKUCDXh6qeC3WOA11NMopTY5exjwZbngRy7wuCE7/8L73otz/Vh++6voqXT5CuEX3vcTmGxcLya7ETUtDbkMwnRmi9dh2cx2MO1tuDzNLrp2qcArpfdnWMxuLTRdIw9JSwYtuUv16LdrGh1+B+iSpD2UKMkdfmzgL9XcJO2B3k/SDGjmHtpw6UTUGArcwfI9lN4rteKi2e9BB6DDS7VymtTLJPBKxTSlYtopMQ+t8pLckrukRZO0aMQdDG10xD0AXSr4MUiZUHq6RnkZ5GaG5Ob6oyQs00RHykMqMYOWmhIopkb+4pWc8lDNlqgRJ00N6uUEPOIzhvNq0f656XElPOOVtcmM6afkDq+k2Vc5y6mJpk/YurO95NdgwzoG92+w22ZXQpu57i26mc+3crkStg/HA/ftY4sZ8wR8WZ6n55T8IiU3A1u37k3qRfmOZrpE76dU7AehFvWi4NL2ojG4Zd1xB69sL01mzLqrudlLksag2e+4uVk/6hKmSW75PtIF2vnuGJw0pdL7PRST5OZWvdFLxfKg6nUwJKBFbzxhGdxbsNuF5zkQNVYvbuEvMjP79NwploGvwPaJz9amH0ml91Ix7aFYvtc9pVHtUnqGpNmPodT1tS2XLhGr5Q4qMbfQ0Y83D7EKCODH9e9vH9v0o8NLJWoMbsmdNPtJpafRfgTQ04ne72j2I1qazFL25333f4/9B8vn3+R8ZL8jAAAAAElFTkSuQmCC",
+  playlist: "Rotel Night",
+  playlistUrl: "https://open.spotify.com/playlist/70zo0TT3eAtyj95ZPFpODd?si=xT1BZLhQR1uG218oADTLVg",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACc0lEQVR4nO2YPXLcOBCFvx5OFSYDbwBV+R6ELrI3oU1KnNxH2qF8CmfgDcAMU0XxbTDSbrJeO9FgAyMggxd0V/++fiZ+9HT4IQS/sXtiMjOLdlxOLzw98MKZq5nZ/X1Bu5dK5yUp94HOK5UoJe01fBkpnZfcLCW306TS0VTw5Xj7WWYpMnAv9B9p7xcwtWdO0HP9chd7//5u9RK1BafcqJhq1gtA56dU/vncgPvXi71PXrP99dN3W74G9GH2fpajDWBQMW3BXfwW3O7HCnE5YJngLoB/bc8Uy7Ae1jHUiIsyFMtNKngld/Eb2hlq1W5wF3q0vydKyjVqF0kSUUqaNenW4lZvBwQnTXKzJM0acTt9qBKX3IfSQSj4jRIzgY46OdoBJ42UqJFi2tCcK/niR0rMjbA8SDs9hSrz5ZYj7V6pxNwHN2fQLKkKZ/DHxcCgawmoBbP9/EeowTHbPki5R89+XAoMqbBuH2bvP7H1yDWGKZ3isgHe4kktdXaAlNysEaK2UCwTtPupwqx7i8sXmuSe1yn5ix+xZqmRo9sOcMrceJ12vwWowr0PwKutB2C1todvyzSXzteJy+4nac5DcspNKjH3lM5PFebL33x3A8sEOj9CzH0VXoffcHM+o4sfFz3TiDk41bqPrmZKFtshXR/XqwGvFe7pA3brHnsoMT89OMkl7dSYdW86wyME92Qbp9k2ro8Mcz2dgSGVqDEUy03S7rcqvO5NZ9iCLu93APiamgeEYrmHmAcRtdXpabhpHv7iJ7lnf1zcn22T6vT0IKBJsH62ohYKPD3U4S9mJ4XPseDflCG+5SHd3xf7re/+77G/ANUYwvhRrxLDAAAAAElFTkSuQmCC"
+},
+
+  13: {
+  title: "Friends Fun Night",
+  description: "Celebrate Friends Fun Night with Christmas Snow Soda, served alongside Popcorn with Mix-Ins and Candy. Today's activity is Minute to Win It.",
+
+  game: {
+    type: "Minute-to-Win-It Tournament",
+
+    tournament: {
+
+      description:
+        "Complete eight holiday-themed challenges. Each challenge lasts 60 seconds. Award points for each game and crown a Christmas Champion.",
+
+      supplies: [
+        "Candy canes",
+        "Plastic cups",
+        "Ping pong balls",
+        "Mini marshmallows",
+        "Cotton balls",
+        "Plastic spoons",
+        "Jingle bells",
+        "Small gift box",
+        "Wrapping paper",
+        "Ribbon",
+        "Oven mitts",
+        "M&Ms",
+        "Paper plates",
+        "Timer"
+      ],
+
+      scoring: [
+        "1st Place = 5 points",
+        "2nd Place = 3 points",
+        "3rd Place = 1 point"
+      ],
+
+      games: [
+
+        {
+          name: "Candy Cane Grab",
+
+          objective:
+            "Transfer candy canes from one bowl to another using only a candy cane held in your mouth.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Candy canes",
+            "2 bowls"
+          ],
+
+          instructions: [
+            "Place 10 candy canes in Bowl A.",
+            "Hold one candy cane in your mouth.",
+            "Hook candy canes one at a time.",
+            "Move them into Bowl B.",
+            "Hands may not touch the candy canes."
+          ]
+        },
+
+        {
+          name: "Snowball Scoop",
+
+          objective:
+            "Move cotton balls from one bowl to another using only a spoon held in your mouth.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Cotton balls",
+            "Plastic spoon",
+            "2 bowls"
+          ],
+
+          instructions: [
+            "Hold the spoon in your mouth.",
+            "Transfer cotton balls one at a time.",
+            "Most transferred wins."
+          ]
+        },
+
+        {
+          name: "Jingle Bell Shake",
+
+          objective:
+            "Shake all bells out of a tissue box attached to your waist.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Tissue box",
+            "Ribbon",
+            "10 jingle bells"
+          ],
+
+          instructions: [
+            "Fill box with bells.",
+            "Attach around waist.",
+            "Shake until empty.",
+            "No hands allowed."
+          ]
+        },
+
+        {
+          name: "Snowman Stack",
+
+          objective:
+            "Build and collapse a cup pyramid as quickly as possible.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "10 plastic cups"
+          ],
+
+          instructions: [
+            "Stack cups into a pyramid.",
+            "Return cups to a single stack.",
+            "Fastest time wins."
+          ]
+        },
+
+        {
+          name: "Marshmallow Toss",
+
+          objective:
+            "Land as many marshmallows as possible inside a mug.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Mini marshmallows",
+            "Mug"
+          ],
+
+          instructions: [
+            "Stand 6 feet away.",
+            "Throw marshmallows one at a time.",
+            "Most successful tosses wins."
+          ]
+        },
+
+        {
+          name: "Ornament Roll",
+
+          objective:
+            "Push a ping pong ball across the finish line using only a paper plate fan.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Ping pong balls",
+            "Paper plate"
+          ],
+
+          instructions: [
+            "Do not touch the ball.",
+            "Fan it across the table.",
+            "Fastest time wins."
+          ]
+        },
+
+        {
+          name: "Wrap It Up",
+
+          objective:
+            "Wrap a gift box while wearing oven mitts.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Small gift box",
+            "Wrapping paper",
+            "Ribbon",
+            "Oven mitts"
+          ],
+
+          instructions: [
+            "Put on oven mitts.",
+            "Wrap the gift box.",
+            "Tie ribbon around package.",
+            "Fastest completed package wins."
+          ]
+        },
+
+        {
+          name: "Holiday Color Sort",
+
+          objective:
+            "Sort red and green candies into separate cups.",
+
+          timeLimit: "60 seconds",
+
+          supplies: [
+            "Red and green M&Ms",
+            "2 cups"
+          ],
+
+          instructions: [
+            "Use only one hand.",
+            "Separate colors into cups.",
+            "Most sorted correctly wins."
+          ]
+        }
+      ]
+    },
+  
+  media: "Home Alone",
+  watchLink: "https://www.netflix.com/title/81013505",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQAAAACj6bPYAAABoUlEQVR4nO1XMY7jMBDjRAGUbrwvkLv7hZ2HeXd18D0sunxE/oHSyYAtXmEgzXmBLSJXy0pmQZsSNaCF2AFPeyzwQ3+bBgsAdIDLfQLyxlX+EiUzdAxgY4iejPXN/xbINLca6CdQzq/U/pqmG4kg730F7S9omaTNwqWG9n9gUTL3yUT0Ccg9GavH5yFyofPIdGNEEGlruyRJFmVkSM/H2hvrHSR90jLB5T4Nle8lyAQwkLTkAkBrnyVYMACSBtgCEwH1rrpLemeZTNwO9HaISxNzp4wZGByZTPX4MAG2KJmFC7LQHzDWFzzMdIauDdyFzSu1d8ECs4U1C0nedDkgPowZ6l3u1DtbMFR+5RnA2tryZgL+qgm/7qlxh4x1AG6bAoFj5cSeIOkPNHAM6CcPdK/U3geZ4LJwJPpkIoDa9/IEKKNdZRbeALBgldqtgCIiV7VxvmJt5yuGY+LTKYlOGVnwWX9jt4b33vL28JCTHtXwGkyXewJseSzTQSXecP7QM/KdtV0+G962igyp9sB7NjxGMWlt54+Xau9Bfv4v69D/AJofJ5+2uUJ8AAAAAElFTkSuQmCC",
+
+  playlist: "Friends Fun Night"
+},
+
+  media: "Special: Shrek the Halls",
+  watchLink: "https://www.disneyplus.com/browse/entity-45e4a68f-d9df-45f7-8e81-01b4ca5524e9",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAAChElEQVR4nO2YPY7kNhCFvxoJoByxDR+AfZGV+loGtG7ZGsCJD+FrbCbtXoQ6wVCR2YBaz4E69Kyd9NLBVsLgBUW8qnr1Y+I908u7EHzHvh2GdoDWD2S8Yu6kmA+gwD+9lG3ZQsNa08jqQCfFMpz9aujEIqWfO/cbgKx+or/3rD4eS6dg9vb7Ztf00zP9/SesirR+WL6Zv38y7V7KrR9jNim6nepI4CK5u5o1AHw4vbJe/ACz2blEjEyS5kTwcwI3pnvnJKlMjEZlSw+lyaYBzRqLxMjS3fxEHxr8RgM99st6O5fgRakPGT/K7fS4iT5kqIrwouCi29ePZz57F9er3NxY6kMZXq4xt35D0kbGbyF36VqAlxq4d3Fex3j74e0P3HSpaYz7WSV019eYhTr4yQ+hgT64ndfn+fsKplOPlFjWjzaQ8S4ynwrlixQByF3qg6RR2Yr0ALT7Dc2SnFIf3JwI2bQVmKWQJOXWb0GzNjQnyK0vobtHTWunkqQt5NaPEbxU5i8ELF3lJr8F7X4jm7ZQZGagRxOApdeFL0tN01LNhfrRQcQjbRPkLpXoR2j3Q9DuB+g0cJTzRF8gRseMSevHSAtBk99CMX1RusrNkg6GZhXsjTrx5+2y32v317pxu7ydAp+f5u/ftG6U5tQDXvFoCWVqGu1UovVDyJ22oFmKhbSuxgTSi2Lzyfrl1vmE9OO9LjG/yMzs4msyfgiNLQO3yxP9fRV73Blo2nVY8odgZzdRFdiPHncGuJ/XKlXiSwJ7gaXcbu9dbFruZ1jHqJ3XInPd7gdyC2RLhAxXuanIfvS4M3QJnDQe+uJ2rkXml8e9bsPNeixJbi7SA+z7ffd/j/0NN07TWKt68TwAAAAASUVORK5CYII=",
+  playlist: "Brazilian Christmas",
+  playlistUrl: "https://open.spotify.com/playlist/2AnzyxUMVqyeRludtwB0lb?si=81c87a097a1c4030&pt=885fb2821adeb9bf8279b7bf0660a43f",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD/AQAAAAAWcz1nAAADbklEQVR4nO2ZMY7kNhREH1sNsDO2M2fURUbqjXwKH2SBHktrTe4r7E1W2r0IdQMqYwNslQP2OPOOozENLyNB/EGBql+/WDLiu0uH7+/Dj4L/UAHaAXoppI5BqVf24BRS2a0B5AGclNhMe8KZ1n0xx9Vqfe7ppVDHSR6ATwb5kfRtnZb0lSGk5QzIHN8Pwz8q2Ebs/XxvzQcdvRki6/tjeLPAjd5cXAadP7bIH/8FDH+/tDspdW6Sdoag3UlaJKVeCtU0zmbMCVhvF3fkduFlvT2fX1YWY9paTlKStNOIzmW0uykk3BQeGzWAPKDzJ2M+6NZqWadgDlv29PHe30w13Y12N3o7Fx2fZGeXSTgF7W6sRMzR7jLgRsBlT+cmSRrBxKuvBeRjTUodjezMFaAJ2mkq4SRSbAJ9vPoE+NQ5SUu8ervEoRIJQtIU7Eyj1EtKJg4hGWXsopo4OQV6ZW93hkAH3kqZBEMln/sIW0Zftz+CaeL5c/pFL7/+bBjE/tNx9ZVIkDSF1LkRLRq93V32yUjSEms5SSQp2CU2AROHQswye1TN7EZ7kUgF7TQhQRM0g8dEKtHJAybi7b49t+Cee7tzb83FZTS/H4a3VtFJGJTKCzeJXlMAV4vBKGNRO1eslCl+qC9PtVzEkCKkDrCPPpfoI6TOjZVw8rWJGcRjYgMwBO3U0zgA5uCOqxaNmIObJMV7aw4MSy2Ns9NIUvZ0QOoYVLKCPjbV6OTDpQ0hGU2y0ohVBM01cTIO0uyk1FHEKCRc9hhN1UiQNAVMvKLZZW+XSJndxVlWAfIA263VF291+22blu3CldPT+d5iImstjSONPnUue6t49Tyc+SAtqoWTpcAt8WXdLu642mkd19PT+d7eLu+L4Y2CIdyMmQRbho57j5FdTk8mVwTy3tolXtcTbvTbAbj15tambzpWxEkVzUmdk6xKQjBi52q6uxiMkqXtLnvNJYm+Qh/ruXfvLpNMbET/6iwfHtPVc30o4ZmbApRULftHvkY9s7v8fYhgZ4rBCFpiZX6yJL1AeuSTmcTjJCvi5EjqaF6ZWAKXDHCt5PrwV8EV0/tbaxU/tifAp/fH8HbBqhlIi7fB/r7ZxSni6wD54GQfrx4Ygl2kkIxGr93V4yd3gM5JdnbZ292NHqMMfTVJr/nxv/v/VPAnuIfAGY1C+3cAAAAASUVORK5CYII="
+},
+
+  14: {
+  title: "Apple Cider Days",
+  description: "Celebrate Apple Cider Days with Spiced Apple Cider, served alongside Homemade Apple Butter with Crackers and Saltine Toffee. Today's activity is Trivia.",
+
+  game: {
+    type: "Trivia Chain",
+
+    questions: [
+      {
+        question: "Which composer wrote the score for the 1990 film Home Alone, including the song 'Somewhere in My Memory'?",
+        hints: ["He also composed Jaws and Star Wars.", "He frequently collaborated with Steven Spielberg.", "His first name is John."],
+        answer: "JOHN WILLIAMS"
+      },
+      {
+        question: "What surname belongs to the miserly main character in Charles Dickens' A Christmas Carol?",
+        hints: ["He is visited by the ghosts of Christmas Past, Present, and Yet to Come.", "His first name is Ebenezer.", "His surname begins with S."],
+        answer: "SCROOGE"
+      },
+      {
+        question: "Which 2003 Christmas comedy stars Will Ferrell as a human raised at the North Pole?",
+        hints: ["The main character travels to New York City.", "Buddy is the central character.", "The title is only three letters long."],
+        answer: "ELF"
+      }
+    ]
+  },
+
+  media: "SNL Christmas Sketch Night",
+  watchLink: "https://www.peacocktv.com/blog/SNL-Holiday-and-Christmas-Sketches-on-Peacock",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACcklEQVR4nO1YMW7cMBCctQTwOt4PeD/ICyL6npJ/yHc60IDLfCB/iXh5RTrqBaE6CuBpUshOZySNvSnMStAUOxjuDndXiNcO716FgA/sPTGKiNzjEbjOLXAFpkVE5P25gKsli88NzWiZ4HOP4snEVUOzi4BukfmEi8fVGoLSvmG8107758uZ8GnvGAXffr5dvH/hMrcQ+dVESP765Q3j/Q07E7DVme/73i0n3A4QVh0us8gOeIrzybYT6ExCFDlo1BFJcgUcfAZM5OCe/2nU9AD43KTS2eo4AihAo8KFGY6rDQmSAcbcP4ujogtTAXrH0TIVn4GNlYLXydTCkC2WY775HewAc3NMOrk7OHgOACxZgGZrI5Ry13HEc9IwkslEpToiBwBoyNGGBM8BBehVdGHuHWMGGFkdYAeY0Va1OyqdJRkZiA5w6GxQ6Bk2XQzJZEb0AGygiaw6/gK44nOTSIZE5h7oVPLlDrAh2sv+5sH97bCLztDE3CQVf8k9IPnM4nOPsuWL0nu0oodhBtChSSaSyTCflbg0qQgrGPM5mdUODmr+QtKsdgBHACayugIlfyFJ+NywwFZXJAOA1eoZqjMxn5PZzDefEyODUl8XWDpbUYDzNqvBU+sNCOSKMxlZnSEHZ1arNTfeZDlmTMAc0uxlmJa7+cGrzgGls4Mzow1pk0lBF4qIHBkirmjicporlnvbTmp7hs5yMzwIQ+Kq9TbiIgAenVnxxPJZHg5yZw319kTzgEVkERNYUbq5KtzRC2brtPMMaXnYPyUTqTNPv+ylklltIDpboecvs8iObsB8nCrKj8lwuZ81dJGP/e5/j/0GM9naQKWD6JUAAAAASUVORK5CYII=",
+  playlist: "Apple Cider Days",
+  playlistUrl: "https://open.spotify.com/playlist/3hshwz0BEuMblbOki7PxrS?si=65206411e8dc46b7&pt=2b991c4226c9bac21e494c31159512cd",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD/AQAAAAAWcz1nAAADg0lEQVR4nO2ZQY7cNhRE3281wN5xfAIKyDnc6jlBzjOAbGlGBnwtKT5BbkAdIAC1owC1KgvNODvHqwGDWCsC/ItCkb9+FWXih59OP96HXwX/oQK0AzQapJ1OTqkF6GI+dksAeQIvZQB7TM/12oRzcEr3hkaKZTB5Ap4NWT/nKWjSy7LNTA+A7Px+GH74nd8W91paDJkYrNP9y/th+GmQ/q/f7PrndjZ8mvmDN4xFgDwBnWAZontZhqide61xkTBt5YBczC7487x89mfWG1/j+imcZyazugyQZ0yAPhB4+f3prPEDXPD3WnovDD9RoIdns8d5rbkuQ7TTsgWnVGm1Yrob7VRROy250SA3+o189RvafV+QmG/Yo1y8wFO9fOar3JS+RqvmLZTDZCdJPUAlN/oeKVXKUKkUJk1nVrONDPd6+bxIduJeO6V2LoVJpSq6kUqSpNxIMVtqcdIQy2AS7X6IXCG4nRaA4Cb1AdMWigFJFzVpkJtSpYxXzBzdXQqTJ0xWr59smzO+n/3Oc4PNgy7fCupuaYhukmJuUqdskrj6DU0qRSfR7hWBKkoaYoYqaoRAk0qRICQpukmDNNIG7UCGNrgRCmmcEyxWr41trJ3Os538ICed5/XmS7FqbyMacErtMcqxY1VOELPUst6AjHdxvR3q4+J6830x3X0Q5g+djEfCvdJF7QXdSUtVtBN3yx9Dj538IA3pXtuJbiqFSaUuavQbTglykzpx9YpOqSpk4vBqKw6kg5zU46ZE0O77Qo77lclJG26kipnDZbRgGooR851K2VIbwG/BTakSljrlq1dBINug0Q/iSndYyWyHsyzFBR0SlC1Vyk1qg3ba4KbUSZNKuZMn8H1wO+0MfJkv3+QmPj7c6/X2jhj+vaDFLJy5KGxwXdYGk5vc3VSMTu5HPDziQ8imLXCli1hBflJSzBwtXh0Zwo2+x410hXT3YdXc6Nfajdzr/DGsNSwby6POxUTa3W+H5oAfItAd6gO0hXT3MRaPDGHaDsxvfrKU2X1CZmaP6V7nj9az3pY+aPdn1pv/1JRz3FK+8t2j+43X3F3MW9ABLV/9FmhSFYFKudEG0BYiQd8LqilPD0+1G3mqL8CRG8s47reCpYer78mNXHQvi5su3xLlZBwv5Sa1ZEvdP28Z0Y2+JD8JXL2k0W/BjX4LWIJXU1QCSPv1v/v/VPA3BKufI6TZ4VAAAAAASUVORK5CYII="
+},
+
+15: {
+  title: "Winter Wellness Day",
+
+  game: {
+    type: "Character Scramble",
+
+    clue:
+      "Unscramble the name of a baked holiday character who also appears in the Shrek franchise.",
+
+    scramble:
+      "ADERGAIENMNBRG",
+
+    note:
+      "Answer pattern: 11 letters / 3 letters",
+
+    answer:
+      "GINGERBREAD MAN"
+  },
+
+  media: "The Great British Baking Show: Holidays",
+  playlist: "Winter Wellness Day",
+  playlistUrl: "https://open.spotify.com/playlist/7Cd3HHqzdgkNIjjncxYJWj?si=C7wpT7jgQBy4cozYIw-ylQ",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACY0lEQVR4nO1YQY7UMBCsTlby3HokHuBIPIAfOMOzVsoQS0HiT1wYLx9xfuDcHCmT4hCG28KJbQ74ZLkOLtmu6moL8dpg8yoE/MfeEqOIyAX37vSyPM14WeK8ioi8PRdwV7L2pc2OZcw1AKg9mblbcImoAS2rkAR0Yg1oDbg8MI2z7ot0Fcu1e4P9fos99+B5wAlokyGXkcAy5aVRl2vPtYdws+GyiJygTzMCMIPnLwlJpLPQEUly181zV2b0jP7nmo2O0JcB3DFmAAMq0JpwISNIbh5CZgin7FKBt9A0z8DaAKiU6N2Oewf6ONv4boS7oc1VuHmXyOxo5bsYiaCbr9ANNaDNCBhg8l7KAN40wu0a4VIZs0smOmrAM/z6aYl+bRZmBJWuUq4mdZplzEylJdMhpokVuhnp6N7LReMMLC4BuMsp4LOBjhoII9y+rJ30/trxm5D4XuBt7mjwCBi8Y2nzoagA2OiIm3ePogTH472Y5TqPoDxc5eEvo1E92g6TqQGAS2Qmiw2XXaNHX3DURrIMnjcj3911Infl4bbuplOG3XvZUHtG1L4MvvZlJIJGo3OJ3qXSZiZuQM8pVyk2WWrXKdeAAe6mzG4HgKCb0bkc8TYz8Ze61SrvboCUkS6VljUcyxZ946MPAFCBAVUYj3xlUqdFRD4WQBMd9S5TXi9q8c/QAEpW+g0Ahnltee3cbSGtsncNGLzbMXimAgA6mdzRMdSltdGneb0AQFgsMubTY/L83n398I6nHZw9lvNf2u/P/lL70mbe9Ogbj/Jk0x8BR2AhyXpEF1jkOvn/v/vPYz8ADK3qlyd1slEAAAAASUVORK5CYII="
+},
+
+
+  16: {
+  title: "Irish Creme Christmas",
+  description: "Celebrate Irish Creme Christmas with Hot Cocoa with Irish Creme, served alongside Ranch Oyster Crackers and Peppermint Bark. Today's activity is Connections.",
+
+  game: {
+    type: "Connections",
+
+    instructions:
+      "Select four words that share a hidden connection.",
+
+    connections: {
+      groups: [
+        {
+          category: "Evergreen Trees",
+          color: "yellow",
+          words: [
+            "CEDAR",
+            "FIR",
+            "PINE",
+            "SPRUCE"
+          ]
+        },
+
+        {
+          category: "Gift-Wrapping Supplies",
+          color: "green",
+          words: [
+            "PAPER",
+            "RIBBON",
+            "TAG",
+            "TAPE"
+          ]
+        },
+
+        {
+          category: "Winter Sports",
+          color: "blue",
+          words: [
+            "CURLING",
+            "HOCKEY",
+            "LUGE",
+            "SKIING"
+          ]
+        },
+
+        {
+          category: "Holiday Items That Are Hung",
+          color: "purple",
+          words: [
+            "GARLAND",
+            "MISTLETOE",
+            "STOCKING",
+            "WREATH"
+          ]
+        }
+      ]
+    }
+  },
+
+  media: "The Big Bang Theory: Christmas Episodes",
+  watchLink: "https://the-big-bang-theory.com/episodeguide/list/1/Christmas-Episodes/",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACbUlEQVR4nO2YMXLjOBREH0RWQRm0J4AusoR0rKnirOBh4GOZ9EnAG4AZWEWxN5AceieyscEg7eB3ffTv34ARnx0dPoXgD/Z9GNoBQm5klfElaFB5ABV4Oqno9OO8XlzkCECQUp2evRhwNpV3mHnnbpBpv7De77Al4t7M5u2bUfqGev+BGUWWq9p5vWZ8RS43wfLT2LdTk0rn2hmjrQ6XxZij/JDWfwB0AiZjzjW4GEkauQegx075fraSVMVfnFQ6JxE0pNIBhIz/fn9Byj12p/dSvqViFL12+gpcDuj0quWamdeLa7H7ss2mUTvXuaMNjW4DnKTRbb6EfEvf35cWlojpliF5/XVvBcxfWO93u/EmO0mpQE8x2tCUb6qhF5OZlwsvAWjS8e8THHWill68dnqkjNfulOyUK2WGZUjmAN4Yv7E2c8safPy6ep+fRyN2FyFoSBhFSjWv0+ZLyGAnDQmT8Va5qTDTSBqkSdGXoI3SuUEFavjLw+tK56K3I73XSCM6mgoz/eBilXuKUeS5j9xQxV+g0Wq8FTo1yd7NxnpYVlMlv8xxtprX8xF61qta3EiT6sx0BKNBdqRRwUWKkepo9xFdmmQfmyn3z9mqot0h0XETId9S6cATtFXYAc852mmkSUqlcxGgju/uLnp49kUlZAAXq/RFkrQ7PT5i7JRvSbtTFX+RMcZc5xY7afMFYL1QK79IJeSe0gElKD4zcBXffTHgWuwvt3n3CzAHXiu81T6wZfPHjte0XIASco07+sCcnXjnx9nuy5DsyP1cTy9SslL80Eut/ALQgbejU9LohkSdfWT+/O/+77F/AbSmxAbpZ+ZPAAAAAElFTkSuQmCC",
+  playlist: "Irish Creme Christmas",
+  playlistUrl: "https://open.spotify.com/playlist/2ue08yWCnPSCycX88HfHsv?si=ogsd-TI-Q4eMQBSsaCoSfQ",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACbElEQVR4nO1YMY7cMAwcrQ1oO/oH8kdi3z0p5QFO7IWvzC/ykLP3JfIPpCoyoNWk8F6qXMplimMlaAoRJMUZ0hAfGU8fQsAn9jgMLADQSXZ2kZmpk5npABT8FDIh1kAX9/ZswrChJ71KXGRC6mT2XIS0BZVPHSqvEhcAMFt25inWG64YHvDevzA607LgpY3fH/Le341FyNSHkehDRa6kTz2pk6NozJmu3hLdtO3fmldgNabViMvdsmOR7FIfxvvNw+MCFsnHKfXMsItkZ4tMCv2lhgkX2BR//JRfzVfnEW6IJ4HT+EdsgPgEYD+h8ue1wWYLqlWlXkLluQg9C+CSYXYs0OAAsAh9gkwAJDsuQiYTlPpuNL1wu7d/mHAxcmteWh2eHj0gM+0aAPQBijnCSFskO67M4MoMpRyBRWafTBiQDEnyOGn0lxOAl9a+NYAtsd7OVwBSUFGJG30CKm8LBhxFA9HgRrDITC4yIUHo7zkKo5Iv2R26jmEAF5kcIDrcyDDAMow+9QEumQBHHW4ECwbcBbiQMGFwSjk6MFtwaaXECemLqyFvzaVXmo8cOpnJgvEYBlKvpaUwwDIAlsyOC4AEmZV8OeLiYZiBTiYHnb4LFpncXb8IPckJx0SgU7vb/rxNOF/xit2YDKzNzWhoTBNG2pszfXze9taS1rPIpKB33/cMqLxdZIJdhD51anxEpg5wJPN7m5PsdOrlYgBU/ow4r/LmTGtOKnPAH2xAfJLa7c8biT5cWjVfTMCGa5xgF6k3+9ZUXm/PQHquoTq+kNXR3qf7nqG59GfIBFxRrXvF2T8+LuZzv/vfY78B1aPZPwNErskAAAAASUVORK5CYII="
+},
+
+  17: {
+    title: "Cinnamon Comfort Days",
+  description: "Celebrate Cinnamon Comfort Days with Cinnamon Spice Tea, served alongside Beef Jerky and German Roasted Nuts. Today's activity is Wordle.",
+    game: {
+      type: "Wordle",
+      clue: "A cozy winter drink",
+      answer: "COCOA"
+    },
+    media: "Prep & Landing",
+  watchLink: "https://www.disneyplus.com/browse/entity-ad49591e-76cc-4684-af9a-456e96c372f8",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACiUlEQVR4nO2YMa7cNhCGv1ktwO0owwfgXsSS0+QePoL7XUuGHpAyV5L2JNIJTHUUQOlPsS+u8pDqhSk8DQH+xQyG88/8HBNvmU5vQvAL++8wdAA0XtLBLSSolJ5AgTi9lFjP8PBuusANWmkuk7PvhqlfaOMzTQuy8zv6+xdMtl231nLYPvMS3t/fP9r5eVj8U0zspvHDV0tlYjkBncCf2doaLqyDMOUysaxmF9UswB/z+tn3C5PZtQSnJUkH1SzFTpL68HpXoL/4PmDqA43PwR1eSm28FegvSLGa3egHge/R6CWnSCgTC6TG98FNsZqTSdIUuyJvpFjNUiQk0yAdEGg1FIjlhEIOm4VhcseaAViY6t3KcPpu7lgzm4X7FbiRWEvMozMWawz2q9N6BosfdTk+nEMRzeA1u8PnAPBkt0avuUS9WHxhO63D5Eaq2e2WF2wpkxdFglPsZh10cpMyyWIJLYUOOiWLBDfSzalVDphyIV13xh3clrWLe8tUV1MCCtXuMGPKITWAmzTMbqQrU7vL/aq9ZsGUSaqBNu5tqX9AapVxB500+kFuUi4yGw8IGqmkww+zpliJhqrIPLJ4w775vGy/ReBTvRv4e4F5xFPNTco/X6sPNL4vw2n263avX7g8fM9FptlNS1+A0ycU3ORGKm3fILjR340Ht6WM9n42/QB+EHADqIr0F6jk9vq2aFryopFq1uH7d/T3lp2fK5+Gajb7AVsXP37Zfme/qox+UWp8Djp8Dhp9/7wr9D8itRGcNMxO0gyU+Af8vWcImnms95bHatfUQAEe/cS+X9OnuptRyFwophmk1CpD4welNnZ6HU9l5jSNf6qWV4V3UEJj2q/97v8e+wudkMDpePpDHwAAAABJRU5ErkJggg==",
+    playlist: "Cinnamon Comfort Days",
+  playlistUrl: "https://open.spotify.com/playlist/7K5kiLnCQG8669ySq5bNpl?si=0cNH75S0Rhu9LFVpO7aa0w",
+  playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACaklEQVR4nO2YMY7bMBBF31gGuB33BtRJROdYAWxICy2QY8XySagbUB0NyPop5JSbVLtMEZbzixnMfP4/pImPjg4fQvAf+zoMbQAdfcIyAfxA2YEKtXipRK2hwBmilEqU0tfXcgDeDJYBr/xD7so7yI6fmO8vmIKb7ie/Um7Lpf38fH/ElkvLZMN8j2H9inwfYb3AD8FN+dE6zU6Y1jq1LGYv0EzLJbh0j2GYmczaGndakrR5yW00CfzwO/b1fdEr8/2wmAGPWCw3ycyGuc6MLq2bpLR8kxLdcm/d1Vuso7vngOUzmjTuLC6WmwozQpsfk1Nu0jPgpRIzoU4tAyVqFFFroPMrWK7jR9KYNEkqnR+lSQNu41yhLwdY7q1Fuxg3mO/xlVBuvH9evo+PNj8mSU+W0Pkx6erHCj69z6hAn9yUzwHTmIi51v4ySld6uQ2Cu/o1qBZfLIOdeGvBKwHMLzeaVMePRrlJaygxA50fglMtfeEMpgFNO3dXqKO7B/BH3E9bg8Wg5Mb5iH6GtYo3Wm7S0ucm6bo897oXlmOo9SZxkoTlRkRJ4MdK3qhUOr+GYrlPT1OiqaJ1G31ymx/lpCEUgNLRV+mLpFSA/fbsFj3lWrUMQcog5Sa5SevOoTozgtLRpBJzn36Lbx2+PN8Ba3CbH1Us90mbXyv05YDMzE6Lm5ZmXvFX4H6iUZ39RSpRkq40yW1+QFuVGR2AN0M2zHvgtijZ4VPz/QWz/B7sxPd473UE06WtM6OBEnMvXb0SJomoGh5wYP9n4NHCcgzu8fpO0eujreWNdH5F2vVlCJpyDa2z//+7/zz2Cyy80DG1gVRbAAAAAElFTkSuQmCC"
+},
+  18: {
+    title: "Cafe Vienna",
+  description: "Celebrate Cafe Vienna with Cafe Vienna Coffee, served alongside Spicy Nuts and Cornflake Christmas Wreaths. Today's activity is Mini Crossword.",
+    game: {
+      type: "Mini Crossword",
+      clue: "Christmas Mini Crossword Puzzle",
+      crossword: {
+        size: 13,
+        grid: [
+        [null, null, null, null, null, null, null, null, null, null, null, null, null],
+        [null, "M", "I", "S", "T", "L", "E", "T", "O", "E", null, null, null],
+        [null, "I", null, null, null, null, null, null, null, null, null, null, null],
+        [null, "T", "I", "N", "S", "E", "L", null, null, null, null, null, null],
+        [null, "T", "C", "A", "R", "O", "L", "S", null, null, null, null, null],
+        [null, "E", "I", null, "I", null, null, null, null, null, null, null, null],
+        [null, "N", "C", null, "B", "E", "L", "L", "S", null, null, null, null],
+        [null, "S", "L", null, "B", null, "A", null, null, null, null, null, null],
+        [null, null, "E", null, "O", null, "N", null, null, null, null, null, null],
+        [null, null, null, null, "N", null, "T", null, null, null, null, null, null],
+        [null, null, null, null, null, null, "E", null, null, null, null, null, null],
+        [null, null, null, null, null, null, "R", null, null, null, null, null, null],
+        [null, null, null, null, null, null, "N", "O", "E", "L", null, null, null]
+      ],
+        across: [
+        { number: 1, row: 1, col: 1, answer: "MISTLETOE", clue: "Holiday greenery traditionally hung in a doorway" },
+        { number: 2, row: 3, col: 1, answer: "TINSEL", clue: "Shiny strands draped on a Christmas tree" },
+        { number: 3, row: 4, col: 2, answer: "CAROLS", clue: "Songs sung during the Christmas season" },
+        { number: 4, row: 6, col: 4, answer: "BELLS", clue: "They jingle on a sleigh" },
+        { number: 5, row: 12, col: 6, answer: "NOEL", clue: "A traditional word associated with Christmas" }
+      ],
+        down: [
+        { number: 1, row: 1, col: 1, answer: "MITTENS", clue: "Warm coverings worn on your hands" },
+        { number: 2, row: 3, col: 2, answer: "ICICLE", clue: "A hanging spike formed from frozen water" },
+        { number: 3, row: 4, col: 4, answer: "RIBBON", clue: "Material tied into a bow on a present" },
+        { number: 4, row: 6, col: 6, answer: "LANTERN", clue: "A portable light with a protective case" }
+      ]
+      }
+    },
+    media: "Love Hard",
+  watchLink: "https://www.netflix.com/title/81086631",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQAAAACj6bPYAAABn0lEQVR4nO2XMY7bMBBF30gG6I4GcgD6JFKq3CmAESnra+Qw4hFygADUCVbqaIDWT+Eg1TpIsVS1LH8xH8OZ/2fGxBtPzVsofMD/DaMNoPMFF5dW+YFVpvRS7lXIvUrIvZTqUjbAd4P1KlgPM7LDe8Z+Dut0P/sXX0KF2E/hNsLq0k6Ug4B7f/vG1zOmUp9yNTviXcwKLhLNznUpD5gANQVsPv1Ier/Y/xJJygB0XACGyiJBG5fgJgZlk/awggZb2ngblvv5KDvgJq9U/2NLcJsvuIkLbuNSP8v5GtfPD0m2CdMYdsgSxaUVtrQpd+xi64l+uQRNDModbf2O9Ve5zV9ThvYxU+rXssxrO9/6Y8cF/wI71FJyUgmKkqB6xx6whflmtMXs9dOv/OWnS7WzlMagjUFuYhB71FJWsMbbmQ5mol1T/Swlbb6ALX80U9/WgY4haQJ20qWUe40hP5rVl7DLhqdTG48A1qzje8Z+Dts84qIOuKhrrL2IPJ4fA6wjdOsJ7eA+uZeS02OS1HafvzeJUralTZnq7WMf92Ud+DeO7xJ+Gwx6HAAAAABJRU5ErkJggg==",
+    playlist: "Cafe Vienna",
+    playlistUrl: "https://open.spotify.com/playlist/7HIXrXam3AOU7QPSzRmWPD?si=PffgQFQaTAud6ZFWC7OaFw",
+    playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACYklEQVR4nO2YTY6kOBCFv4CSnDvnDZwngZx7UYIWKc2xBmouYm5gdkYCXi+o3k33rsuz6NhY8ltE6MWPX9jEz0zVTyH4g30dhk6Ahi5kSwQ3ayBfQIFYvJTbVMcMXaCVYm6lWCaWgdxqR0rgZo0xN9QFYvnEZAM3BSmzvj9+v79fY6+wVbBsbdi/xN9/2VUvjVfMDSClWoXqpYLV7AYvwI9xa8OwMJs9SvAiSTq9pJM6uskPP+6+nhfdWbaKw7YnR7v+lepoZsNShJdUS/M1VfaQ29RBA6HMfBkjpoFsGoVpCLnxJXKEpCHopI6aAJqrrYYCvFSwaraKo7VeewAOu/277IXq5bOZ3ORHadaAO+mLzBcFaXuu749sieWmO4EPXqGMZqijmwA3QaDxYwQ/Fqrdndz4/XqsM/SRNpV4p5FSr6uxGwhO2oNOukLzZQg0fkcnvdzkd64qLpOjoFkDUuoCpiE4pVJzV8oNHZol0XhFLNVFeDm94iUvJ2ppTqDJF9K79BcvbrraeSdDGV4kRZ30URO1nCRp8mMhXmoBXcBSL1rtgWJ7gH83N1HH3PDtkVndfIVWRGMOAUtw8fJ5V0q/jNFN9MptAnf6HUlDgR22QrY9tqd/NxR2tid1NDPFcnsAvXLjpWypjzr9XkTXyczs6c1uH+uAn3ixPX+jv1/Yj3+GXjTU8aqXs8isq4BvhsIbGb+HraKOVnE8iu32tuwLH+vb4ub0AlMJ7f32efo3btCF7Xl20PC3yvDSCzgeTonFHffXon/uhXK0mt1078LW3o/H9uRoC+1H9ud/93+PfQehXOdfSawpngAAAABJRU5ErkJggg=="
+  },
+  19: {
+    title: "Hogwarts Tea House Day",
+  description: "Celebrate Hogwarts Tea House Day with Butterscotch Pie Tea, served alongside Gingerbread Trail Mix and a Snowflake Lollipop. Today's activity is Connections.",
+    game: {
+      type: "Connections",
+      instructions: "Select four words that share a hidden connection.",
+      connections: {
+        groups: [
+        {
+          category: "Things Found in a Fireplace",
+          color: "yellow",
+          words: ["ASH", "EMBER", "GRATE", "POKER"]
+        },
+        {
+          category: "Words That Can Follow “Snow”",
+          color: "green",
+          words: ["BANK", "DRIFT", "PLOW", "FALL"]
+        },
+        {
+          category: "Parts of a Candle",
+          color: "blue",
+          words: ["FLAME", "WAX", "WICK", "HOLDER"]
+        },
+        {
+          category: "Things With a North or South Version",
+          color: "purple",
+          words: ["POLE", "CAROLINA", "DAKOTA", "KOREA"]
+        }
+        ]
+      }
+    },
+    media: "Harry Potter and the Sorcerer’s Stone",
+  watchLink: "https://www.hbomax.com/movie/742e9d46-2692-4f3f-9272-0b76d66c891f",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACWUlEQVR4nO1YMY7cMAwcrQzoOu4PZCBFfmF9zLt24gWuzFvyAwt5RTr5B3InA15NCu+lyiXVHVOcCsPAFCRGHA1JQ7x2eHoVAj6w98PACgCBZAnZptLBshyAQp5CFuDeuq9yCTC8tAhk0uHsiwHPz8lczv3yxDMW0DRvGO/f2AKsIwrW0b9LvL9gvXcTG48fZFTMZSCAewuebUS3mhaGu04uqzFPwHNcrwBAPyVEY1oNTZMkq+xgFSaSx4fvr2mwygiEPCQXOSUAAwtgFXJpAFgCMGELkuEKbstn4t4mnTtKpZMdJZCpQPZD0xp3xNx7zoBnlYkuckou5iGp5MIRCHngbyvygIw6vHBKboYlQu7x4EVLRxhYQrYswEDHDF+AXomX3ZOcCJPhYUhyFqrUS5Xdl8DduyqkmwEUrXqpsoPxoGRKpcPAQ1squTCVQNLNsntXZQc6NV5IVplYDEfAkMmROvXCl+s5SqVD79Gp+BFYYcmYe4/A3XMWJqdVL8zAi5wnlpB772boeEAFvIvZJvfoX0YPyK4ykxjuy3ZFj83mG4wxjAW4ea1ZzVUMBIR0MVs6nb7uBMjot5OYtoRlXLYr7u12Wo1R4UUOY06sMhGdkK4qeWOV0aOTKbHCpmO8BqxSL3XMAb6EDO9i7o8+QknTQMi9dzEPx/NfDpp0/Kh0MtEdrx6ZlHh57Bmw7kD0pJvXS2tO0iyKs/1tKWZpljX4BqV7+3h/OM3LT48tyPbpZ/j+LbmIe0OV94UsIQMu8tFGlU7PG4FOeCxXOcOy6PR15mO/+99jvwBWP+chwVR9LgAAAABJRU5ErkJggg==",
+    playlist: "Hogwarts Tea House Day",
+    playlistUrl: "https://open.spotify.com/playlist/0sHV9K5XH7pxLBDIPKB6LQ?si=puFj523IQDek8BBBZIE0Gw",
+    playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACeElEQVR4nO1YMW7cMBCclQ7gdau8gHqJFDf+kwEFpwMF5FkWnXcEoH5AdTyA0qSQ4yZxOh9TeNspdoGd2RlSiPeK1bsQ8IndDwN3AOjjJZhds01Cx3QABWZRMnVKArgQfaxD6slQZpYRqUNN9MwWUMfUoS4wyxu2ibmK8WZf83KPfu9jwhFJ4lO/Vpju0O/vdfClj4NNHWqSJAvxpQJWkTOt8YCOy61vpgVepC2xIyHJGbBmBgCJsIYki+2o02w5KwmJA9BH2BKaZgTMrhlmV0fOmm2CjgVmqcBmwFqtJ3urAJw7TItyyUsZTU/W+DjAMG5tesEAAHUo5kdQF5LwlTRJSnkAYI0nAzoMoI8DjI9DEb4AF7/2zbVNL2rCudMTEhsU4MvhjWZGHQyZQc8M4wtpelcSwmyNJwmJOOypxI4kbi23BsvtWzMt5rmBTQDs/Xd0Ar/EcHtcHW+P2FojscG5k/pnGU1fSE/SzJotScfU4VIo1+XDEdEpQ+oAoMOFhfzIml1d4KyjTcLRci/iRzjCk8SaCcqAntkmFNlRBYq0ujXDsSheGyxHkinAXTLb1OlouasL9CQBzWVuHQYYxjoYxkvgrC4YH+si3D3eRzoiQR3NDlj0cShyd3FE3ZrqI5b0oi7AN98L5V3HJHQBckioDiijo0PT3DHY1GlGErrAXcu8jygi8hAB/FhO0GfJuH39wH7/xJRMwASzqwvrA08odF8qAFcBUAfpm6cWbLZWKkwFMsMbtolxccJZFkf0cZOCswBrLwxms3nhvI4f3+/P+v3PAAscPu2IMvmlev1naC7B+Fh789xgMS5OH9fv3ZLP/93/HvsFcsTItI3RkfIAAAAASUVORK5CYII="
+  },
+  20: {
+    title: "Christmas Candy Shop",
+  description: "Celebrate Christmas Candy Shop with Strawberry Cream Sprite, served alongside Pretzel Twists and Cornflake Christmas Wreaths. Today's activity is Wordle.",
+    game: { type: "Wordle", clue: "A bright holiday decoration", answer: "LIGHT" },
+    media: "Brooklyn Nine-Nine: “Christmas” (Season 1, Episode 11)",
+  watchLink: "https://www.peacocktv.com/watch-online/tv/brooklyn-nine-nine/5265505461484962112/seasons/1/episodes/christmas-episode-11/fd3696dd-9531-3fdc-80d1-1bb386a74811",
+  mediaQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAScAAAEnAQAAAADDIbjsAAAEVElEQVR4nO1aMY7cOBCsFhfgZL0/4HzkyHmY1tKCC/hZptYf4fyAyihAo3JAeeHgABuXmMaZwUDAdFCimtVV3RTi54vDLwQBf6P+X1EUEbnhITLg7X55X0W2AY8rgDdsIiL9ogcPJWtgzFzYnsiFkXYpcDWQmUfP6GdUjykjMLJKMeShzPbA6KqH6Rj9R9Sbs1+eH2IfbhMx5RHwrnb5/bh+KUq363pbSbmtTwAlZoQC99tx/WS1vPcwtEsZnU3KbBPgKjSy/7wHAK8x13/7aSH9oidJHhjBAyNsUmYuxRAeJp//9ov+0BkIjBnQ3bVPETijhjKxAqZr9CwTbdKYa2DM8BgdlwKQxWS7lJ4ZE2SZMgJnZxMAeCURyFyB0VWvseu9P2DIBNMKVfWYsj1gcgWmzKWMrl/0A4Q75KYvYpPO98tXSqhfuV2VBU4+6dO9X74fALzBHoC7/CO744ERF+DNrTe8wb4+G/aLHjx0dlW4O4QyAqHAVY8pM+kOBO4d8/0AuTPrQ57ufH2GY9IZGptIMNmmNXa89wOAh6w33QEPk/G+ctle3Itcwn3GFp4f137Rn7WWjeqbTM4VmAjh7rhw75hzQDI2Z16lwFk2fb87LsVkhNK3zjl0x0nrOjsmjaxeSQhJyzJ1XWsPGFYhmyqwCaOrUkZUD6D2zTlNWZJl+jC3sWUOADibulYKA6QYygDcbVq36xZku+IdnxceGO/bbd07rrUguTt7aMxcCgAPQx46g+QOSEHXnHPAZAATbdLZMQGwC5lt0pgB7dkZDgBG8NAnbDeYLJ+UeQ3Pj+tJluvLtevMKSZXj5Pq7aExIxSTqzDm6rVvZ9gYvWXJ7OCVmSyG595j6hv9j5a2+VqbNGabMJ4hXaNntiyjswtjZtLdVa+7s6fpGrtGfzRttjugdRd4mnQpE+F7z5wytqPbqm7C6GpoJ3nimVL9oj8wnp0EaGztY3glLcsICGPHfI+z262zs0sxhJTRNa28FPP9jTpGj9G1vPeYiEASHoY4j27PSmGA8Al8lZjtUh7CVxGxSWdUANhuyqXnWns0JzLj7KVhypYFsCxTrr73U9vO6g4mnWEPnRt3VgCuep075vsBwOO6DficL1KmvA4ALO/kxWO823ifXc+ZQ87gwtlVrzsA3Z09lGz63mvfjMlGNwCkAE0kLAWwS5lol9K3UmDBme2hTNkmJVuLgZxd/SNqbSjjOR/0OgMecHYpUytePaNnMWxjcq876ulrY2bC6MjOlQK5uyplOuf7CYBdChyEzC2ka/Rkk8nQ2f2g0j7miD2jb0PCNh9E6420QiWc0b2vPWflp7llUuYqbV57ari+0c+ovjVg9zY4tGTMNZQRwB9xR2Td7/JptUsNjHkd1i3oF2cJKb8X10/W970/LQqEka3Hg9Ya71nff9yNmp09YLI9mlIwbGU29Z73AOAxnlYwtOYUM0KZiL7vKcjf+5h/o/5T1DfYFMxbwHT9XAAAAABJRU5ErkJggg==",
+    playlist: "Christmas Candy Shop",
+    playlistUrl: "https://open.spotify.com/playlist/1qeDdlItBt4ICjDw9jEDCP?si=DbfvDz_uRv-Cu9RIm60YTg",
+    playlistQr: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXAQAAAAChBvkYAAACbUlEQVR4nO2YPW7cMBCFv7EMcDvuDbgXiejcax0pkYFcInfxKj5FOuoGVEcB3H0pdoM0MZDGZopMI4GvmAdy5s2PiddMd69C8B97PwxdAKKUCkCxPFz/dGnAxUslqgbNeUglZihRSm24jJTej6GYJEyTSk/XgMv97bvWxT0boeyMbz/ezt/fYpaP7KCb38nfn7BBAAGFKRG1RUy1DZfVbId38/aJp6Vo/3VmNju0yGlJ0oVBxaRE1BhuZ23yiCjJXeiE5SMFugZc7rDcyT3bSHlRXei9S27WdmgRL7LK+uDtsMX9U3DP+/NhxzoujeIl6USXMNXgTl7JXXwz3Q3EfMSdGFKBLtFzbFOPGJI7eSV6X3FzHpKbVUOL2IVz3B54wn1Zp1R6b4cim+ZWNUAnznH9KIu773QCP76pv1dMykPCcpeccpeKaQT82CBe7gCCO+/PkTlUYJVKXMbQqK8LWD5C1JTofQ0FX5vkkVRv6dx7yUnXrqqJvigDlsEpHyk9QM/QpB4p1NtDzeEeP0lJcz4f2uQRofR+SsU0pRI1Bmimu+CUh1Twk64KjG/Tv0g1lJiPwUkVXegS+KlRbZQ0S0mz6pVQsdwmduFp2R7Wx8NO+25Gds+u92aN6lHwJ+9ED2ydJL4zqInu+jGUmAGTdNUXmsyNv+YAXwM9UEzjtadponVmZh8Xl3jRpN0HU9oefJv56OKl0vtJBa+EXRO7zb3AZ4O14q/Kv95jd03u5Te2bI970Ikj9Ov45v7+YLf9C50w/RpHlJvupSbp5MeAaQz0Teaj255BexZsUSofTKmwPh7e/43s/373n8d+AjK70VmEPq/sAAAAAElFTkSuQmCC"
+  }
 };
+
+let currentDay = 1;
+
+function updateDayNavigation(n) {
+  currentDay = n;
+  const picker = document.getElementById("dayPicker");
+  const previous = document.getElementById("previousDay");
+  const next = document.getElementById("nextDay");
+  if (picker) picker.value = String(n);
+  if (previous) previous.disabled = n <= 1;
+  if (next) next.disabled = n >= 20;
+  document.querySelectorAll(".day-btn").forEach((button, index) => {
+    button.classList.toggle("active", index + 1 === n);
+    button.setAttribute("aria-current", index + 1 === n ? "page" : "false");
+  });
+}
+
+function changeDay(step) {
+  const target = Math.max(1, Math.min(20, currentDay + step));
+  if (target !== currentDay) {
+    showDay(target);
+    scrollToActivity();
+  }
+}
+
+function scrollToActivity() {
+  const content = document.getElementById("content");
+  if (content) content.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showDay(n) {
+  updateDayNavigation(n);
+  const day = days[n];
+  const content = document.getElementById("content");
+
+  if (!day) {
+    content.innerHTML = "<p>Coming soon.</p>";
+    return;
+  }
+
+  let html = `
+    <h2>Day ${n}: ${day.title}</h2>
+    ${day.description ? `<div class="card day-description">${day.description}</div>` : ""}
+
+    <div class="section-title">🧩 Mind Game</div>
+
+    <div class="card">
+      <strong>Type:</strong> ${day.game.type}<br>
+  `;
+
+  if (day.game.clue) {
+  html += `
+    <strong>Clue:</strong>
+    ${day.game.clue}
+    <br>
+  `;
+}
+
+if (day.game.scramble) {
+  html += `
+    <div class="scramble-display">
+      ${day.game.scramble}
+    </div>
+  `;
+}
+
+if (day.game.question) {
+  html += `
+    <strong>Question:</strong>
+    ${day.game.question}
+    <br>
+  `;
+}
+
+if (day.game.note) {
+  html += `
+    <strong>Word pattern:</strong>
+    ${day.game.note.replace("Answer pattern: ", "")}
+    <br>
+  `;
+}
+
+  if (day.game.answer) {
+    html += `
+      <br>
+      <button
+        type="button"
+        class="answer-btn"
+        onclick="toggleAnswer(this)">
+        Show Answer
+      </button>
+
+      <span class="answer-text">
+        ${day.game.answer}
+      </span>
+    `;
+  }
+
+  html += `</div>`;
+
+  if (day.game.type === "Wordle") {
+    html += `
+      <div id="wordle-container">
+        <p class="wordle-instructions">
+          Enter a five-letter word. Use your keyboard or click the letters.
+        </p>
+
+        <div class="wordle-layout">
+          <div id="wordle-game">
+            <div
+              id="wordle-grid"
+              role="grid"
+              aria-label="Wordle game board">
+            </div>
+
+            <div
+              id="wordle-message"
+              role="status"
+              aria-live="polite">
+            </div>
+          </div>
+
+          <div>
+            <div class="keyboard-title">Alphabet</div>
+
+            <div
+              id="wordle-keyboard"
+              aria-label="Wordle keyboard">
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+if (day.game.type === "Trivia Chain") {
+
+  html += `
+    <div class="trivia-chain">
+      <h3>🔗 Trivia Chain Challenge</h3>
+      <p>
+        The final letter of each answer becomes the first
+        letter of the next answer.
+      </p>
+  `;
+
+  day.game.questions.forEach((q, i) => {
+
+    html += `
+      <div class="card">
+
+        <strong>Question ${i + 1}</strong>
+
+        <p>${q.question}</p>
+
+        <details>
+          <summary>Hint 1</summary>
+          ${q.hints[0]}
+        </details>
+
+        <details>
+          <summary>Hint 2</summary>
+          ${q.hints[1]}
+        </details>
+
+        <details>
+          <summary>Hint 3</summary>
+          ${q.hints[2]}
+        </details>
+
+        <br>
+
+        <button
+          class="answer-btn"
+          onclick="toggleAnswer(this)">
+          Show Answer
+        </button>
+
+        <span class="answer-text">
+          ${q.answer}
+        </span>
+
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+}
+
+if (
+  day.game.type === "Minute-to-Win-It Tournament" &&
+  day.game.tournament
+) {
+
+  html += `
+    <div class="minute-tournament">
+
+      <h3>🎁 Holiday Tournament</h3>
+
+      <div class="card">
+        <strong>Description:</strong>
+        <p>${day.game.tournament.description}</p>
+      </div>
+
+      <div class="card">
+        <strong>Supply List</strong>
+
+        <ul>
+          ${day.game.tournament.supplies
+            .map(item => `<li>${item}</li>`)
+            .join("")}
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong>Scoring</strong>
+
+        <ul>
+          ${day.game.tournament.scoring
+            .map(item => `<li>${item}</li>`)
+            .join("")}
+        </ul>
+      </div>
+  `;
+
+  day.game.tournament.games.forEach(
+    (game, index) => {
+
+      html += `
+        <details class="card">
+
+          <summary>
+            Game ${index + 1}: ${game.name}
+          </summary>
+
+          <p>
+            <strong>Goal:</strong>
+            ${game.objective}
+          </p>
+
+          <p>
+            <strong>Time:</strong>
+            ${game.timeLimit}
+          </p>
+
+          <p>
+            <strong>Supplies:</strong>
+          </p>
+
+          <ul>
+            ${game.supplies
+              .map(item => `<li>${item}</li>`)
+              .join("")}
+          </ul>
+
+          <p>
+            <strong>Instructions:</strong>
+          </p>
+
+          <ol>
+            ${game.instructions
+              .map(step => `<li>${step}</li>`)
+              .join("")}
+          </ol>
+
+        </details>
+      `;
+    }
+  );
+
+  html += `</div>`;
+}
+
+if (
+  day.game.type === "Connections" &&
+  day.game.connections
+) {
+  html += `
+    <div id="connections-container">
+
+      <div class="connections-heading">
+        <h3>🎄 Connections Challenge</h3>
+
+        <p>
+          Create four groups of four words. Each group shares
+          a hidden Christmas or winter connection.
+        </p>
+      </div>
+
+      <div
+        id="connections-solved"
+        aria-live="polite">
+      </div>
+
+      <div
+        id="connections-grid"
+        role="group"
+        aria-label="Connections word grid">
+      </div>
+
+      <div
+        id="connections-message"
+        role="status"
+        aria-live="polite">
+      </div>
+
+      <div class="connections-mistakes">
+        <strong>Mistakes remaining:</strong>
+        <span id="connections-mistake-dots"></span>
+      </div>
+
+      <div class="connections-controls">
+
+        <button
+          type="button"
+          class="connections-control-btn"
+          onclick="shuffleConnections()">
+          Shuffle
+        </button>
+
+        <button
+          type="button"
+          class="connections-control-btn"
+          onclick="deselectConnections()">
+          Deselect All
+        </button>
+
+        <button
+          type="button"
+          class="connections-control-btn submit"
+          id="connections-submit"
+          onclick="submitConnectionsGuess()"
+          disabled>
+          Submit
+        </button>
+
+      </div>
+    </div>
+  `;
+}
+
+if (
+  day.game.type === "Strands" &&
+  day.game.strands
+) {
+  html += `
+    <div id="strands-container">
+
+      <div class="strands-heading">
+        <h3>🧶 Strands Challenge</h3>
+
+        <p class="strands-theme">
+          Today's theme:
+          <strong>${day.game.strands.theme}</strong>
+        </p>
+
+        <p class="strands-instructions">
+          Select adjacent letters to find theme words.
+          Letters may connect horizontally, vertically,
+          or diagonally. One answer is the spangram.
+        </p>
+      </div>
+
+      <div class="strands-game-layout">
+
+        <div class="strands-board-area">
+
+          <div
+            id="strands-grid"
+            role="grid"
+            aria-label="Strands letter grid">
+          </div>
+
+          <div
+            id="strands-current-word"
+            aria-live="polite">
+          </div>
+
+          <div
+            id="strands-message"
+            role="status"
+            aria-live="polite">
+          </div>
+
+          <div class="strands-controls">
+
+            <button
+              type="button"
+              class="strands-control-btn"
+              onclick="clearStrandsSelection()">
+              Clear
+            </button>
+
+            <button
+              type="button"
+              class="strands-control-btn submit"
+              id="strands-submit"
+              onclick="submitStrandsWord()"
+              disabled>
+              Submit Word
+            </button>
+
+            <button
+              type="button"
+              class="strands-control-btn"
+              id="strands-hint-button"
+              onclick="showStrandsHint()">
+              Hint
+            </button>
+
+          </div>
+        </div>
+
+        <div class="strands-progress">
+
+          <h4>Found Words</h4>
+
+          <div id="strands-found-words"></div>
+
+          <div class="strands-score">
+            <span id="strands-found-count">0</span>
+            of
+            <span id="strands-total-count">0</span>
+            words found
+          </div>
+
+          <div class="strands-spangram-status">
+            <strong>Spangram:</strong>
+            <span id="strands-spangram-label">
+              Not found
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+if (
+  day.game.type === "Mini Crossword" &&
+  day.game.crossword
+) {
+  html += `
+    <div id="crossword-container">
+      <p class="crossword-instructions">
+        Select a square or clue, then enter letters using your
+        keyboard. Click the selected square again to switch
+        between Across and Down.
+      </p>
+
+      <div class="crossword-layout">
+        <div class="crossword-board-area">
+          <div
+            id="crossword-grid"
+            role="grid"
+            aria-label="Mini crossword puzzle">
+          </div>
+
+          <div
+            id="crossword-message"
+            role="status"
+            aria-live="polite">
+          </div>
+
+          <div class="crossword-controls">
+            <button
+              type="button"
+              class="crossword-control-btn"
+              onclick="checkCrossword()">
+              Check Puzzle
+            </button>
+
+            <button
+              type="button"
+              class="crossword-control-btn"
+              onclick="clearCrossword()">
+              Clear Puzzle
+            </button>
+
+            <button
+              type="button"
+              class="crossword-control-btn reveal"
+              onclick="revealCrossword()">
+              Reveal Puzzle
+            </button>
+          </div>
+        </div>
+
+        <div class="crossword-clues">
+          <section>
+            <h3>Across</h3>
+            <div id="crossword-across-clues"></div>
+          </section>
+
+          <section>
+            <h3>Down</h3>
+            <div id="crossword-down-clues"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+  html += `
+    <div class="section-title">🎬 Media</div>
+<div class="card media-card">
+  <strong>${day.media}</strong>
+  ${day.watchLink && day.mediaQr ? `
+    <a href="${day.watchLink}" target="_blank" rel="noopener noreferrer" aria-label="Open Day ${n} streaming link">
+      <img class="media-qr" src="${day.mediaQr}" alt="QR code for Day ${n} media streaming link">
+    </a>
+    <a class="media-button" href="${day.watchLink}" target="_blank" rel="noopener noreferrer">Open Streaming Link</a>
+  ` : "<p>Streaming link coming soon.</p>"}
+</div>
+
+<div class="section-title">🎵 Playlist</div>
+    <div class="card playlist-card">
+      <strong>${day.playlist}</strong>
+      ${day.playlistUrl && day.playlistQr ? `
+        <a href="${day.playlistUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open Day ${n} Spotify playlist">
+          <img class="playlist-qr" src="${day.playlistQr}" alt="QR code for Day ${n} Spotify playlist">
+        </a>
+        <a class="spotify-button" href="${day.playlistUrl}" target="_blank" rel="noopener noreferrer">Open in Spotify</a>
+      ` : ""}
+    </div>
+
+    <p style="font-size:0.8rem; opacity:0.8;">
+      Complete today's activity directly on this page.
+    </p>
+  `;
+
+    content.innerHTML = html;
+
+  if (day.game.type === "Wordle") {
+    startWordle(day.game.answer);
+  }
+
+  if (
+    day.game.type === "Mini Crossword" &&
+    day.game.crossword
+  ) {
+    startCrossword(day.game.crossword);
+  }
+
+  if (
+    day.game.type === "Connections" &&
+    day.game.connections
+  ) {
+    startConnections(day.game.connections);
+  }
+
+if (
+  day.game.type === "Strands" &&
+  day.game.strands
+) {
+  startStrands(day.game.strands);
+ }
+}
+
+function toggleAnswer(button) {
+  const answer = button.nextElementSibling;
+
+  if (answer.style.display === "inline-block") {
+    answer.style.display = "none";
+    button.textContent = "Show Answer";
+  } else {
+    answer.style.display = "inline-block";
+    button.textContent = "Hide Answer";
+  }
+}
+
+function createSnow() {
+ const snowContainer = document.getElementById("snow");
+ for (let i = 0; i < 60; i++) {
+   const snowflake = document.createElement("div");
+   snowflake.className = "snowflake";
+   snowflake.textContent = "❄";
+   snowflake.style.left = Math.random() * 100 + "vw";
+   snowflake.style.animationDuration = 4 + Math.random() * 6 + "s";
+   snowflake.style.fontSize = 12 + Math.random() * 18 + "px";
+   snowContainer.appendChild(snowflake);
+ }
+}
+
+/* Interactive Wordle */
+let wordleAnswer = "";
+let wordleRow = 0;
+let currentGuess = "";
+let wordleFinished = false;
+
+const keyboardRows = [
+  ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "BACK"]
+];
+
+function startWordle(answer) {
+  wordleAnswer = answer.toUpperCase();
+  wordleRow = 0;
+  currentGuess = "";
+  wordleFinished = false;
+
+  const grid = document.getElementById("wordle-grid");
+  const keyboard = document.getElementById("wordle-keyboard");
+  const message = document.getElementById("wordle-message");
+
+  if (!grid || !keyboard || !message) {
+    return;
+  }
+
+  grid.innerHTML = "";
+  keyboard.innerHTML = "";
+  message.textContent = "";
+
+  for (let i = 0; i < 30; i++) {
+    const tile = document.createElement("div");
+
+    tile.className = "wordle-tile";
+    tile.id = `tile-${i}`;
+    tile.setAttribute("role", "gridcell");
+    tile.setAttribute("aria-label", `Empty tile ${i + 1}`);
+
+    grid.appendChild(tile);
+  }
+
+  createWordleKeyboard();
+  updateWordleGrid();
+}
+
+function createWordleKeyboard() {
+  const keyboard = document.getElementById("wordle-keyboard");
+
+  if (!keyboard) {
+    return;
+  }
+
+  keyboardRows.forEach((rowLetters) => {
+    const row = document.createElement("div");
+    row.className = "keyboard-row";
+
+    rowLetters.forEach((letter) => {
+      const key = document.createElement("button");
+
+      key.type = "button";
+      key.className = "wordle-key";
+      key.dataset.key = letter;
+
+      if (letter === "ENTER") {
+        key.textContent = "Enter";
+        key.classList.add("wide-key");
+        key.setAttribute("aria-label", "Submit guess");
+      } else if (letter === "BACK") {
+        key.textContent = "⌫";
+        key.classList.add("wide-key");
+        key.setAttribute("aria-label", "Delete letter");
+      } else {
+        key.textContent = letter;
+        key.setAttribute("aria-label", `Letter ${letter}`);
+      }
+
+      key.addEventListener("click", () => {
+        handleWordleInput(letter);
+      });
+
+      row.appendChild(key);
+    });
+
+    keyboard.appendChild(row);
+  });
+}
+
+function handleWordleInput(key) {
+  if (wordleFinished) {
+    return;
+  }
+
+  if (key === "BACK") {
+    if (currentGuess.length > 0) {
+      currentGuess = currentGuess.slice(0, -1);
+      updateWordleGrid();
+      setWordleMessage("");
+    }
+
+    return;
+  }
+
+  if (key === "ENTER") {
+    submitWordleGuess();
+    return;
+  }
+
+  if (/^[A-Z]$/.test(key) && currentGuess.length < 5) {
+    currentGuess += key;
+    updateWordleGrid();
+    setWordleMessage("");
+  }
+}
+
+function updateWordleGrid() {
+  for (let column = 0; column < 5; column++) {
+    const tileIndex = wordleRow * 5 + column;
+    const tile = document.getElementById(`tile-${tileIndex}`);
+
+    if (!tile) {
+      continue;
+    }
+
+    const letter = currentGuess[column] || "";
+
+    tile.textContent = letter;
+    tile.classList.toggle("filled", Boolean(letter));
+
+    if (letter) {
+      tile.setAttribute(
+        "aria-label",
+        `Row ${wordleRow + 1}, column ${column + 1}, letter ${letter}`
+      );
+    } else {
+      tile.setAttribute(
+        "aria-label",
+        `Row ${wordleRow + 1}, column ${column + 1}, empty`
+      );
+    }
+  }
+}
+
+function submitWordleGuess() {
+  if (currentGuess.length !== 5) {
+    setWordleMessage("Enter five letters before pressing Enter.");
+    return;
+  }
+
+  const result = scoreWordleGuess(currentGuess, wordleAnswer);
+
+  for (let column = 0; column < 5; column++) {
+    const tileIndex = wordleRow * 5 + column;
+    const tile = document.getElementById(`tile-${tileIndex}`);
+
+    if (!tile) {
+      continue;
+    }
+
+    tile.classList.remove("filled");
+    tile.classList.add(`wordle-${result[column]}`);
+
+    tile.setAttribute(
+      "aria-label",
+      `${currentGuess[column]}, ${result[column]}`
+    );
+
+    updateKeyboardLetter(currentGuess[column], result[column]);
+  }
+
+  if (currentGuess === wordleAnswer) {
+    setWordleMessage("🎉 Correct!");
+    wordleFinished = true;
+    return;
+  }
+
+  wordleRow++;
+
+  if (wordleRow >= 6) {
+    setWordleMessage(`❄ The word was ${wordleAnswer}.`);
+    wordleFinished = true;
+    return;
+  }
+
+  currentGuess = "";
+  setWordleMessage(`Guess ${wordleRow + 1} of 6`);
+}
+
+function scoreWordleGuess(guess, answer) {
+  const result = Array(5).fill("absent");
+  const remainingLetters = {};
+  const normalizedGuess = guess.toUpperCase();
+  const normalizedAnswer = answer.toUpperCase();
+
+  /*
+    First pass:
+    Identify letters in the correct position.
+    Count unmatched answer letters for the yellow-letter pass.
+  */
+  for (let i = 0; i < 5; i++) {
+    if (normalizedGuess[i] === normalizedAnswer[i]) {
+      result[i] = "correct";
+    } else {
+      const answerLetter = normalizedAnswer[i];
+
+      remainingLetters[answerLetter] =
+        (remainingLetters[answerLetter] || 0) + 1;
+    }
+  }
+
+  /*
+    Second pass:
+    Mark a letter yellow only when an unmatched copy of that
+    letter remains in the answer.
+  */
+  for (let i = 0; i < 5; i++) {
+    if (result[i] === "correct") {
+      continue;
+    }
+
+    const guessLetter = normalizedGuess[i];
+
+    if (remainingLetters[guessLetter] > 0) {
+      result[i] = "present";
+      remainingLetters[guessLetter]--;
+    }
+  }
+
+  return result;
+}
+
+function updateKeyboardLetter(letter, status) {
+  const key = document.querySelector(
+    `.wordle-key[data-key="${letter}"]`
+  );
+
+  if (!key) {
+    return;
+  }
+
+  /*
+    A green keyboard key must never be downgraded to yellow or gray.
+    A yellow key must never be downgraded to gray.
+  */
+  if (key.classList.contains("key-correct")) {
+    return;
+  }
+
+  if (
+    key.classList.contains("key-present") &&
+    status === "absent"
+  ) {
+    return;
+  }
+
+  key.classList.remove(
+    "key-correct",
+    "key-present",
+    "key-absent"
+  );
+
+  key.classList.add(`key-${status}`);
+
+  if (status === "correct") {
+    key.setAttribute(
+      "aria-label",
+      `Letter ${letter}, correct position`
+    );
+  } else if (status === "present") {
+    key.setAttribute(
+      "aria-label",
+      `Letter ${letter}, in the word`
+    );
+  } else {
+    key.setAttribute(
+      "aria-label",
+      `Letter ${letter}, not in the word`
+    );
+  }
+}
+
+function setWordleMessage(message) {
+  const messageElement = document.getElementById("wordle-message");
+
+  if (messageElement) {
+    messageElement.textContent = message;
+  }
+}
+
+document.addEventListener("keydown", function (event) {
+  const wordleContainer =
+    document.getElementById("wordle-container");
+
+  if (!wordleContainer || wordleFinished) {
+    return;
+  }
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+    handleWordleInput("ENTER");
+    return;
+  }
+
+  if (event.key === "Backspace") {
+    event.preventDefault();
+    handleWordleInput("BACK");
+    return;
+  }
+
+  if (/^[a-zA-Z]$/.test(event.key)) {
+    handleWordleInput(event.key.toUpperCase());
+  }
+});
+
+
+/* Interactive mini crossword */
+let crosswordPuzzle = null;
+let crosswordEntries = [];
+let crosswordCellEntries = new Map();
+let crosswordSelectedCell = null;
+let crosswordDirection = "across";
+let crosswordActiveEntry = null;
+let crosswordFinished = false;
+
+function startCrossword(puzzle) {
+  crosswordPuzzle = puzzle;
+  crosswordEntries = [];
+  crosswordCellEntries = new Map();
+  crosswordSelectedCell = null;
+  crosswordDirection = "across";
+  crosswordActiveEntry = null;
+  crosswordFinished = false;
+
+  const grid = document.getElementById("crossword-grid");
+  const acrossContainer =
+    document.getElementById("crossword-across-clues");
+  const downContainer =
+    document.getElementById("crossword-down-clues");
+  const message =
+    document.getElementById("crossword-message");
+
+  if (!grid || !acrossContainer || !downContainer || !message) {
+    return;
+  }
+
+  grid.innerHTML = "";
+  acrossContainer.innerHTML = "";
+  downContainer.innerHTML = "";
+  message.textContent = "";
+
+  crosswordEntries = [
+    ...puzzle.across.map((entry) => ({
+      ...entry,
+      direction: "across"
+    })),
+
+    ...puzzle.down.map((entry) => ({
+      ...entry,
+      direction: "down"
+    }))
+  ];
+
+  buildCrosswordEntryMap();
+  buildCrosswordGrid();
+  buildCrosswordClues(
+    puzzle.across,
+    acrossContainer,
+    "across"
+  );
+  buildCrosswordClues(
+    puzzle.down,
+    downContainer,
+    "down"
+  );
+
+  const firstAcross = crosswordEntries.find(
+    (entry) => entry.direction === "across"
+  );
+
+  if (firstAcross) {
+    selectCrosswordEntry(firstAcross);
+  }
+}
+
+function cellKey(row, col) {
+  return `${row}-${col}`;
+}
+
+function getEntryCells(entry) {
+  return entry.answer.split("").map((letter, index) => ({
+    row:
+      entry.direction === "down"
+        ? entry.row + index
+        : entry.row,
+
+    col:
+      entry.direction === "across"
+        ? entry.col + index
+        : entry.col,
+
+    letter
+  }));
+}
+
+function buildCrosswordEntryMap() {
+  crosswordEntries.forEach((entry) => {
+    getEntryCells(entry).forEach(({ row, col }) => {
+      const key = cellKey(row, col);
+
+      if (!crosswordCellEntries.has(key)) {
+        crosswordCellEntries.set(key, []);
+      }
+
+      crosswordCellEntries.get(key).push(entry);
+    });
+  });
+}
+
+function getCellNumber(row, col) {
+  const startingEntries = crosswordEntries.filter(
+    (entry) => entry.row === row && entry.col === col
+  );
+
+  if (startingEntries.length === 0) {
+    return "";
+  }
+
+  return Math.min(
+    ...startingEntries.map((entry) => entry.number)
+  );
+}
+
+function buildCrosswordGrid() {
+  const grid = document.getElementById("crossword-grid");
+
+  if (!grid || !crosswordPuzzle) {
+    return;
+  }
+
+  grid.innerHTML = "";
+
+  grid.style.setProperty(
+    "--crossword-size",
+    crosswordPuzzle.size
+  );
+
+  for (let row = 0; row < crosswordPuzzle.size; row++) {
+    for (let col = 0; col < crosswordPuzzle.size; col++) {
+      const solutionLetter =
+        crosswordPuzzle.grid[row][col];
+
+      const cell = document.createElement("div");
+      cell.className = "crossword-cell";
+      cell.dataset.row = row;
+      cell.dataset.col = col;
+
+      if (solutionLetter === null) {
+        cell.classList.add("blocked");
+        cell.setAttribute("aria-hidden", "true");
+        grid.appendChild(cell);
+        continue;
+      }
+
+      const number = getCellNumber(row, col);
+
+      if (number !== "") {
+        const numberElement =
+          document.createElement("span");
+
+        numberElement.className = "crossword-number";
+        numberElement.textContent = number;
+
+        cell.appendChild(numberElement);
+      }
+
+      const input = document.createElement("input");
+
+      input.className = "crossword-input";
+      input.id = `crossword-${row}-${col}`;
+      input.type = "text";
+      input.inputMode = "text";
+      input.maxLength = 1;
+      input.autocomplete = "off";
+      input.spellcheck = false;
+
+      input.setAttribute(
+        "aria-label",
+        `Crossword row ${row + 1}, column ${col + 1}`
+      );
+
+      input.addEventListener("focus", () => {
+        selectCrosswordCell(row, col, false);
+      });
+
+      input.addEventListener("click", () => {
+        selectCrosswordCell(row, col, true);
+      });
+
+      input.addEventListener("keydown", (event) => {
+        handleCrosswordKeydown(event, row, col);
+      });
+
+      input.addEventListener("input", (event) => {
+        handleCrosswordLetter(event, row, col);
+      });
+
+      cell.appendChild(input);
+      grid.appendChild(cell);
+    }
+  }
+}
+
+function buildCrosswordClues(entries, container, direction) {
+  entries.forEach((entry) => {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "crossword-clue";
+    button.dataset.number = entry.number;
+    button.dataset.direction = direction;
+    button.innerHTML =
+      `<strong>${entry.number}.</strong> ${entry.clue}`;
+
+    button.addEventListener("click", () => {
+      const fullEntry = crosswordEntries.find(
+        (candidate) =>
+          candidate.number === entry.number &&
+          candidate.direction === direction
+      );
+
+      if (fullEntry) {
+        selectCrosswordEntry(fullEntry);
+      }
+    });
+
+    container.appendChild(button);
+  });
+}
+
+function selectCrosswordCell(row, col, allowDirectionToggle) {
+  if (crosswordFinished) {
+    return;
+  }
+
+  const key = cellKey(row, col);
+  const entries = crosswordCellEntries.get(key) || [];
+
+  if (entries.length === 0) {
+    return;
+  }
+
+  const isSameCell =
+    crosswordSelectedCell &&
+    crosswordSelectedCell.row === row &&
+    crosswordSelectedCell.col === col;
+
+  if (allowDirectionToggle && isSameCell && entries.length > 1) {
+    const otherEntry = entries.find(
+      (entry) => entry.direction !== crosswordDirection
+    );
+
+    if (otherEntry) {
+      crosswordDirection = otherEntry.direction;
+      crosswordActiveEntry = otherEntry;
+    }
+  } else {
+    const preferredEntry = entries.find(
+      (entry) => entry.direction === crosswordDirection
+    );
+
+    crosswordActiveEntry = preferredEntry || entries[0];
+    crosswordDirection = crosswordActiveEntry.direction;
+  }
+
+  crosswordSelectedCell = { row, col };
+
+  highlightCrosswordSelection();
+}
+
+function selectCrosswordEntry(entry) {
+  crosswordActiveEntry = entry;
+  crosswordDirection = entry.direction;
+  crosswordSelectedCell = {
+    row: entry.row,
+    col: entry.col
+  };
+
+  highlightCrosswordSelection();
+
+  const input = document.getElementById(
+    `crossword-${entry.row}-${entry.col}`
+  );
+
+  if (input) {
+    input.focus();
+  }
+}
+
+function highlightCrosswordSelection() {
+  document
+    .querySelectorAll(".crossword-cell")
+    .forEach((cell) => {
+      cell.classList.remove("selected", "related");
+    });
+
+  document
+    .querySelectorAll(".crossword-clue")
+    .forEach((clue) => {
+      clue.classList.remove("active");
+    });
+
+  if (!crosswordActiveEntry || !crosswordSelectedCell) {
+    return;
+  }
+
+  getEntryCells(crosswordActiveEntry).forEach(({ row, col }) => {
+    const input = document.getElementById(
+      `crossword-${row}-${col}`
+    );
+
+    if (input) {
+      input.parentElement.classList.add("related");
+    }
+  });
+
+  const selectedInput = document.getElementById(
+    `crossword-${crosswordSelectedCell.row}-${crosswordSelectedCell.col}`
+  );
+
+  if (selectedInput) {
+    selectedInput.parentElement.classList.remove("related");
+    selectedInput.parentElement.classList.add("selected");
+  }
+
+  const activeClue = document.querySelector(
+    `.crossword-clue[data-number="${crosswordActiveEntry.number}"]` +
+    `[data-direction="${crosswordActiveEntry.direction}"]`
+  );
+
+  if (activeClue) {
+    activeClue.classList.add("active");
+  }
+}
+
+function handleCrosswordLetter(event, row, col) {
+  if (crosswordFinished) {
+    return;
+  }
+
+  const input = event.target;
+  const cleanedValue = input.value
+    .replace(/[^a-zA-Z]/g, "")
+    .slice(-1)
+    .toUpperCase();
+
+  input.value = cleanedValue;
+
+  input.parentElement.classList.remove(
+    "incorrect",
+    "correct"
+  );
+
+  if (cleanedValue) {
+    moveToNextCrosswordCell(row, col);
+  }
+
+  setCrosswordMessage("");
+}
+
+function handleCrosswordKeydown(event, row, col) {
+  if (crosswordFinished) {
+    event.preventDefault();
+    return;
+  }
+
+  if (event.key === "Backspace") {
+    const currentInput = event.target;
+
+    if (currentInput.value) {
+      currentInput.value = "";
+      currentInput.parentElement.classList.remove(
+        "incorrect",
+        "correct"
+      );
+    } else {
+      moveToPreviousCrosswordCell(row, col, true);
+    }
+
+    event.preventDefault();
+    return;
+  }
+
+  if (event.key === "ArrowRight") {
+    moveToAdjacentOpenCell(row, col, 0, 1);
+    event.preventDefault();
+  } else if (event.key === "ArrowLeft") {
+    moveToAdjacentOpenCell(row, col, 0, -1);
+    event.preventDefault();
+  } else if (event.key === "ArrowDown") {
+    moveToAdjacentOpenCell(row, col, 1, 0);
+    event.preventDefault();
+  } else if (event.key === "ArrowUp") {
+    moveToAdjacentOpenCell(row, col, -1, 0);
+    event.preventDefault();
+  } else if (event.key === "Enter") {
+    switchCrosswordDirection(row, col);
+    event.preventDefault();
+  } else if (
+    event.key.length === 1 &&
+    !/^[a-zA-Z]$/.test(event.key)
+  ) {
+    event.preventDefault();
+  }
+}
+
+function getActiveEntryCellIndex(row, col) {
+  if (!crosswordActiveEntry) {
+    return -1;
+  }
+
+  return getEntryCells(crosswordActiveEntry).findIndex(
+    (cell) => cell.row === row && cell.col === col
+  );
+}
+
+function moveToNextCrosswordCell(row, col) {
+  if (!crosswordActiveEntry) {
+    return;
+  }
+
+  const cells = getEntryCells(crosswordActiveEntry);
+  const index = getActiveEntryCellIndex(row, col);
+
+  if (index >= 0 && index < cells.length - 1) {
+    focusCrosswordCell(
+      cells[index + 1].row,
+      cells[index + 1].col
+    );
+  }
+}
+
+function moveToPreviousCrosswordCell(row, col, erasePrevious) {
+  if (!crosswordActiveEntry) {
+    return;
+  }
+
+  const cells = getEntryCells(crosswordActiveEntry);
+  const index = getActiveEntryCellIndex(row, col);
+
+  if (index > 0) {
+    const previous = cells[index - 1];
+    const previousInput = document.getElementById(
+      `crossword-${previous.row}-${previous.col}`
+    );
+
+    if (previousInput) {
+      if (erasePrevious) {
+        previousInput.value = "";
+        previousInput.parentElement.classList.remove(
+          "incorrect",
+          "correct"
+        );
+      }
+
+      focusCrosswordCell(previous.row, previous.col);
+    }
+  }
+}
+
+function moveToAdjacentOpenCell(
+  row,
+  col,
+  rowOffset,
+  colOffset
+) {
+  let nextRow = row + rowOffset;
+  let nextCol = col + colOffset;
+
+  while (
+    nextRow >= 0 &&
+    nextRow < crosswordPuzzle.size &&
+    nextCol >= 0 &&
+    nextCol < crosswordPuzzle.size
+  ) {
+    if (crosswordPuzzle.grid[nextRow][nextCol] !== null) {
+      if (rowOffset !== 0) {
+        crosswordDirection = "down";
+      } else {
+        crosswordDirection = "across";
+      }
+
+      focusCrosswordCell(nextRow, nextCol);
+      return;
+    }
+
+    nextRow += rowOffset;
+    nextCol += colOffset;
+  }
+}
+
+function focusCrosswordCell(row, col) {
+  const input = document.getElementById(
+    `crossword-${row}-${col}`
+  );
+
+  if (input) {
+    selectCrosswordCell(row, col, false);
+    input.focus();
+  }
+}
+
+function switchCrosswordDirection(row, col) {
+  selectCrosswordCell(row, col, true);
+}
+
+function checkCrossword() {
+  if (!crosswordPuzzle || crosswordFinished) {
+    return;
+  }
+
+  let openCellCount = 0;
+  let filledCellCount = 0;
+  let correctCellCount = 0;
+
+  for (let row = 0; row < crosswordPuzzle.size; row++) {
+    for (let col = 0; col < crosswordPuzzle.size; col++) {
+      const expected = crosswordPuzzle.grid[row][col];
+
+      if (expected === null) {
+        continue;
+      }
+
+      openCellCount++;
+
+      const input = document.getElementById(
+        `crossword-${row}-${col}`
+      );
+
+      if (!input) {
+        continue;
+      }
+
+      const entered = input.value.toUpperCase();
+      const cell = input.parentElement;
+
+      cell.classList.remove("incorrect", "correct");
+
+      if (!entered) {
+        continue;
+      }
+
+      filledCellCount++;
+
+      if (entered === expected.toUpperCase()) {
+        correctCellCount++;
+        cell.classList.add("correct");
+      } else {
+        cell.classList.add("incorrect");
+      }
+    }
+  }
+
+  if (correctCellCount === openCellCount) {
+    crosswordFinished = true;
+    setCrosswordMessage("🎉 Crossword complete!");
+    lockCrosswordInputs();
+  } else if (filledCellCount < openCellCount) {
+    setCrosswordMessage(
+      "Keep going. Some squares are still empty."
+    );
+  } else {
+    setCrosswordMessage(
+      "Some letters need another look."
+    );
+  }
+}
+
+function clearCrossword() {
+  if (!crosswordPuzzle) {
+    return;
+  }
+
+  document
+    .querySelectorAll(".crossword-input")
+    .forEach((input) => {
+      input.value = "";
+      input.disabled = false;
+      input.parentElement.classList.remove(
+        "incorrect",
+        "correct"
+      );
+    });
+
+  crosswordFinished = false;
+  setCrosswordMessage("");
+
+  const firstEntry = crosswordEntries.find(
+    (entry) => entry.direction === "across"
+  );
+
+  if (firstEntry) {
+    selectCrosswordEntry(firstEntry);
+  }
+}
+
+function revealCrossword() {
+  if (!crosswordPuzzle) {
+    return;
+  }
+
+  const confirmed = window.confirm(
+    "Reveal the complete crossword solution?"
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  for (let row = 0; row < crosswordPuzzle.size; row++) {
+    for (let col = 0; col < crosswordPuzzle.size; col++) {
+      const expected = crosswordPuzzle.grid[row][col];
+
+      if (expected === null) {
+        continue;
+      }
+
+      const input = document.getElementById(
+        `crossword-${row}-${col}`
+      );
+
+      if (input) {
+        input.value = expected;
+        input.parentElement.classList.remove("incorrect");
+        input.parentElement.classList.add("correct");
+      }
+    }
+  }
+
+  crosswordFinished = true;
+  setCrosswordMessage("Puzzle revealed.");
+  lockCrosswordInputs();
+}
+
+function lockCrosswordInputs() {
+  document
+    .querySelectorAll(".crossword-input")
+    .forEach((input) => {
+      input.disabled = true;
+    });
+}
+
+function setCrosswordMessage(message) {
+  const messageElement =
+    document.getElementById("crossword-message");
+
+  if (messageElement) {
+    messageElement.textContent = message;
+  }
+}
+
+/* Interactive Connections game */
+
+let connectionsGroups = [];
+let connectionsWords = [];
+let connectionsSelected = new Set();
+let connectionsSolved = new Set();
+let connectionsMistakesRemaining = 4;
+let connectionsGameOver = false;
+
+function startConnections(game) {
+  connectionsGroups = game.groups.map((group, groupIndex) => ({
+    ...group,
+    id: groupIndex
+  }));
+
+  connectionsWords = [];
+
+  connectionsGroups.forEach((group) => {
+    group.words.forEach((word) => {
+      connectionsWords.push({
+        word,
+        groupId: group.id
+      });
+    });
+  });
+
+  connectionsWords = shuffleArray(connectionsWords);
+
+  connectionsSelected = new Set();
+  connectionsSolved = new Set();
+  connectionsMistakesRemaining = 4;
+  connectionsGameOver = false;
+
+  setConnectionsMessage("");
+  renderConnectionsGame();
+}
+
+function shuffleArray(items) {
+  const shuffled = [...items];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const randomIndex =
+      Math.floor(Math.random() * (i + 1));
+
+    [shuffled[i], shuffled[randomIndex]] =
+      [shuffled[randomIndex], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
+function renderConnectionsGame() {
+  const solvedContainer =
+    document.getElementById("connections-solved");
+
+  const grid =
+    document.getElementById("connections-grid");
+
+  if (!solvedContainer || !grid) {
+    return;
+  }
+
+  solvedContainer.innerHTML = "";
+  grid.innerHTML = "";
+
+  connectionsGroups.forEach((group) => {
+    if (!connectionsSolved.has(group.id)) {
+      return;
+    }
+
+    const solvedGroup = document.createElement("div");
+
+    solvedGroup.className =
+      `connections-solved-group connections-${group.color}`;
+
+    const category = document.createElement("div");
+    category.className = "connections-solved-category";
+    category.textContent = group.category;
+
+    const words = document.createElement("div");
+    words.className = "connections-solved-words";
+    words.textContent = group.words.join(", ");
+
+    solvedGroup.appendChild(category);
+    solvedGroup.appendChild(words);
+    solvedContainer.appendChild(solvedGroup);
+  });
+
+  const remainingWords = connectionsWords.filter(
+    (item) => !connectionsSolved.has(item.groupId)
+  );
+
+  remainingWords.forEach((item) => {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "connections-word";
+    button.textContent = item.word;
+    button.dataset.word = item.word;
+
+    if (connectionsSelected.has(item.word)) {
+      button.classList.add("selected");
+      button.setAttribute("aria-pressed", "true");
+    } else {
+      button.setAttribute("aria-pressed", "false");
+    }
+
+    button.disabled = connectionsGameOver;
+
+    button.addEventListener("click", () => {
+      toggleConnectionsWord(item.word);
+    });
+
+    grid.appendChild(button);
+  });
+
+  renderConnectionsMistakes();
+  updateConnectionsSubmitButton();
+}
+
+function toggleConnectionsWord(word) {
+  if (connectionsGameOver) {
+    return;
+  }
+
+  if (connectionsSelected.has(word)) {
+    connectionsSelected.delete(word);
+    setConnectionsMessage("");
+    renderConnectionsGame();
+    return;
+  }
+
+  if (connectionsSelected.size >= 4) {
+    setConnectionsMessage(
+      "You can select only four words.",
+      "error"
+    );
+
+    return;
+  }
+
+  connectionsSelected.add(word);
+  setConnectionsMessage("");
+  renderConnectionsGame();
+}
+
+function updateConnectionsSubmitButton() {
+  const submitButton =
+    document.getElementById("connections-submit");
+
+  if (!submitButton) {
+    return;
+  }
+
+  submitButton.disabled =
+    connectionsSelected.size !== 4 ||
+    connectionsGameOver;
+}
+
+function submitConnectionsGuess() {
+  if (
+    connectionsGameOver ||
+    connectionsSelected.size !== 4
+  ) {
+    return;
+  }
+
+  const selectedWords =
+    Array.from(connectionsSelected);
+
+  const matchingGroup = connectionsGroups.find(
+    (group) =>
+      !connectionsSolved.has(group.id) &&
+      selectedWords.every(
+        (word) => group.words.includes(word)
+      )
+  );
+
+  if (matchingGroup) {
+    connectionsSolved.add(matchingGroup.id);
+    connectionsSelected.clear();
+
+    setConnectionsMessage(
+      `Correct: ${matchingGroup.category}`,
+      "success"
+    );
+
+    renderConnectionsGame();
+
+    if (
+      connectionsSolved.size === connectionsGroups.length
+    ) {
+      connectionsGameOver = true;
+
+      setConnectionsMessage(
+        "🎉 You solved all four groups!",
+        "success"
+      );
+
+      renderConnectionsGame();
+    }
+
+    return;
+  }
+
+  const oneAway = connectionsGroups.some((group) => {
+    if (connectionsSolved.has(group.id)) {
+      return false;
+    }
+
+    const matchingWordCount =
+      selectedWords.filter(
+        (word) => group.words.includes(word)
+      ).length;
+
+    return matchingWordCount === 3;
+  });
+
+  connectionsMistakesRemaining--;
+  connectionsSelected.clear();
+
+  if (connectionsMistakesRemaining <= 0) {
+    connectionsGameOver = true;
+
+    revealConnectionsGroups();
+
+    setConnectionsMessage(
+      "No mistakes remaining. The remaining groups have been revealed.",
+      "error"
+    );
+
+    return;
+  }
+
+  if (oneAway) {
+    setConnectionsMessage(
+      "One away! Three of your four words belong together.",
+      "close"
+    );
+  } else {
+    setConnectionsMessage(
+      "Not quite. Try a different combination.",
+      "error"
+    );
+  }
+
+  renderConnectionsGame();
+}
+
+function deselectConnections() {
+  if (connectionsGameOver) {
+    return;
+  }
+
+  connectionsSelected.clear();
+  setConnectionsMessage("");
+  renderConnectionsGame();
+}
+
+function shuffleConnections() {
+  if (connectionsGameOver) {
+    return;
+  }
+
+  const unsolvedWords = connectionsWords.filter(
+    (item) => !connectionsSolved.has(item.groupId)
+  );
+
+  const solvedWords = connectionsWords.filter(
+    (item) => connectionsSolved.has(item.groupId)
+  );
+
+  connectionsWords = [
+    ...shuffleArray(unsolvedWords),
+    ...solvedWords
+  ];
+
+  setConnectionsMessage("");
+  renderConnectionsGame();
+}
+
+function revealConnectionsGroups() {
+  connectionsGroups.forEach((group) => {
+    connectionsSolved.add(group.id);
+  });
+
+  connectionsSelected.clear();
+  renderConnectionsGame();
+
+  document
+    .querySelectorAll(".connections-solved-group")
+    .forEach((groupElement) => {
+      groupElement.classList.add("connections-revealed");
+    });
+}
+
+function renderConnectionsMistakes() {
+  const mistakeContainer =
+    document.getElementById(
+      "connections-mistake-dots"
+    );
+
+  if (!mistakeContainer) {
+    return;
+  }
+
+  mistakeContainer.innerHTML = "";
+
+  for (
+    let index = 0;
+    index < connectionsMistakesRemaining;
+    index++
+  ) {
+    const dot = document.createElement("span");
+    dot.className = "connections-mistake-dot";
+
+    dot.setAttribute(
+      "aria-label",
+      "Mistake remaining"
+    );
+
+    mistakeContainer.appendChild(dot);
+  }
+}
+
+function setConnectionsMessage(
+  message,
+  type = ""
+) {
+  const messageElement =
+    document.getElementById("connections-message");
+
+  if (!messageElement) {
+    return;
+  }
+
+  messageElement.textContent = message;
+
+  messageElement.classList.remove(
+    "connections-message-close",
+    "connections-message-success",
+    "connections-message-error"
+  );
+
+  if (type === "close") {
+    messageElement.classList.add(
+      "connections-message-close"
+    );
+  } else if (type === "success") {
+    messageElement.classList.add(
+      "connections-message-success"
+    );
+  } else if (type === "error") {
+    messageElement.classList.add(
+      "connections-message-error"
+    );
+  }
+}
+
+/* Interactive Strands game */
+
+let strandsGame = null;
+let strandsBoard = [];
+let strandsSelectedPath = [];
+let strandsWordPaths = new Map();
+let strandsFoundWords = new Set();
+let strandsIncorrectAttempts = 0;
+let strandsFinished = false;
+
+const STRANDS_ROWS = 6;
+const STRANDS_COLUMNS = 8;
+
+function startStrands(game) {
+  strandsGame = {
+    ...game,
+    spangram: normalizeStrandsWord(game.spangram),
+    words: game.words.map(normalizeStrandsWord)
+  };
+
+  strandsSelectedPath = [];
+  strandsWordPaths = new Map();
+  strandsFoundWords = new Set();
+  strandsIncorrectAttempts = 0;
+  strandsFinished = false;
+
+  buildStrandsBoard();
+  renderStrandsBoard();
+  renderStrandsProgress();
+  updateStrandsSelectionDisplay();
+
+  setStrandsMessage("");
+}
+
+function normalizeStrandsWord(word) {
+  return word
+    .toUpperCase()
+    .replace(/[^A-Z]/g, "");
+}
+
+function getAllStrandsAnswers() {
+  return [
+    strandsGame.spangram,
+    ...strandsGame.words
+  ];
+}
+
+function buildStrandsBoard() {
+  const answers = getAllStrandsAnswers();
+  const combinedLetters = answers.join("");
+
+  if (
+    combinedLetters.length !==
+    STRANDS_ROWS * STRANDS_COLUMNS
+  ) {
+    console.error(
+      "Strands board must contain exactly 48 letters.",
+      combinedLetters.length
+    );
+
+    setStrandsMessage(
+      "This Strands puzzle does not contain exactly 48 letters.",
+      "error"
+    );
+
+    return;
+  }
+
+  const snakeCoordinates = [];
+
+  for (let row = 0; row < STRANDS_ROWS; row++) {
+    const columns = [];
+
+    for (
+      let col = 0;
+      col < STRANDS_COLUMNS;
+      col++
+    ) {
+      columns.push(col);
+    }
+
+    if (row % 2 === 1) {
+      columns.reverse();
+    }
+
+    columns.forEach((col) => {
+      snakeCoordinates.push({ row, col });
+    });
+  }
+
+  strandsBoard = Array.from(
+    { length: STRANDS_ROWS },
+    () => Array(STRANDS_COLUMNS).fill("")
+  );
+
+  let letterIndex = 0;
+
+  answers.forEach((answer) => {
+    const path = [];
+
+    answer.split("").forEach((letter) => {
+      const coordinate =
+        snakeCoordinates[letterIndex];
+
+      strandsBoard[coordinate.row][coordinate.col] =
+        letter;
+
+      path.push({
+        row: coordinate.row,
+        col: coordinate.col
+      });
+
+      letterIndex++;
+    });
+
+    strandsWordPaths.set(answer, path);
+  });
+}
+
+function renderStrandsBoard() {
+  const grid =
+    document.getElementById("strands-grid");
+
+  if (!grid) {
+    return;
+  }
+
+  grid.innerHTML = "";
+
+  for (let row = 0; row < STRANDS_ROWS; row++) {
+    for (
+      let col = 0;
+      col < STRANDS_COLUMNS;
+      col++
+    ) {
+      const button =
+        document.createElement("button");
+
+      button.type = "button";
+      button.className = "strands-letter";
+      button.textContent = strandsBoard[row][col];
+
+      button.dataset.row = row;
+      button.dataset.col = col;
+
+      button.setAttribute(
+        "aria-label",
+        `Row ${row + 1}, column ${col + 1}, ` +
+        `letter ${strandsBoard[row][col]}`
+      );
+
+      applyStrandsCellState(button, row, col);
+
+      button.addEventListener("click", () => {
+        selectStrandsLetter(row, col);
+      });
+
+      grid.appendChild(button);
+    }
+  }
+}
+
+function applyStrandsCellState(button, row, col) {
+  const selectedIndex =
+    strandsSelectedPath.findIndex(
+      (cell) =>
+        cell.row === row &&
+        cell.col === col
+    );
+
+  if (selectedIndex >= 0) {
+    button.classList.add("selected");
+  }
+
+  strandsFoundWords.forEach((word) => {
+    const path = strandsWordPaths.get(word) || [];
+
+    const belongsToWord = path.some(
+      (cell) =>
+        cell.row === row &&
+        cell.col === col
+    );
+
+    if (!belongsToWord) {
+      return;
+    }
+
+    if (word === strandsGame.spangram) {
+      button.classList.add("spangram");
+    } else {
+      button.classList.add("found");
+    }
+
+    button.disabled = true;
+  });
+}
+
+function selectStrandsLetter(row, col) {
+  if (strandsFinished) {
+    return;
+  }
+
+  const existingIndex =
+    strandsSelectedPath.findIndex(
+      (cell) =>
+        cell.row === row &&
+        cell.col === col
+    );
+
+  /*
+    Clicking the most recently selected letter removes it.
+  */
+  if (
+  strandsSelectedPath.length > 0 &&
+  existingIndex ===
+    strandsSelectedPath.length - 1
+) {
+  strandsSelectedPath.pop();
+  setStrandsMessage("");
+  renderStrandsBoard();
+  updateStrandsSelectionDisplay();
+  return;
+}
+
+  /*
+    A cell already used earlier in the current path
+    cannot be selected again.
+  */
+  if (existingIndex >= 0) {
+    setStrandsMessage(
+      "That letter is already in your current path.",
+      "error"
+    );
+
+    return;
+  }
+
+  if (strandsSelectedPath.length > 0) {
+    const previous =
+      strandsSelectedPath[
+        strandsSelectedPath.length - 1
+      ];
+
+    if (
+      !areStrandsCellsAdjacent(
+        previous,
+        { row, col }
+      )
+    ) {
+      setStrandsMessage(
+        "Select a letter next to the previous one.",
+        "error"
+      );
+
+      return;
+    }
+  }
+
+  strandsSelectedPath.push({ row, col });
+
+  setStrandsMessage("");
+  renderStrandsBoard();
+  updateStrandsSelectionDisplay();
+}
+
+function areStrandsCellsAdjacent(first, second) {
+  const rowDifference =
+    Math.abs(first.row - second.row);
+
+  const columnDifference =
+    Math.abs(first.col - second.col);
+
+  return (
+    rowDifference <= 1 &&
+    columnDifference <= 1 &&
+    !(rowDifference === 0 && columnDifference === 0)
+  );
+}
+
+function getCurrentStrandsWord() {
+  return strandsSelectedPath
+    .map(
+      (cell) =>
+        strandsBoard[cell.row][cell.col]
+    )
+    .join("");
+}
+
+function updateStrandsSelectionDisplay() {
+  const currentWordElement =
+    document.getElementById(
+      "strands-current-word"
+    );
+
+  const submitButton =
+    document.getElementById(
+      "strands-submit"
+    );
+
+  const currentWord = getCurrentStrandsWord();
+
+  if (currentWordElement) {
+    currentWordElement.textContent =
+      currentWord || "Select a letter";
+  }
+
+  if (submitButton) {
+    submitButton.disabled =
+      currentWord.length < 3 ||
+      strandsFinished;
+  }
+}
+
+function submitStrandsWord() {
+  if (strandsFinished) {
+    return;
+  }
+
+  const submittedWord =
+    getCurrentStrandsWord();
+
+  const reversedWord =
+    submittedWord
+      .split("")
+      .reverse()
+      .join("");
+
+  const answers = getAllStrandsAnswers();
+
+  const matchingWord = answers.find(
+    (answer) =>
+      answer === submittedWord ||
+      answer === reversedWord
+  );
+
+  if (
+    matchingWord &&
+    !strandsFoundWords.has(matchingWord)
+  ) {
+    strandsFoundWords.add(matchingWord);
+
+    setStrandsMessage(
+      matchingWord === strandsGame.spangram
+        ? "✨ Spangram found!"
+        : `Found: ${matchingWord}`,
+      "success"
+    );
+
+    strandsSelectedPath = [];
+
+    renderStrandsBoard();
+    renderStrandsProgress();
+    updateStrandsSelectionDisplay();
+
+    if (
+      strandsFoundWords.size ===
+      answers.length
+    ) {
+      strandsFinished = true;
+
+      setStrandsMessage(
+        "🎉 You found every theme word and the spangram!",
+        "success"
+      );
+
+      updateStrandsSelectionDisplay();
+    }
+
+    return;
+  }
+
+  if (matchingWord) {
+    setStrandsMessage(
+      "You already found that word.",
+      "error"
+    );
+  } else {
+    strandsIncorrectAttempts++;
+
+    if (
+      strandsIncorrectAttempts % 3 === 0
+    ) {
+      setStrandsMessage(
+        "Hint earned! Select Hint to reveal the starting letter of an unfound word.",
+        "hint"
+      );
+    } else {
+      setStrandsMessage(
+        "That is not one of today's theme words.",
+        "error"
+      );
+    }
+  }
+
+  strandsSelectedPath = [];
+  renderStrandsBoard();
+  updateStrandsSelectionDisplay();
+}
+
+function clearStrandsSelection() {
+  if (strandsFinished) {
+    return;
+  }
+
+  strandsSelectedPath = [];
+  setStrandsMessage("");
+  renderStrandsBoard();
+  updateStrandsSelectionDisplay();
+}
+
+function showStrandsHint() {
+  if (!strandsGame || strandsFinished) {
+    return;
+  }
+
+  const unfoundWord =
+    getAllStrandsAnswers().find(
+      (word) =>
+        !strandsFoundWords.has(word)
+    );
+
+  if (!unfoundWord) {
+    return;
+  }
+
+  const path =
+    strandsWordPaths.get(unfoundWord);
+
+  if (!path || path.length === 0) {
+    return;
+  }
+
+  const firstCell = path[0];
+
+  strandsSelectedPath = [firstCell];
+
+  setStrandsMessage(
+    strandsGame.hint +
+    ` Start with the letter ${unfoundWord[0]}.`,
+    "hint"
+  );
+
+  renderStrandsBoard();
+  updateStrandsSelectionDisplay();
+}
+
+function renderStrandsProgress() {
+  const foundContainer =
+    document.getElementById(
+      "strands-found-words"
+    );
+
+  const foundCount =
+    document.getElementById(
+      "strands-found-count"
+    );
+
+  const totalCount =
+    document.getElementById(
+      "strands-total-count"
+    );
+
+  const spangramLabel =
+    document.getElementById(
+      "strands-spangram-label"
+    );
+
+  if (
+    !foundContainer ||
+    !foundCount ||
+    !totalCount ||
+    !spangramLabel
+  ) {
+    return;
+  }
+
+  foundContainer.innerHTML = "";
+
+  strandsFoundWords.forEach((word) => {
+    const wordElement =
+      document.createElement("div");
+
+    wordElement.className =
+      "strands-found-word";
+
+    if (word === strandsGame.spangram) {
+      wordElement.classList.add("spangram");
+      wordElement.textContent =
+        `${word} · SPANGRAM`;
+    } else {
+      wordElement.textContent = word;
+    }
+
+    foundContainer.appendChild(wordElement);
+  });
+
+  foundCount.textContent =
+    strandsFoundWords.size;
+
+  totalCount.textContent =
+    getAllStrandsAnswers().length;
+
+  spangramLabel.textContent =
+    strandsFoundWords.has(
+      strandsGame.spangram
+    )
+      ? strandsGame.spangram
+      : "Not found";
+}
+
+function setStrandsMessage(
+  message,
+  type = ""
+) {
+  const messageElement =
+    document.getElementById(
+      "strands-message"
+    );
+
+  if (!messageElement) {
+    return;
+  }
+
+  messageElement.textContent = message;
+
+  messageElement.classList.remove(
+    "strands-message-success",
+    "strands-message-error",
+    "strands-message-hint"
+  );
+
+  if (type === "success") {
+    messageElement.classList.add(
+      "strands-message-success"
+    );
+  } else if (type === "error") {
+    messageElement.classList.add(
+      "strands-message-error"
+    );
+  } else if (type === "hint") {
+    messageElement.classList.add(
+      "strands-message-hint"
+    );
+  }
+}
+
+createSnow();
+
+
+// Phone-friendly navigation: left/right keys and horizontal swipe on the activity area.
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") changeDay(-1);
+  if (event.key === "ArrowRight") changeDay(1);
+});
+let touchStartX = null;
+const activity = document.getElementById("content");
+activity.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].clientX;
+}, { passive: true });
+activity.addEventListener("touchend", (event) => {
+  if (touchStartX === null) return;
+  const distance = event.changedTouches[0].clientX - touchStartX;
+  touchStartX = null;
+  if (Math.abs(distance) > 80) changeDay(distance > 0 ? -1 : 1);
+}, { passive: true });
+
+// Load Day 1 automatically
+showDay(1);
+
+</script>
+</body>
+</html>
